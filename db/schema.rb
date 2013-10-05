@@ -14,11 +14,16 @@
 ActiveRecord::Schema.define(:version => 20131005182742) do
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "user_email"
-    t.string   "password_hash"
+    t.string   "username",      :null => false
+    t.string   "user_email",    :null => false
+    t.string   "session_token", :null => false
+    t.string   "password_hash", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  add_index "users", ["session_token"], :name => "index_users_on_session_token", :unique => true
+  add_index "users", ["user_email"], :name => "index_users_on_user_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
