@@ -1,0 +1,167 @@
+body, ul, li, div, section, header, footer, table, td, th, tr, nav {
+  margin:0;
+  padding:0;
+  border:0;
+  font-family:sans-serif;
+}
+
+h1 {
+  text-font: comic;
+}
+
+.group:after {
+  content:"";
+  clear:both;
+  display:block;
+}
+
+.main {
+  width:auto;
+  height: auto;
+  background-color: #4FD5D6;
+  background-repeat:repeat;
+}
+
+.display1 {
+  background-color: #990033;
+  height:auto;
+  padding-bottom:20px;
+}
+
+.display2 {
+  background-color: clear;
+  padding-right:10px;
+  padding-left:10px;
+}
+
+.display3 {
+  background-color: #4FD5D6;
+  height:200px;
+}
+
+.display4 {
+  background-color: #003399;
+}
+
+.padding-top {
+  padding-top: 10px;
+}
+
+.padding-sides {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.padding-bottom {
+  padding-bottom: 10px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-sides {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.shadow-test {
+box-shadow: 1px 1px 5px #000000;
+-moz-box-shadow: 1px 1px 5px #000000;
+-webkit-box-shadow: 1px 1px 5px #000000;
+}
+
+.session-buttons {
+  width:auto;
+  height:auto;
+  float: left;
+}
+
+.button-link{
+  text-decoration:none;
+  transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+  display: block;
+}
+
+.nav-bar{
+  display: block;
+  background-color: #003399;
+  clear:both;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.nav-button {
+  padding:10px;
+  display: block;
+  height:auto;
+  width:auto;
+  display: table-cell;
+  text-align: center;
+  color:white;
+}
+
+.nav-button:hover{
+  background: #4FD5D6 ;
+  color: black;
+  box-shadow: 1px 1px 5px #000000;
+  -moz-box-shadow: 1px 1px 5px #000000;
+  -webkit-box-shadow: 1px 1px 5px #000000;
+}
+
+.login{
+  background-color: green;
+  color:  #99CCFF;
+  text-align: center;
+  border-radius:5px;
+  padding: 10px;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+.login:hover{
+  background: #006600;
+  color: white;
+  box-shadow: inset 1px 1px 5px #000000;
+  -moz-box-shadow: inset 1px 1px 5px #000000;
+  -webkit-box-shadow: inset 1px 1px 5px #000000;
+}
+
+.signup{
+  background-color: blue;
+}
+
+.signup:hover{
+  background: #003366;
+}
+
+.center-horizontal{
+  margin-left:auto;
+  margin-right:auto;
+  width: 70%;
+}
+
+.footer-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.footer-list{
+ color:white;
+ display: table-cell;
+ text-align: center;
+ padding: 3px;
+}
+
+.footer-list li{
+   list-style-type: none;
+}
+
+
+
