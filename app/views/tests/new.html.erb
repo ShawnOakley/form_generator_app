@@ -1,0 +1,13 @@
+<div>
+
+<%= form_tag("/search", :method => "get") do %>
+<%= text_area_tag(:message, "Hi, nice site", :size => "24x6") %>
+<%= submit_tag("Submit") %>
+<% end %>
+
+<% form_info = [ {input_tag_type: 'text_area', id: 'message', name: 'message', message: 'Hi, nice site', size_tag: "24x6"}] %>
+
+<%= form_gen(form_info) %>
+
+
+</div>
