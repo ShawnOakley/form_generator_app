@@ -18,7 +18,7 @@ h1 {
 .main {
   width:auto;
   height: auto;
-  background-color: #4FD5D6;
+  background-image: url(sandpaper.png);
   background-repeat:repeat;
 }
 
@@ -30,17 +30,34 @@ h1 {
 
 .display2 {
   background-color: clear;
+  height:auto;
   padding-right:10px;
   padding-left:10px;
 }
 
 .display3 {
   background-color: #4FD5D6;
-  height:200px;
+  height:auto;
+}
+
+.content{
+  float:left;
+  text:white;
+}
+
+.content-title{
+  margin:0;
+  padding:10px;
+}
+
+.content-body{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    padding-bottom:10px;
 }
 
 .display4 {
   background-color: #003399;
+  height:auto;
 }
 
 .padding-top {

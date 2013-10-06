@@ -2,14 +2,15 @@
 <html>
 <head>
   <title>FormApp</title>
+  <link rel="stylesheet" type="text/css" href="show.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='main group'>
 
   <% if !current_user.nil? %>
-    <ul>
+    <ul >
       <li>Logged in as: <%= current_user.username %></li>
       <li><%= button_to "Logout", session_url, :method => :delete %></li>
     </ul>
