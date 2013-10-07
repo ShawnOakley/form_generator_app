@@ -2,21 +2,115 @@
 <html>
 <head>
   <title>FormApp</title>
-  <link rel="stylesheet" type="text/css" href="show.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="new.css">
 </head>
-<body class='main group'>
 
-  <% if !current_user.nil? %>
-    <ul >
-      <li>Logged in as: <%= current_user.username %></li>
-      <li><%= button_to "Logout", session_url, :method => :delete %></li>
-    </ul>
-  <% end %>
+<section class="main group">
 
-<%= yield %>
+  <section class='group display1 center-horizontal padding-top padding-sides shadow-test'>
+
+
+    <div class='form-div'>
+      <h3>Make a new form!</h3>
+      <a class="button-link formCreate-button" href="/test/new">Click here!</a>
+
+    </div>
+
+    <div class='form-div newUser-div'>
+      <h3>Create a new user!</h3>
+      <a class="button-link formCreate-button" href="/users/new">Click here!</a>
+
+    </div>
+
+    <section class="logo">
+      <img src="https://highrisehq.com/images/img_wufoo.png">
+    </section>
+
+    <% if !current_user.nil? %>
+      <ul >
+        <li>Logged in as: <%= current_user.username %></li>
+        <li><%= button_to "Logout", session_url, :method => :delete %></li>
+      </ul>
+    <% end %>
+
+  <%= yield %>
+
+
+
+
+
+</section>
+
+<section class='group display2 center-horizontal padding-sides shadow-test'>
+  <nav class="nav-bar">
+    <a class="button-link nav-button" href="...">About Us</a>
+    <a class="button-link nav-button" href="...">Blog</a>
+    <a class="button-link nav-button" href="...">Pricing</a>
+    <a class="button-link nav-button" href="...">Gallery</a>
+  </nav>
+</section>
+
+
+<section class='display3 center-horizontal padding-sides shadow-test'>
+
+  <!-- NOTE: MAY WANT TO SWAP THIS OUT FOR DISPLAY OF ALL PROJECTS.  THIS SHOULD BE PART OF THE NEW SESSION SCREEN -->
+
+<h2 class="content-title">This a test.</h2>
+
+  <section class="content-body">
+  <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</article>
+</br>
+    <article>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</article>
+  </br>
+      <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</article>
+  </section>
+</section>
+
+
+<footer class='display4 center-horizontal padding-sides shadow-test group'>
+  <div class="footer-row group">
+    <nav class="footer-list">
+      <h3>About Us</h3>
+      <ul class='nav-bar'>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+      </ul>
+    </nav>
+    <nav class="footer-list">
+      <h3>Support</h3>
+      <ul class='nav-bar'>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+      </ul>
+    </nav>
+    <nav class="footer-list">
+      <h3>Contact</h3>
+      <ul class='nav-bar'>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+      </ul>
+    </nav>
+    <nav class="footer-list">
+      <h3>Legal</h3>
+      <ul>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+        <li class="footer-button">Test</li>
+      </ul>
+    </nav>
+  </nav>
+  </footer>
+</section>
+
+</section>
+
+</section>
 
 </body>
 </html>
