@@ -17,8 +17,8 @@ h1 {
 
 .main {
   width:auto;
-  height: auto;
-  background-image: url(sandpaper.png);
+  height: 100%;
+  background-image: url('/assets/images/sandpaper.png');
   background-repeat:repeat;
 }
 
@@ -26,6 +26,7 @@ h1 {
   background-color: #990033;
   height:auto;
   padding-bottom:20px;
+
 }
 
 .display2 {
@@ -102,11 +103,12 @@ box-shadow: 1px 1px 5px #000000;
   text-decoration:none;
   transition: background 0.5s, color 0.5s, box-shadow 0.5s;
   display: block;
+  color:white;
 }
 
 .nav-bar{
   display: block;
-  background-color: #003399;
+  background-color: clear;
   clear:both;
   display: table;
   width: 100%;
@@ -121,6 +123,22 @@ box-shadow: 1px 1px 5px #000000;
   display: table-cell;
   text-align: center;
   color:white;
+  background-color: #003399;
+	-webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+  border-right:1px solid white;
+  border-left:1px solid white;
+  border-top:1px solid white;
 }
 
 .nav-button:hover{
@@ -149,6 +167,56 @@ box-shadow: 1px 1px 5px #000000;
   -webkit-box-shadow: inset 1px 1px 5px #000000;
 }
 
+.form-div {
+  float:right;
+  background-color: #D2691E;
+  border: 1px solid white;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+  text-align: center;
+  padding: 10px;
+  height: 160px;
+  color:white;
+  position: relative;
+}
+
+.formCreate-button {
+ 	-moz-box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	-webkit-box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+ 	background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+ 	background-color:#f24537;
+ 	-webkit-border-radius:28px;
+ 	-moz-border-radius:28px;
+ 	border-radius:28px;
+ 	border:1px solid #d02718;
+ 	display:inline-block;
+ 	color:#ffffff;
+ 	font-family:Comic Sans MS;
+ 	font-size:15px;
+ 	font-weight:bold;
+ 	font-style:normal;
+ 	height:45px;
+ 	line-height:45px;
+ 	width:121px;
+ 	text-decoration:none;
+ 	text-align:center;
+ 	text-shadow:1px 1px 0px #810e05;
+  position: absolute;
+  right:    15%;
+  bottom:   0;
+  margin-bottom: 10px;
+ }
+
+ .formCreate-button:hover {
+ 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+ 	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+ 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+ 	background-color:#c62d1f;
+ }
+
 .signup{
   background-color: blue;
 }
@@ -156,6 +224,8 @@ box-shadow: 1px 1px 5px #000000;
 .signup:hover{
   background: #003366;
 }
+
+
 
 .center-horizontal{
   margin-left:auto;
@@ -167,6 +237,8 @@ box-shadow: 1px 1px 5px #000000;
   display: table;
   width: 100%;
   table-layout: fixed;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .footer-list{
@@ -174,11 +246,30 @@ box-shadow: 1px 1px 5px #000000;
  display: table-cell;
  text-align: center;
  padding: 3px;
+
 }
 
 .footer-list li{
-   list-style-type: none;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:17px;
+	font-weight:normal;
+	font-style:normal;
+	height:32px;
+	line-height:32px;
+	width:100px;
+	text-align:center;
+  float:left;
 }
+
+
+.footer-button:hover {
+	color:black;
+  cursor:pointer;
+  list-style-type:circle;
+}
+
 
 
 
