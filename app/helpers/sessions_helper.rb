@@ -23,6 +23,13 @@ module SessionsHelper
     #NOTE, chain additional forms on the end for other tags (e.g., styling, buttons)
   end
 
+  def generate_header(header)
+    "<!DOCTYPE html><html><head> <title>#{header.form_name}</title><meta charset='utf-8'><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_url}'> <header id='header' class='info'>
+<h2>#{header.form_name}</h2>
+<div>#{header.description}</div>
+</header>"
+
+  end
 
   def form_gen(form_info)
 

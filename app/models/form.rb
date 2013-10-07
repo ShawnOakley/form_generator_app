@@ -1,7 +1,7 @@
 class Form < ActiveRecord::Base
-  attr_accessible :owner_id, :form_name, :description
+  attr_accessible :owner_id, :form_name, :description, :target_url
 
-  validates_presence_of :owner_id, :form_name, :description
+  validates_presence_of :owner_id, :form_name, :description, :target_url
 
   belongs_to(
   :user,

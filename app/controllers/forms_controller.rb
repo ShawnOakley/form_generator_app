@@ -11,9 +11,15 @@ class FormsController < ApplicationController
 
    @form = Form.new(params[:header])
      if @form.save
-       render @form
+
+       redirect_to edit_form_url(@form.id)
      else
       fail
     end
+  end
+
+  def edit
+    render :layout => false
+
   end
 end

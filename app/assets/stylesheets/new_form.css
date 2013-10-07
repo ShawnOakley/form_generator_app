@@ -26,6 +26,7 @@ h1 {
   image:repeat;
   bottom:0;
   position:absolute;
+  z-index: -5;
 }
 
 .display1 {
@@ -59,10 +60,10 @@ box-shadow: 1px 1px 5px #000000;
   margin-left:20px;
   margin-top:20px;
   margin-right:20px;
+  border: 2px solid white;
   padding: 10px;
   width: 40%;
   height:100%;
-  border: 2px solid white;
 }
 
 .input_field_container li{
@@ -74,7 +75,7 @@ box-shadow: 1px 1px 5px #000000;
   border-radius:20px;
   float:right;
   clear:right;
-  background:blue;
+  background:green;
   margin-right:20px;
   margin-top:20px;
   margin-right:20px;

@@ -32,22 +32,21 @@
           <div>
             <form class = "input_field" method = 'post'
             action='/users/<%=current_user.id%>/forms'>
-            <label>Form Name: <input
-            type="text" name='header[form_name]'></input></label>
+              <label>Form Name: <input
+              type="text" name='header[form_name]'></input></label>
+                <br>
+
+              Description: <textarea rows="2" cols="20"
+              name='header[description]'>Type a description of your form's purpose here.</textarea>
+
               <br>
 
-            Description: <textarea rows="2" cols="20"
-            name='header[description]'>Type a description of your form's purpose here.</textarea>
+              <label>Target Url: <input
+              type="text" name='header[target_url]'></input></label>
 
-            <br>
-
-            <label>Target Url: <input
-            type="text" name='header[target_url]'></input></label>
-
-            <br>
-              <label>Integrate Captcha? <input type="checkbox"
-              name="header[captcha]" value="true" checked></label>
-
+              <br>
+              Integrate Captcha? <input type="checkbox"
+              name="header[captcha]" value="true" checked>
               <br>
                     <input type="submit" class="submit-button">
 
@@ -171,7 +170,7 @@
 
         <div class='display_field'>
 <!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
-        FORM DOES NOT EXIST
+          <%= generate_header(Form.find(params[:id])).html_safe%>
         </div>
 
 
