@@ -5,9 +5,14 @@
 <%= submit_tag("Submit") %>
 <% end %>
 
-<% form_info = [ {input_tag_type: 'text_area', id: 'message', name: 'message', message: 'Hi, nice site', size_tag: "24x6"}] %>
+</div>
+
+
+<div>
+
+
+  <% form_info = [{input_tag_type: 'text_area', id: 'message-id', name: 'message-name', size: "24x6"}, {input_tag_type: 'password_field', id: 'password-id', name: 'password-id'}, {input_tag_type: 'check_box', id: 'check_id', name: 'check_name'}] %>
 
 <%= form_gen(form_info) %>
-
-
 </div>
+
