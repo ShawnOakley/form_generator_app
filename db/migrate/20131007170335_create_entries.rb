@@ -28,6 +28,8 @@ class CreateEntries < ActiveRecord::Migration
       t.string :step
       t.string :width
       t.string :label
+      t.string :value
+      t.string :class
       t.text :parsed_input
 
 

@@ -118,7 +118,7 @@
               name='field[instructions]'></textarea>
               <br>
               <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input
-              id='CSSkeywords' type="text" name='field[csskeywords]'></input>
+              id='CSSkeywords' type="text" name='field[class]'></input>
                 <br>
 
 
@@ -171,14 +171,17 @@
         <br>
 
         <div class='display_field'>
+          <ul>
 <!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
           <%= generate_header(Form.find(params[:id])).html_safe%>
           <% if Entry.find_all_by_form_id(params[:id]).any? %>
           <% Entry.find_all_by_form_id(params[:id]).each do |form| %>
           <% @form_hash  = form.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" } %>
+          <%= button_to("Delete this entry", entry_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
           <%=form_gen(@form_hash)%>
           <% end %>
           <% end %>
+        </ul>
         </div>
 
 

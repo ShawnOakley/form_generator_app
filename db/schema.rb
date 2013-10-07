@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.string   "step"
     t.string   "width"
     t.string   "label"
+    t.string   "value"
+    t.string   "class"
     t.text     "parsed_input"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false

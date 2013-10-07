@@ -1,5 +1,33 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :form_id, :input_tag_type ,:name ,:id ,:accept ,:align ,:alt ,:autocomplete ,:disabled ,:formaction ,:formenctype ,:formmethod ,:formnovalidate ,:formtarget ,:height ,:list ,:max ,:min ,:pattern ,:placeholder ,:randomly ,:required ,:size ,:src ,:step ,:width ,:parsed_input, :label
+  attr_accessible :form_id,
+                  :input_tag_type,
+                  :name,
+                  :accept,
+                  :align,
+                  :alt,
+                  :autocomplete,
+                  :disabled,
+                  :formaction,
+                  :formenctype,
+                  :formmethod,
+                  :formnovalidate,
+                  :formtarget,
+                  :height,
+                  :list,
+                  :max,
+                  :min,
+                  :pattern,
+                  :placeholder,
+                  :randomly,
+                  :required,
+                  :size,
+                  :src,
+                  :step,
+                  :width,
+                  :parsed_input,
+                  :label,
+                  :value,
+                  :class
 
   validates_presence_of :form_id, :input_tag_type
 
