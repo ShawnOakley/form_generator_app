@@ -4,8 +4,7 @@
   <title>FormApp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" type="text/css" href="new.css">
+  <%= stylesheet_link_tag "new" %>
 </head>
 
 <section class="main group">
@@ -13,13 +12,23 @@
   <section class='group display1 center-horizontal padding-top padding-sides shadow-test'>
 
 
-    <div class='form-div'>
+    <% if !current_user.nil? %>
+
+    <div class='form-div margin-right'>
       <h3>Make a new form!</h3>
       <a class="button-link formCreate-button" href="/test/new">Click here!</a>
 
     </div>
 
-    <div class='form-div newUser-div'>
+    <div class='form-div newUser-div margin-right'>
+      <h3>See Your Forms</h3>
+      <a class="button-link formCreate-button" href="/users/new">Click here!</a>
+
+    </div>
+
+    <% end %>
+
+    <div class='form-div newUser-div margin-right'>
       <h3>Create a new user!</h3>
       <a class="button-link formCreate-button" href="/users/new">Click here!</a>
 
@@ -30,17 +39,16 @@
     </section>
 
     <% if !current_user.nil? %>
-      <ul >
+      <ul>
         <li>Logged in as: <%= current_user.username %></li>
         <li><%= button_to "Logout", session_url, :method => :delete %></li>
       </ul>
+
+
     <% end %>
 
-  <%= yield %>
 
-
-
-
+ <%= yield %>
 
 </section>
 

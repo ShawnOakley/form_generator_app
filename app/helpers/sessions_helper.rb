@@ -53,7 +53,8 @@ module SessionsHelper
 
 
           concat label_tag(input_header_array[1] + '_' + input_header_array[2], input_header_array[0])
-          concat send(*input_header_array)
+          options = input_header_array.size > 3 ? input_header_array[3][:options] : {}
+          concat send(input_header_array[0], input_header_array[1], input_header_array[2], options)
 
 
     #
