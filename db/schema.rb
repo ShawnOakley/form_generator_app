@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
 
   create_table "entries", :force => true do |t|
     t.integer  "form_id",        :null => false
-    t.string   "type",           :null => false
+    t.string   "input_tag_type", :null => false
     t.string   "name"
     t.string   "accept"
     t.string   "align"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.string   "src"
     t.string   "step"
     t.string   "width"
+    t.string   "label"
     t.text     "parsed_input"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false

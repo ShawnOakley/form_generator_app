@@ -30,19 +30,21 @@
         <li>
           <h3>Please enter your form header attributes here:</h3>
           <div>
-            <form class = "input_field" method = 'post'
-            action='/users/<%=current_user.id%>/forms'>
+            <%@form = Form.find(params[:id])%>
+            <form class = "input_field" method = 'POST'
+            action='/forms/<%=@form.id%>'>
+            <input type="hidden" name="_method" value="PUT">
+
               <label>Form Name: <input
-              type="text" name='header[form_name]'></input></label>
+              type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
                 <br>
 
               Description: <textarea rows="2" cols="20"
-              name='header[description]'>Type a description of your form's purpose here.</textarea>
-
+              name='header[description]' ><%=@form.description%></textarea>
               <br>
 
               <label>Target Url: <input
-              type="text" name='header[target_url]'></input></label>
+              type="text" name='header[target_url]' value = '<%=@form.target_url%>'></input></label>
 
               <br>
               Integrate Captcha? <input type="checkbox"
@@ -62,7 +64,7 @@
 
 
               <label>Please choose the type of input:
-              <select name ='field[type]'>
+              <select name ='field[input_tag_type]'>
                 <option value="text_field">Single Line Text</option>
                 <option value="password_field">Password</option>
                 <option value="text_area">Paragraph Text</option>
@@ -80,9 +82,8 @@
 
 
               <label>Label Input:
-              <textarea id='field_label' rows="2" cols="20"
-              name='field[label]'>Type your field's label here.</textarea>
-            </label>
+                <input type="text" name='field[label]'></input>
+              </label>
               <br>
 
 
@@ -90,6 +91,7 @@
 
               <label for="field_size">(If text) Please choose size of the field:</label>
               <select id='input_collection' name = 'field[size]'>
+                <option></option>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -99,10 +101,11 @@
               <label>(If checkbox) Please choose the number of columns for the
                 field:
               <select id='input_collection' name = 'field[input_cols]'>
+                <option></option>
                 <option value="1">One Column</option>
                 <option value="2">Two Columns</option>
                 <option value="3">Three Columns</option>
-                <option value="inline">Side By Side</options>
+                <option value="inline">Side By Side</option>
               </select>
               </label>
 
@@ -111,9 +114,8 @@
               <label for='predefinedValue'>Predefined Value:</label> <input
               id='predefinedValue' type="text" name='field[value]'></input>
               <br>
-              Instructions: <textarea rows="2" cols="20"
-              name='field[instructions]'>Type any instructions for the user
-              here.</textarea>
+              Type any instructions for the user in this box: <textarea rows="2" cols="20"
+              name='field[instructions]'></textarea>
               <br>
               <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input
               id='CSSkeywords' type="text" name='field[csskeywords]'></input>
@@ -171,6 +173,12 @@
         <div class='display_field'>
 <!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
           <%= generate_header(Form.find(params[:id])).html_safe%>
+          <% if Entry.find_all_by_form_id(params[:id]).any? %>
+          <% Entry.find_all_by_form_id(params[:id]).each do |form| %>
+          <% @form_hash  = form.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" } %>
+          <%=form_gen(@form_hash)%>
+          <% end %>
+          <% end %>
         </div>
 
 

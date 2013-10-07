@@ -2,7 +2,7 @@ class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
       t.integer :form_id, null:false
-      t.string :type, null:false
+      t.string :input_tag_type, null:false
       t.string :name
       t.string :id
       t.string :accept
@@ -27,7 +27,9 @@ class CreateEntries < ActiveRecord::Migration
       t.string :src
       t.string :step
       t.string :width
+      t.string :label
       t.text :parsed_input
+
 
       t.timestamps
     end

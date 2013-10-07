@@ -31,7 +31,7 @@ module SessionsHelper
 
   end
 
-  def form_gen(form_info)
+  def form_gen(form_info_hash)
 
      # options = options_for_select([['Lisbon', 1], ['Madrid', 2], 2])
      # collection  = collection_select("name", "id", options, "id", 'x')
@@ -46,22 +46,30 @@ module SessionsHelper
     # Still need to make the header creation dynamic.  Should probably abstract that into another helper method.
     capture do
       form_tag("/search", :method => "get") do |f|
-        form_info.each do |form_info_hash|
 
-
+        @form_check = form_info_hash
 
           input_header = []
-          input_header << form_info_hash.shift
-          input_header << form_info_hash.shift
-          input_header << form_info_hash.shift
-          input_header_array = input_header.map{ |pair| Hash[*pair].values }.flatten
-          form_info_hash.size.times{input_header_array << Hash[*form_info_hash.shift]}
+          input_header << form_info_hash.fetch("input_tag_type")
+          form_info_hash.delete("input_tag_type")
+          input_header << form_info_hash.fetch("id")
+          form_info_hash.delete("id")
+          input_header << form_info_hash.fetch("name")
+          form_info_hash.delete("name")
+          # input_header_array = input_header.map{ |pair| Hash[*pair].values }.flatten
+          options_hash = {}
+          options_hash[:options] = []
+          form_info_hash.size.times{options_hash[:options] << form_info_hash.shift}
+
+          options_hash[:options].map!{|pair| Hash[pair[0], [pair[1]]]}.join
+          options_hash[:options] = options_hash[:options].reduce (:merge)
+          input_header << options_hash
 
 
 
-          concat label_tag(input_header_array[1] + '_' + input_header_array[2], input_header_array[0])
-          options = input_header_array.size > 3 ? input_header_array[3][:options] : {}
-          concat send(input_header_array[0], input_header_array[1], input_header_array[2], options)
+          # concat label_tag(input_header[1] + '_' + input_header[2], input_header[0])
+          options = input_header.size > 3 ? input_header[3][:options] : {}
+          concat send(input_header[0], input_header[1], input_header[2], options)
 
 
     #
@@ -72,7 +80,6 @@ module SessionsHelper
     #     # concat url_field(:user, :homepage)
     #     # concat email_field(:user, :address)
 
-        end
                 concat submit_tag("Submit")
       end
     end

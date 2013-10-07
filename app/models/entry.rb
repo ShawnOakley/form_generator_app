@@ -1,7 +1,7 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :form_id, :type ,:name ,:id ,:accept ,:align ,:alt ,:autocomplete ,:disabled ,:formaction ,:formenctype ,:formmethod ,:formnovalidate ,:formtarget ,:height ,:list ,:max ,:min ,:pattern ,:placeholder ,:randomly ,:required ,:size ,:src ,:step ,:width ,:parsed_input
+  attr_accessible :form_id, :input_tag_type ,:name ,:id ,:accept ,:align ,:alt ,:autocomplete ,:disabled ,:formaction ,:formenctype ,:formmethod ,:formnovalidate ,:formtarget ,:height ,:list ,:max ,:min ,:pattern ,:placeholder ,:randomly ,:required ,:size ,:src ,:step ,:width ,:parsed_input, :label
 
-  validates_presence_of :form_id, :type
+  validates_presence_of :form_id, :input_tag_type
 
   belongs_to(
   :form,

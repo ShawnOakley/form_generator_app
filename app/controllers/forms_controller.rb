@@ -22,4 +22,20 @@ class FormsController < ApplicationController
     render :layout => false
 
   end
+
+  def update
+    @input_params = params[:field].reject{|k,v| v==""}
+
+    @input_params[:form_id] = params[:id]
+
+    @entry = Entry.new(@input_params)
+
+    if @entry.save
+      redirect_to edit_form_url(params[:id])
+    else
+      fail
+    end
+
+  end
+
 end
