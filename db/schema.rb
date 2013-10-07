@@ -11,7 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005182742) do
+ActiveRecord::Schema.define(:version => 20131007170335) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "form_id",        :null => false
+    t.string   "type",           :null => false
+    t.string   "name"
+    t.string   "accept"
+    t.string   "align"
+    t.string   "alt"
+    t.string   "autocomplete"
+    t.string   "disabled"
+    t.string   "formaction"
+    t.string   "formenctype"
+    t.string   "formmethod"
+    t.string   "formnovalidate"
+    t.string   "formtarget"
+    t.string   "height"
+    t.string   "list"
+    t.string   "max"
+    t.string   "min"
+    t.string   "pattern"
+    t.string   "placeholder"
+    t.string   "randomly"
+    t.string   "required"
+    t.string   "size"
+    t.string   "src"
+    t.string   "step"
+    t.string   "width"
+    t.text     "parsed_input"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "entries", ["form_id"], :name => "index_entries_on_form_id"
+
+  create_table "forms", :force => true do |t|
+    t.integer  "owner_id",    :null => false
+    t.string   "form_name",   :null => false
+    t.text     "description", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "forms", ["owner_id"], :name => "index_forms_on_owner_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",      :null => false

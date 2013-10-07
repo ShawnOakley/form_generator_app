@@ -28,33 +28,35 @@
       display1
       <ul>
         <li>
-          <h3>Please enter your form header attributes here:</h2>
+          <h3>Please enter your form header attributes here:</h3>
           <div>
-            <form class = "input_field" method = 'post' action='/users/<%=current_user.id%>/forms'>
-              <label for='textarea'>Form Name:</label> <input id='textarea' type="text" name='header[title]'></input>
+            <form class = "input_field" method = 'post'
+            action='/users/<%=current_user.id%>/forms'>
+              <label for='textarea'>Form Name:</label> <input id='textarea'
+              type="text" name='header[form_name]'></input>
                 <br>
 
-              Description <textarea rows="2" cols="20" name='header[description]'>Type a description of your form's purpose here.</textarea>
+              Description <textarea rows="2" cols="20"
+              name='header[description]'>Type a description of your form's purpose here.</textarea>
 
                   </br>
-                    Integrate Captcha? <input type="checkbox" name="header[captcha]" value="true">
+                    Integrate Captcha? <input type="checkbox"
+                    name="header[captcha]" value="true" checked>
                   </br>
                     <input type="submit" class="submit-button">
 
 
           </div>
         </li>
+
         <li>
           <h3>Please enter the attributes for a single parameter below</h2>
           <div>
             <div class = "input_field">
-              <label for='field_label'>Field Label</label>
-              <textarea id='field_label' rows="2" cols="20" name='field[label]'>Type your field's label here.</textarea>
-              <br>
 
 
               <label>Please choose the type of input:
-              <select>
+              <select name ='field[type]'>
                 <option value="text_field">Single Line Text</option>
                 <option value="password_field">Password</option>
                 <option value="text_area">Paragraph Text</option>
@@ -65,6 +67,21 @@
               </label>
               <br>
 
+              <label>Name input:
+                <input type="text" name='field[name]'></input>
+              </label>
+                <br>
+
+
+              <label>Label Input:
+              <textarea id='field_label' rows="2" cols="20"
+              name='field[label]'>Type your field's label here.</textarea>
+            </label>
+              <br>
+
+
+
+
               <label for="field_size">(If text) Please choose size of the field:</label>
               <select id='input_collection' name = 'field[size]'>
                 <option value="small">Small</option>
@@ -73,7 +90,8 @@
               </select>
               <br>
 
-              <label>(If checkbox) Please choose the number of columns for the field:
+              <label>(If checkbox) Please choose the number of columns for the
+                field:
               <select id='input_collection' name = 'field[input_cols]'>
                 <option value="1">One Column</option>
                 <option value="2">Two Columns</option>
@@ -84,11 +102,15 @@
 
               <br>
 
-              <label for='predefinedValue'>Predefined Value:</label> <input id='predefinedValue' type="text" name='field[value]'></input>
+              <label for='predefinedValue'>Predefined Value:</label> <input
+              id='predefinedValue' type="text" name='field[value]'></input>
               <br>
-              Instructions: <textarea rows="2" cols="20" name='header[description]'>Type any instructions for the user here.</textarea>
+              Instructions: <textarea rows="2" cols="20"
+              name='field[instructions]'>Type any instructions for the user
+              here.</textarea>
               <br>
-              <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input id='CSSkeywords' type="text" name='field[csskeywords]'></input>
+              <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input
+              id='CSSkeywords' type="text" name='field[csskeywords]'></input>
                 <br>
 
 
@@ -96,21 +118,26 @@
                 Please enter your multiple choice selections below:
                 <div>
                   <input type="text" name='field[mc1]'></input>
-                  <input type="submit" class="delete-button" value="Delete this choice">
+                  <input type="submit" class="delete-button"
+                  value="Delete this choice">
                 </div>
                   <br>
                   <div>
                   <input type="text" name='field[mc2]'></input>
-                  <input type="submit" class="delete-button" value="Delete this choice">
+                  <input type="submit" class="delete-button"
+                  value="Delete this choice">
                 </div>
                   <br>
                   <div>
                   <input type="text" name='field[mc3]'></input>
-                  <input type="submit" class="delete-button" value="Delete this choice">
+                  <input type="submit" class="delete-button"
+                  value="Delete this choice">
                 </div>
                 <br>
                   <input type="submit" class="submit-button" value="Add another choice">
                 <br>
+
+                <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token%>'></div>
 
                 <input type="submit" class="submit-button" value="Save this form">
               </div>
