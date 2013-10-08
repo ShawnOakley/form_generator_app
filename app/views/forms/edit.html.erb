@@ -174,13 +174,29 @@
           <ul>
 <!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
           <%= generate_header(Form.find(params[:id])).html_safe%>
+          <br>
           <% if Entry.find_all_by_form_id(params[:id]).any? %>
-          <% Entry.find_all_by_form_id(params[:id]).each do |form| %>
-          <% @form_hash  = form.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" } %>
-          <%= button_to("Delete this entry", entry_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+          <% Entry.find_all_by_form_id(params[:id]).each do |entry| %>
+          <!-- NOTE: NEED TO CHANGE HOW IT DISPLAYS LABEL.  SHOULD BE REDUNDANT WITH WORKING LABEL INTEGRATOR ON FORM_FOR -->
+          <% @label = entry.as_json["label"] %>
+          <%= @label %>
+          <br>
+          <% @instructions = entry.as_json["instructions"] %>
+          Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+          <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+
+          <br>
+
           <%=form_gen(@form_hash)%>
+
+          <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+
+          <br>
+
           <% end %>
+
           <% end %>
+
         </ul>
         </div>
 
