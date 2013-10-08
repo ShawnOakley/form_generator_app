@@ -23,6 +23,7 @@ class FormsController < ApplicationController
   end
 
   def update
+
     @input_params = params[:field].reject{|k,v| v==""}
 
     @input_params[:form_id] = params[:id]
