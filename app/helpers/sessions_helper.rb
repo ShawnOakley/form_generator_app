@@ -33,9 +33,10 @@ module SessionsHelper
 
   def collection_parse(input_header)
 
-    @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" }
 
-    @text_string = @choices.map { |choice| '<option>' + choice.to_s + '</option>' }.join('')
+      @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" }
+
+      @text_string = @choices.map { |choice| '<option>' + choice.to_s + '</option>' }.join('')
 
 
 
@@ -73,6 +74,60 @@ module SessionsHelper
 
   end
 
+  def parse_checkboxes(input_header)
+
+    #parse checkbox data and adds divs to group them together.  Calls send on form_for builder once parameters are in the correct format
+
+
+    input_header[2] = input_header[2]+"[]"
+    concat "<div>".html_safe
+
+    @collection = input_header[3][:options]["collection"][0]
+
+    @display_rows = input_header[3][:options]["display_rows"].first.to_i
+
+    @break_count = @collection.size/@display_rows
+
+
+    @collection.each_with_index do |item, index|
+
+      concat send(:label, item, item.to_s)
+      concat send(input_header[0], input_header[2], item, false, id:(item+'_'+item))
+
+
+      concat "<br>".html_safe if (index+1) % @break_count==0
+
+    end
+
+    concat "</div>".html_safe
+  end
+
+
+  def parse_multiple_choice(input_header, options)
+
+    # parses multiple choice data. Calls send on form_for builder once parameters are in the correct format
+
+    input_header[0] = 'select_tag'
+    input_header[2] = input_header[2]+"[]"
+    input_header[3][:options][:multiple] = true;
+
+    concat send(input_header[0], input_header[2], raw(collection_parse(input_header)), options)
+
+  end
+
+  def parse_select(input_header, options)
+
+    #parses select box data. Calls send on form_for builder once parameters are in the correct format
+
+    input_header[2] = input_header[2]+"[]"
+
+    concat send(input_header[0], input_header[2], raw(collection_parse(input_header)), options)
+
+  end
+
+
+
+
   def form_gen(form_info_hash)
 
     # Designed to generate a form based on parameterized tag values
@@ -92,13 +147,24 @@ module SessionsHelper
           # concat label_tag(input_header["label"])
           options = input_header.size > 3 ? input_header[3][:options] : {}
 
-          if input_header.first == "select_tag"
-            concat send(input_header[0], input_header[2], raw(collection_parse(input_header)), options)
-          else
+        if (input_header.first == "check_box_tag")
+
+          parse_checkboxes(input_header)
+
+        elsif (input_header.first == "select_tag_multiple")
+
+          parse_multiple_choice(input_header, options)
+
+        elsif (input_header.first == "select_tag")
+
+          parse_select(input_header, options)
+
+        else
 
             # NOTE:  Need to fix how this parses id and name
             concat send(input_header[0], nil, input_header[2], options)
-          end
+
+        end
 
     #     # concat password_field_tag(:password, "test")
     #     # concat hidden_field_tag(:parent_id, "5")

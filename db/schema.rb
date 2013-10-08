@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.string   "label"
     t.string   "value"
     t.string   "klass"
+    t.string   "prompt"
+    t.string   "display_rows"
     t.text     "collection"
     t.string   "instructions"
     t.text     "parsed_input"

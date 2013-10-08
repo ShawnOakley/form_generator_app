@@ -14,7 +14,6 @@ function addChoice(event) {
 
 $(document).ready(function(){
   $('.choice-collection').delegate('.delete-button', 'click', (function(){
-    alert("hello");
     $(this).parent().remove();
   })
 )});

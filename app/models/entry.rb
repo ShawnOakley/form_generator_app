@@ -29,7 +29,10 @@ class Entry < ActiveRecord::Base
                   :value,
                   :instructions,
                   :collection,
+                  :prompt,
+                  :display_rows,
                   :klass
+
 
   serialize :collection
 

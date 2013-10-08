@@ -72,6 +72,10 @@
                 <option value="number_field">Number</option>
                 <option value="check_box_tag">Checkboxes</option>
                 <option value="select_tag">Dropdown</option>
+                <option value="select_tag_multiple">Multiple Choice</options>
+                <option value="date_select">Date</options>
+                <option value="datetime_select">Date & Time</options>
+                <option value="hidden_field">Hidden Field</options>
               </select>
               </label>
               <br>
@@ -93,20 +97,21 @@
               <label for="field_size">(If text) Please choose size of the field:</label>
               <select id='input_collection' name = 'field[size]'>
                 <option></option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
+                <option value="20">Small</option>
+                <option value="30">Medium</option>
+                <option value="40">Large</option>
               </select>
               <br>
 
-              <label>(If checkbox) Please choose the number of columns for the
+
+              <label>(If checkbox) Please choose the number of row for the
                 field:
-              <select id='input_collection' name = 'field[input_cols]'>
+              <select id='input_collection' name = 'field[display_rows]'>
                 <option></option>
-                <option value="1">One Column</option>
-                <option value="2">Two Columns</option>
-                <option value="3">Three Columns</option>
-                <option value="inline">Side By Side</option>
+                <option value="1">One Row</option>
+                <option value="2">Two  Rows</option>
+                <option value="3">Three Rows</option>
+                <option value="inline">One Column</option>
               </select>
               </label>
 
@@ -124,7 +129,15 @@
 
 
                 <!-- NOTE, MAY WANT TO REPLACE THIS WITH A SCRIPT AND A RENDER -->
-                Please enter your multiple choice selections below:
+                Please enter your multiple choice or checkbox selections below:
+
+                <br>
+                <br>
+                <label>If desired, please enter a default value:
+                <input type="text" name='field[prompt]'>
+                </label>
+                <br>
+                <br>
                 <div class="choice-collection">
                   <div>
                     <input type="text" name='field[collection][]'>
