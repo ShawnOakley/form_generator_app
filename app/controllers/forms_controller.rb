@@ -7,7 +7,6 @@ class FormsController < ApplicationController
 
   def create
 
-    params[:header][:owner_id] = current_user.id
 
    @form = Form.new(params[:header])
      if @form.save
