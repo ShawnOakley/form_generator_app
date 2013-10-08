@@ -27,7 +27,8 @@ class Entry < ActiveRecord::Base
                   :parsed_input,
                   :label,
                   :value,
-                  :class
+                  :instructions,
+                  :klass
 
   validates_presence_of :form_id, :input_tag_type
 

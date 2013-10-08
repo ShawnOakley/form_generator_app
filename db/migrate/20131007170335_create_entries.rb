@@ -29,7 +29,8 @@ class CreateEntries < ActiveRecord::Migration
       t.string :width
       t.string :label
       t.string :value
-      t.string :class
+      t.string :klass
+      t.string :instructions
       t.text :parsed_input
 
 
