@@ -31,48 +31,75 @@ module SessionsHelper
 
   end
 
+  def collection_parse(input_header)
+
+    @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" }
+
+    @text_string = @choices.map { |choice| '<option>' + choice.to_s + '</option>' }.join('')
+
+
+
+  end
+
+  def fetch_header_info(form_info_hash)
+
+    # Fetches input_tag_type, id, and name from info_hash, stores them in proper format for send call to input_tag_type, deletes from form_info_hash so that it can later be processed for use as an options_hash
+
+    input_header = []
+
+    input_header << form_info_hash.fetch("input_tag_type")
+    input_header << form_info_hash.fetch("id")
+    input_header << form_info_hash.fetch("name")
+
+    form_info_hash.delete("input_tag_type")
+    form_info_hash.delete("id")
+    form_info_hash.delete("name")
+
+    input_header
+
+  end
+
+  def add_options_hash(input_header, form_info_hash)
+
+    #parses form_info_hash for options values, stores them all in a single hash and places them in input header
+
+    options_hash = {}
+    options_hash[:options] = []
+    form_info_hash.size.times{options_hash[:options] << form_info_hash.shift}
+
+    options_hash[:options].map!{|pair| Hash[pair[0], [pair[1]]]}.join
+    options_hash[:options] = options_hash[:options].reduce (:merge)
+    input_header << options_hash
+
+  end
+
   def form_gen(form_info_hash)
-
-     # options = options_for_select([['Lisbon', 1], ['Madrid', 2], 2])
-     # collection  = collection_select("name", "id", options, "id", 'x')
-     #
-     # fail
-    #
-    # string = direct_tag_conversion(form_info)
-
-    # return string.html_safe
 
     # Designed to generate a form based on parameterized tag values
     # Still need to make the header creation dynamic.  Should probably abstract that into another helper method.
+
     capture do
       form_tag("/search", :method => "get") do |f|
 
         @form_check = form_info_hash
 
-          input_header = []
-          input_header << form_info_hash.fetch("input_tag_type")
-          form_info_hash.delete("input_tag_type")
-          input_header << form_info_hash.fetch("id")
-          form_info_hash.delete("id")
-          input_header << form_info_hash.fetch("name")
-          form_info_hash.delete("name")
+          input_header = fetch_header_info(form_info_hash)
+
           # input_header_array = input_header.map{ |pair| Hash[*pair].values }.flatten
-          options_hash = {}
-          options_hash[:options] = []
-          form_info_hash.size.times{options_hash[:options] << form_info_hash.shift}
 
-          options_hash[:options].map!{|pair| Hash[pair[0], [pair[1]]]}.join
-          options_hash[:options] = options_hash[:options].reduce (:merge)
-          input_header << options_hash
+          add_options_hash(input_header, form_info_hash)
 
-
-
-          # concat label_tag(input_header[1] + '_' + input_header[2], input_header[0])
+          # concat label_tag(input_header["label"])
           options = input_header.size > 3 ? input_header[3][:options] : {}
-          concat send(input_header[0], input_header[1], input_header[2], options)
 
+          if input_header.first == "select_tag"
+            concat send(input_header[0], input_header[2], raw(collection_parse(input_header)), options)
+          else
 
-    #
+            # NOTE:  Need to fix how this parses id and name
+            concat send(input_header[0], nil, input_header[2], options)
+          end
+
     #     # concat password_field_tag(:password, "test")
     #     # concat hidden_field_tag(:parent_id, "5")
     #     # concat search_field(:user, :name)

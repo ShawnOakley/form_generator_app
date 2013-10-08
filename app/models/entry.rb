@@ -28,7 +28,10 @@ class Entry < ActiveRecord::Base
                   :label,
                   :value,
                   :instructions,
+                  :collection,
                   :klass
+
+  serialize :collection
 
   validates_presence_of :form_id, :input_tag_type
 
