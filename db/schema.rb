@@ -54,12 +54,14 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
   add_index "entries", ["form_id"], :name => "index_entries_on_form_id"
 
   create_table "forms", :force => true do |t|
-    t.integer  "owner_id",    :null => false
-    t.string   "form_name",   :null => false
-    t.text     "description", :null => false
-    t.string   "target_site", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "owner_id",     :null => false
+    t.string   "form_name",    :null => false
+    t.text     "description",  :null => false
+    t.string   "target_site",  :null => false
+    t.text     "header_text"
+    t.text     "closing_text"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "forms", ["owner_id"], :name => "index_forms_on_owner_id"

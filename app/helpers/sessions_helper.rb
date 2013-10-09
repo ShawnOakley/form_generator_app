@@ -1,5 +1,6 @@
 module SessionsHelper
 
+
   def current_user=(user)
     @current_user = user
     session[:session_token] = user.session_token
@@ -129,9 +130,6 @@ module SessionsHelper
 
   end
 
-  def form_gen_raw(form_info_hash)
-    raw(form_gen(form_info_hash)).to_s
-  end
 
 
   def form_gen(form_info_hash)
@@ -144,7 +142,9 @@ module SessionsHelper
 
         @form_check = form_info_hash
 
+
           input_header = fetch_header_info(form_info_hash)
+
           add_options_hash(input_header, form_info_hash)
           options = input_header.size > 3 ? input_header[3][:options] : {}
 

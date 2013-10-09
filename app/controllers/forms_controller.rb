@@ -1,22 +1,20 @@
 class FormsController < ApplicationController
 
-
-  def new_coder
-    @coder = HTMLEntities.new
-  end
-
-  helper_method :new_coder
-
   def new
     render :layout => false
   end
 
   def create
+    @form = Form.new(params[:header])
+    @header_text = generate_header(@form)
+    @form.header_text = @header_text
+    @closing_text = generate_submit
 
-   @form = Form.new(params[:header])
+    @form.closing_text = @closing_text
      if @form.save
        redirect_to edit_form_url(@form.id)
      else
+       render :new
     end
   end
 
@@ -25,7 +23,6 @@ class FormsController < ApplicationController
   end
 
   def destroy
-
     @form = Form.find(params[:id])
     @form.destroy
     respond_to do |format|
@@ -35,10 +32,6 @@ class FormsController < ApplicationController
   end
 
   def index
-
-
-
-
   end
 
 

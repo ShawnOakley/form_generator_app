@@ -93,13 +93,13 @@
 
           <br>
 
-          <%=form_gen(@form_hash)%>
+
+          <% entry.update_attribute(:parsed_input, form_gen(@form_hash)) %>
+          <%= entry.parsed_input %>
 
           <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
           <br>
-
-
 
           <% end %>
 

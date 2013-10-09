@@ -5,6 +5,8 @@ class CreateForms < ActiveRecord::Migration
       t.string :form_name, null: false
       t.text :description, null: false
       t.string :target_site, null: false
+      t.text :header_text
+      t.text :closing_text
 
 
       t.timestamps

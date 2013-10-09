@@ -27,6 +27,7 @@ gem 'jquery-rails'
 
 gem 'htmlentities'
 
+
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # To use ActiveModel has_secure_password

@@ -1,34 +1,38 @@
 .display_field {
   padding: 10px;
   height:auto;
+  width:auto;
 }
 
 .display-row{
   display:inline-block;
   border: 1px solid black;
-  width: 100%;
   height: 100%;
+  width:auto;
+}
+
+.right-display-column{
+
+  float:left;
+  clear:left;
+
+  height:100%;
+  width: 400px;
+  margin-left:10px;
+  margin-right:10px;
 }
 
 
   .left-display-column{
-    overflow: hidden;
-    clear:both;
-    float:left;
-    display:inline-block;
-    width: 400px;
-    border: 1px solid red
-  }
-
-
-  .right-display-column{
     float:right;
-    display:inline-block;
-    clear:both;
-    overflow:auto;
+    width: 400px;
+    border: 1px solid red;
+    padding-left:10px;
     word-wrap:break-word;
-    height:100%;
+    overflow:auto;
   }
+
+
 
 
 
