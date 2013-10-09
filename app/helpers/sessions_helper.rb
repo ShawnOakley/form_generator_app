@@ -95,7 +95,8 @@ module SessionsHelper
       concat send(input_header[0], input_header[2], item, false, id:(item+'_'+item))
 
 
-      concat "<br>".html_safe if (index+1) % @break_count==0
+      concat "<br>".html_safe if (index+1) % (@break_count+1)==0
+
 
     end
 

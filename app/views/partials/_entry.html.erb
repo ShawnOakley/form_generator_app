@@ -1,0 +1,112 @@
+<li>
+
+  <div class = "input_field">
+  <h3>Please enter the attributes for a single parameter below</h2>
+
+    <form class="input_field" method='POST' action='/forms/<%=@form.id%>'>
+      <input type="hidden" name="_method" value="PUT">
+
+
+      <label>Please choose the type of input:
+      <select name ='field[input_tag_type]'>
+        <option value="text_field">Single Line Text</option>
+        <option value="password_field">Password</option>
+        <option value="text_area">Paragraph Text</option>
+        <option value="number_field">Number</option>
+        <option value="check_box_tag">Checkboxes</option>
+        <option value="select_tag">Dropdown</option>
+        <option value="select_tag_multiple">Multiple Choice</options>
+        <option value="date_select">Date</options>
+        <option value="datetime_select">Date & Time</options>
+        <option value="hidden_field">Hidden Field</options>
+      </select>
+      </label>
+      <br>
+
+      <label>Name input:
+        <input type="text" name='field[name]'></input>
+      </label>
+        <br>
+
+
+      <label>Label Input:
+        <input type="text" name='field[label]'></input>
+      </label>
+      <br>
+
+
+
+
+      <label for="field_size">(If text) Please choose size of the field:</label>
+      <select id='input_collection' name = 'field[size]'>
+        <option></option>
+        <option value="20">Small</option>
+        <option value="30">Medium</option>
+        <option value="40">Large</option>
+      </select>
+      <br>
+
+
+      <label>(If checkbox) Please choose the number of row for the
+        field:
+      <select id='input_collection' name = 'field[display_rows]'>
+        <option></option>
+        <option value="2">One Row</option>
+        <option value="3">Two  Rows</option>
+        <option value="4">Three Rows</option>
+        <option value="1">One Column</option>
+      </select>
+      </label>
+
+      <br>
+
+      <label for='predefinedValue'>Predefined Value:</label> <input
+      id='predefinedValue' type="text" name='field[value]'></input>
+      <br>
+      Type any instructions for the user in this box: <textarea rows="2" cols="20"
+      name='field[instructions]'></textarea>
+      <br>
+      <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input
+      id='CSSkeywords' type="text" name='field[klass]'></input>
+        <br>
+
+
+        <!-- NOTE, MAY WANT TO REPLACE THIS WITH A SCRIPT AND A RENDER -->
+        Please enter your multiple choice or checkbox selections below:
+
+        <br>
+        <br>
+        <label>If desired, please enter a default value:
+        <input type="text" name='field[prompt]'>
+        </label>
+        <br>
+        <br>
+        <div class="choice-collection">
+          <div>
+            <input type="text" name='field[collection][]'>
+            <button class="delete-button" type='button'>Delete this choice</button>
+          </div>
+          <div>
+           <br>
+            <input type="text" name='field[collection][]'>
+            <button class="delete-button" type='button'>Delete this choice</button>
+          </div>
+          <div>
+           <br>
+            <input type='text' name='field[collection][]'>
+            <button class='delete-button' type='button'>Delete this choice</button>
+          </div>
+
+        </div>
+        <br>
+          <button type='button' onclick="addChoice()">Add another choice</button>
+        <br>
+
+        <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token%>'>
+
+
+        <input type="submit" class="submit-button" value="Save this form">
+      </form>
+      </div>
+
+</li>
