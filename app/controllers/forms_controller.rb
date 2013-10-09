@@ -19,11 +19,21 @@ class FormsController < ApplicationController
 
   def edit
     render :layout => false
-
   end
 
-  def update
+  def destroy
 
+    @form = Form.find(params[:id])
+    # @user = @form.owner_id
+    if @form.destroy
+      redirect_to new_user_form_url(current_user.id)
+    else
+      fail
+    end
+  end
+
+
+  def update
     @input_params = params[:field].reject{|k,v| v==""}
 
     @input_params[:form_id] = params[:id]
@@ -35,7 +45,6 @@ class FormsController < ApplicationController
     else
       fail
     end
-
   end
 
 end

@@ -24,7 +24,7 @@ module SessionsHelper
   end
 
   def generate_header(header)
-    "<!DOCTYPE html><html><head> <title>#{header.form_name}</title><meta charset='utf-8'><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_url}'> <header id='header' class='info'>
+    "<!DOCTYPE html><html><head> <title>#{header.form_name}</title><meta charset='utf-8'><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'> <header id='header' class='info'>
 <h2>#{header.form_name}</h2>
 <div>#{header.description}</div>
 </header>"

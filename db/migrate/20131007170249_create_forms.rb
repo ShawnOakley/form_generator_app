@@ -4,13 +4,13 @@ class CreateForms < ActiveRecord::Migration
       t.integer :owner_id, null: false
       t.string :form_name, null: false
       t.text :description, null: false
-      t.string :target_url, null: false
+      t.string :target_site, null: false
 
 
       t.timestamps
     end
 
     add_index :forms, :owner_id
-    add_index :forms, :target_url
+    add_index :forms, :target_site
   end
 end

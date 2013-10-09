@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.integer  "owner_id",    :null => false
     t.string   "form_name",   :null => false
     t.text     "description", :null => false
-    t.string   "target_url",  :null => false
+    t.string   "target_site", :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   add_index "forms", ["owner_id"], :name => "index_forms_on_owner_id"
-  add_index "forms", ["target_url"], :name => "index_forms_on_target_url"
+  add_index "forms", ["target_site"], :name => "index_forms_on_target_site"
 
   create_table "users", :force => true do |t|
     t.string   "username",      :null => false

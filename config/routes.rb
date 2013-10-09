@@ -11,5 +11,4 @@ FormApp::Application.routes.draw do
 
   resource :session
 
-  resource :test
 end
