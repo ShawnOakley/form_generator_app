@@ -3,24 +3,39 @@
   <div class = "input_field">
   <h3>Please enter the attributes for a single parameter below</h2>
 
-    <form class="input_field" method='POST' action='/forms/<%=@form.id%>'>
+    <form class="input-choice" method='POST' action='/forms/<%=@form.id%>'>
       <input type="hidden" name="_method" value="PUT">
 
 
       <label>Please choose the type of input:
-      <select name ='field[input_tag_type]'>
-        <option value="text_field">Single Line Text</option>
-        <option value="password_field">Password</option>
-        <option value="text_area">Paragraph Text</option>
-        <option value="number_field">Number</option>
-        <option value="check_box_tag">Checkboxes</option>
-        <option value="select_tag">Dropdown</option>
-        <option value="select_tag_multiple">Multiple Choice</options>
-        <option value="date_select">Date</options>
-        <option value="datetime_select">Date & Time</options>
-        <option value="hidden_field">Hidden Field</options>
-      </select>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field" checked>Single Line Text</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="password_field">Password</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_area">Paragraph Text</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="number_field">Number</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="check_box_tag">Checkboxes</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag">Dropdown</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag_multiple">Multiple Choice</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="date_select">Date</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="datetime_select">Date & Time </input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="hidden_field">Hidden Field</input>
+
       </label>
+      <br>
       <br>
 
       <label>Name input:
@@ -33,23 +48,24 @@
         <input type="text" name='field[label]'></input>
       </label>
       <br>
+      <br>
 
 
 
 
-      <label for="field_size">(If text) Please choose size of the field:</label>
-      <select id='input_collection' name = 'field[size]'>
+      <label>(If text) Please choose size of the field:
+      <select class='text_area' name = 'field[size]'>
         <option></option>
         <option value="20">Small</option>
         <option value="30">Medium</option>
         <option value="40">Large</option>
-      </select>
+      </select></label>
       <br>
 
 
       <label>(If checkbox) Please choose the number of row for the
         field:
-      <select id='input_collection' name = 'field[display_rows]'>
+      <select class="check_box_tag"  name = 'field[display_rows]'>
         <option></option>
         <option value="2">One Row</option>
         <option value="3">Two  Rows</option>
@@ -60,53 +76,59 @@
 
       <br>
 
-      <label for='predefinedValue'>Predefined Value:</label> <input
-      id='predefinedValue' type="text" name='field[value]'></input>
+      <label>Predefined Value:
+      <input class= "inp text_area text_field  date_select datetime_select" type="text" name='field[value]'></input></label>
+
       <br>
-      Type any instructions for the user in this box: <textarea rows="2" cols="20"
-      name='field[instructions]'></textarea>
+
+      <label>Type any instructions for the user in this box:
+      <textarea class= "inp text_area text_field select_tag date_select datetime_select password_field check_box_tag number_field select_tag select_tag_multiple" rows="2" cols="20" name='field[instructions]'></textarea></label>
+
       <br>
-      <label for='CSSkeywords'>Add CSS Layout Keywords:</label> <input
-      id='CSSkeywords' type="text" name='field[klass]'></input>
-        <br>
+      <label class="inp text_area text_field select_tag select_tag_multiple date-select datetime_select hidden-select password_field number_field check_box_tag">Add CSS Layout Keywords:
+        <input id='CSSkeywords' type="text" name='field[klass]'></input>
+        <br></label>
 
 
         <!-- NOTE, MAY WANT TO REPLACE THIS WITH A SCRIPT AND A RENDER -->
-        Please enter your multiple choice or checkbox selections below:
 
+
+
+        <div class="inp choice-collection check_box_tag select_tag_multiple mc-select">
+        <br>
+          <label class="select_tag_multiple check_box_tag select_tag">Please enter your multiple choice or checkbox selections below: <br>
+            If desired, please enter a default value:
+          <input name='field[prompt]'>
+          </label>
         <br>
         <br>
-        <label>If desired, please enter a default value:
-        <input type="text" name='field[prompt]'>
-        </label>
-        <br>
-        <br>
-        <div class="choice-collection">
+
           <div>
-            <input type="text" name='field[collection][]'>
+            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
             <button class="delete-button" type='button'>Delete this choice</button>
           </div>
           <div>
            <br>
-            <input type="text" name='field[collection][]'>
+            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
             <button class="delete-button" type='button'>Delete this choice</button>
           </div>
           <div>
            <br>
-            <input type='text' name='field[collection][]'>
+            <input type='text' class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
             <button class='delete-button' type='button'>Delete this choice</button>
           </div>
 
-        </div>
+
         <br>
-          <button type='button' onclick="addChoice()">Add another choice</button>
+          <button type='button' class="select_tag_multiple check_box_tag select_tag" onclick="addChoice()">Add another choice</button>
         <br>
 
         <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token%>'>
 
 
         <input type="submit" class="submit-button" value="Save this form">
+                </div>
       </form>
-      </div>
+    </div>
 
 </li>

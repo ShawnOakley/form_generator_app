@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "new_form" %>
-
 </head>
 
 
@@ -95,6 +94,7 @@
 
           <%=form_gen(@form_hash)%>
 
+          <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
           <br>
 
@@ -104,20 +104,7 @@
 
         </ul>
         </div>
-
-
-
-        <form method='POST' action='forms/<%=params[:id]%>'>
-          <input type="hidden" name="_method" value="DELETE">
-          <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token%>'>
-
-          <input type="submit" class="submit-button" value="Delete this form">
-        </form>
-
-        <!-- NOTE: Not including CRSF TOKEN BELOW -->
-
-        <%= button_to "delete", {:controller => :forms,
-              :action => 'destroy', :id => params[:id], value: "Delete ths form" }, :method => :delete %>
+        <%= button_to "delete", {controller: :forms, action: 'destroy', id: params[:id] } %>
 
       </section>
 

@@ -97,8 +97,14 @@ box-shadow: 1px 1px 5px #000000;
   border-radius:20px;
 }
 
-.input_field *{
+.input_field {
   vertical-align: top;
+}
+
+.input-choice {
+  border: 2px solid black;
+    border-radius:20px;
+    padding:3px;
 }
 
 .style_button_container{
@@ -155,6 +161,11 @@ box-shadow: 1px 1px 5px #000000;
 	background:-moz-linear-gradient( center top, #468ccf 5%, #63b8ee 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
 	background-color:#468ccf;
+}
+
+.hidden {
+  visibility:collapse;
+  display:none;
 }
 
 
