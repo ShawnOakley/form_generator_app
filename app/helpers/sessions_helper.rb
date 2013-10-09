@@ -24,7 +24,7 @@ module SessionsHelper
   end
 
   def generate_header(header)
-    "<!DOCTYPE html><html><head> <title>#{header.form_name}</title><meta charset='utf-8'><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'> <header id='header' class='info'>
+    "<form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'> <header id='header' class='info'>
 <h2>#{header.form_name}</h2>
 <div>#{header.description}</div>
 </header>"
@@ -39,12 +39,9 @@ module SessionsHelper
 
   def collection_parse(input_header)
 
-
       @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" }
 
       @text_string = @choices.map { |choice| '<option>' + choice.to_s + '</option>' }.join('')
-
-
 
   end
 
@@ -132,7 +129,9 @@ module SessionsHelper
 
   end
 
-
+  def form_gen_raw(form_info_hash)
+    raw(form_gen(form_info_hash)).to_s
+  end
 
 
   def form_gen(form_info_hash)
@@ -146,12 +145,7 @@ module SessionsHelper
         @form_check = form_info_hash
 
           input_header = fetch_header_info(form_info_hash)
-
-          # input_header_array = input_header.map{ |pair| Hash[*pair].values }.flatten
-
           add_options_hash(input_header, form_info_hash)
-
-          # concat label_tag(input_header["label"])
           options = input_header.size > 3 ? input_header[3][:options] : {}
 
         if (input_header.first == "check_box_tag")
@@ -168,19 +162,9 @@ module SessionsHelper
 
         else
 
-            # NOTE:  Need to fix how this parses id and name
             concat send(input_header[0], nil, input_header[2], options)
 
         end
-
-    #     # concat password_field_tag(:password, "test")
-    #     # concat hidden_field_tag(:parent_id, "5")
-    #     # concat search_field(:user, :name)
-    #     # concat telephone_field(:user, :phone)
-    #     # concat url_field(:user, :homepage)
-    #     # concat email_field(:user, :address)
-
-                # concat submit_tag("Submit")
       end
     end
   end

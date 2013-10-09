@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "new_form" %>
+  <%= csrf_meta_tag %>
 </head>
 
 
@@ -108,7 +109,7 @@
 
         </ul>
         </div>
-        <%= button_to "delete", {controller: :forms, action: 'destroy', id: params[:id] } %>
+         <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
       </section>
 

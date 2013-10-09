@@ -1,0 +1,74 @@
+<!-- app/views/forms/new.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FormApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "new_form" %>
+  <%= stylesheet_link_tag "display"%>
+  <%= csrf_meta_tag %>
+</head>
+
+<section>
+
+  <h2>User's Forms</h2>
+
+  <% @forms = Form.find_all_by_owner_id(current_user.id)%>
+<div class='display_field group'>
+  <% @forms.each do |form| %>
+  <div class='display-row'>
+
+  <div class='left-display-column'>
+    <h2>The rendered Form</h2>
+
+
+
+            <%= generate_header(form).html_safe%>
+            <br>
+              <% form.entries.each do |entry| %>
+
+                <% @label = entry.as_json["label"] %>
+                <%= @label %>
+                <br>
+                <% @instructions = entry.as_json["instructions"] %>
+                Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+                <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+
+                <br>
+                <% @form_hash2 = @form_hash.dup %>
+                <%=form_gen(@form_hash)%>
+
+              <% end %>
+
+            <br>
+              </div>
+            <div class='right-display-column'>
+            <h2>The code!</h2>
+              <div><%= generate_header(form).html_safe%>
+              <% form.entries.each do |entry| %>
+
+                <% @coder = new_coder %>
+
+                <% @label = entry.as_json["label"] %>
+                <%= @coder.encode(@label) %>
+                <br>
+                <% @instructions = entry.as_json["instructions"] %>
+                Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+                <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+                <br><% @form_hash2 = @form_hash.dup %><%=form_gen(@form_hash)%>
+
+              <% end %>
+              </div>
+              </div>
+            </div>
+
+
+          <% end %>
+
+        </div>
+
+
+</section>
+
+</html>
