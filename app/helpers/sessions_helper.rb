@@ -31,6 +31,12 @@ module SessionsHelper
 
   end
 
+  def generate_submit
+
+    '<input type="submit" class="submit-button"></form>'
+
+  end
+
   def collection_parse(input_header)
 
 
@@ -174,7 +180,7 @@ module SessionsHelper
     #     # concat url_field(:user, :homepage)
     #     # concat email_field(:user, :address)
 
-                concat submit_tag("Submit")
+                # concat submit_tag("Submit")
       end
     end
   end
