@@ -29,11 +29,15 @@
 
     <% end %>
 
+
+    <% if current_user.nil? %>
     <div class='form-div newUser-div margin-right'>
       <h3>Create a new user!</h3>
       <a class="button-link formCreate-button" href="/users/new">Click here!</a>
 
     </div>
+
+      <% end %>
 
     <section class="logo">
       <img src="https://highrisehq.com/images/img_wufoo.png">
@@ -49,11 +53,16 @@
     <% end %>
 
 
+
  <%= yield %>
 
 </section>
 
+<%=render "layouts/sales_content"%>
+
 </section>
+
+<%= render "layouts/footer"%>
 
 </body>
 </html>
