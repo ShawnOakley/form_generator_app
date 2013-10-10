@@ -11,6 +11,7 @@ class FormsController < ApplicationController
     @closing_text = generate_submit
 
     @form.closing_text = @closing_text
+
      if @form.save
        redirect_to edit_form_url(@form.id)
      else

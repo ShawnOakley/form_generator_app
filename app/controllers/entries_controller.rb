@@ -10,6 +10,28 @@ class EntriesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+
+    @entry = Entry.find(params[:id])
+
+
+    if @entry.update_attributes(params["field"])
+      flash[:message] = "Update saved!"
+      redirect_to edit_form_url(@entry.form_id)
+    else
+      flash[:error] = "Save failed!"
+      redirect_to edit_form_url(params[:id])
+    end
+  end
+
+
+
+
+
   def create
     params["field"]["collection"].reject!{|v| v=="" || v==" "}
     @input_params = params["field"].reject{|k,v| v=="" || v==" " || v.empty?}
@@ -20,6 +42,7 @@ class EntriesController < ApplicationController
 
 
     @entry = Entry.new(@input_params)
+
 
     if @entry.save
       redirect_to edit_form_url(params['form_id'])

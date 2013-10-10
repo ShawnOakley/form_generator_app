@@ -28,7 +28,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :step
       t.string :width
       t.string :label
-      t.string :value
+      t.string :placeholder
       t.string :klass
       t.string :prompt
       t.string :display_rows

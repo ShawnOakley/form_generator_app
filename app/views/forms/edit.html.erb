@@ -43,38 +43,10 @@
     <section class='input_field_container'>
       display1
       <ul>
-        <li>
-          <h3>Please enter your form header attributes here:</h3>
-            <%@form = Form.find(params[:id])%>
-            <form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
-            <input type="hidden" name="_method" value="PUT">
 
-            <input
-               name="authenticity_token"
-               type="hidden"
-               value="<%= form_authenticity_token %>">
+        <%= render "partials/form_edit" %>
 
-              <label>Form Name: <input
-              type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
-                <br>
-
-              Description: <textarea rows="2" cols="20"
-              name='header[description]' ><%=@form.description%></textarea>
-              <br>
-
-              <label>Target Url: <input
-              type="text" name='header[target_site]' value = '<%=@form.target_site%>'></input></label>
-
-              <br>
-              Integrate Captcha? <input type="checkbox"
-              name="header[captcha]" value="true">
-              <br>
-                    <input type="submit" class="submit-button" value="Edit this form's header">
-
-            </form>
-        </li>
-
-        <%= render "partials/entry" %>
+        <%= render "partials/entry_input" %>
 
 
       </ul>
@@ -84,42 +56,27 @@
 
       <section class= 'display_field_container'>
         <div class="style_button_container">
-        <nav>
-          Colors:
-          <button>Color 1</button>
-          <button>Color 2</button>
-          <button>Color 3</button>
-          <button>Color 4</button>
-          <button>Color 5</button>
-          <button>Color 6</button>
-          <br>
-          Layouts:
-          <button>Layout 1</button>
-          <button>Layout 2</button>
-          <button>Layout 3</button>
-          <button>Layout 4</button>
-          <button>Layout 5</button>
-        </nav>
-        </div>
-        <br>
+
+          <%= render "partials/format_buttons.html.erb"%>
+
 
         <div class='display_field'>
 
           <%= generate_header(Form.find(params[:id])).html_safe%>
           <br>
           <ul class = 'form-list'>
-          <% @entries = Entry.find_all_by_form_id(params[:id]) %>
-          <% @entriesjson = @entries.to_json %>
+          <% @entries1 = Entry.find_all_by_form_id(params[:id]) %>
+          <% @entries2 = Entry.find_all_by_form_id(params[:id]) %>
+          <script class='stored_entries' type="application/json"> <%=html_to_input_params(@entries1[0]) %></script>
 
-          <script class='stored_entries' type='text'><%=@entriesjson%></script>
 
-
-          <% if @entries.any? %>
-            <% @entries.each do |entry| %>
+          <% if @entries2.any? %>
+            <% @entries2.each do |entry| %>
 
             <% @label = entry.as_json["label"] %>
             <li>
             <%= @label %>
+
             <br>
             <% @instructions = entry.as_json["instructions"] %>
             Instructions for <%= @label || "this entry" %>: <%= @instructions %>
@@ -128,10 +85,17 @@
             <br>
 
 
-            <% entry.update_attribute(:parsed_input, form_gen(@form_hash)) %>
+            <% @parsed_input = form_gen(@form_hash).html_safe%>
+
+            <% @parsed_input.gsub!(/<form.*?>/, '')%>
+            <% @parsed_input.gsub!(/<\/form>/, '')%>
+
+            <% entry.update_attribute(:parsed_input, @parsed_input) %>
             <%= entry.parsed_input.html_safe %>
 
-            <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+            <%= button_to("Edit this form", edit_entry_url(entry.id),  method: "get", data: { confirm: 'Edit this entry?' }) %>
+
+            <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Delete this entry?' }) %>
 
           </li>
 

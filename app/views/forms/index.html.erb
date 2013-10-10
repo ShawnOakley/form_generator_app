@@ -43,13 +43,16 @@
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
                 <br>
-                <% @instructions = entry.as_json["instructions"] %>
-                Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+                Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"]  %>
                 <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
                 <br>
                 <% @form_hash2 = @form_hash.dup %>
-                <%=form_gen(@form_hash)%>
+                <% @parsed_input = form_gen(@form_hash).html_safe%>
+
+                <% @parsed_input.gsub!(/<form.*?>/, '') %>
+                <% @parsed_input.gsub!(/<\/form>/, '')%>
+                <%= @parsed_input.html_safe %>
 
               <% end %>
 
@@ -67,7 +70,10 @@
 
               <% form.entries.each do |entry| %>
               <br>
-              <%= entry.parsed_input %>
+              <% @entry = entry.parsed_input.gsub(/<form.*?>/, '') %>
+              <%= @entry.gsub!(/<\/form>/, '')%>
+              <%= @entry %>
+
               <br>
               <% end %>
               </section>

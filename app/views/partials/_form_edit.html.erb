@@ -1,0 +1,30 @@
+<li>
+  <h3>Please enter your form header attributes here:</h3>
+    <%@form = Form.find(params[:id])%>
+    <form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
+    <input type="hidden" name="_method" value="PUT">
+
+    <input
+       name="authenticity_token"
+       type="hidden"
+       value="<%= form_authenticity_token %>">
+
+      <label>Form Name: <input
+      type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
+        <br>
+
+      Description: <textarea rows="2" cols="20"
+      name='header[description]' ><%=@form.description%></textarea>
+      <br>
+
+      <label>Target Url: <input
+      type="text" name='header[target_site]' value = '<%=@form.target_site%>'></input></label>
+
+      <br>
+      Integrate Captcha? <input type="checkbox"
+      name="header[captcha]" value="true">
+      <br>
+            <input type="submit" class="submit-button" value="Edit this form's header">
+
+    </form>
+</li>

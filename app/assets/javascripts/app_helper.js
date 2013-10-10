@@ -35,8 +35,9 @@ $(document).ready(function(){
     var $target = $(this);
     var $searchField = $(this).parent().children('li');
     $(this).css('background', 'yellow');
-    alert($('#stored_entries'));
-    console.log($('#stored_entries'));
+    console.log($( "script:last" ).last().text());
+    console.log($('.input-choice'));
+    console.log($('.input-choice:first').val());
 
   });
 

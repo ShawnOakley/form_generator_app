@@ -26,7 +26,7 @@ class Entry < ActiveRecord::Base
                   :width,
                   :parsed_input,
                   :label,
-                  :value,
+                  :placeholder,
                   :instructions,
                   :collection,
                   :prompt,

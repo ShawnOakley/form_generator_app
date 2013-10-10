@@ -151,6 +151,8 @@ module SessionsHelper
 
           options["class"] = options["klass"] unless options["klass"].nil?
 
+
+
         unless options['class'].nil?
           options["class"][0] = options["class"][0].concat(" #{input_header[0]}-css")
           options.delete("klass")
@@ -175,6 +177,10 @@ module SessionsHelper
         end
       end
     end
+  end
+
+  def html_to_input_params(entries)
+    entries.to_json
   end
 
 

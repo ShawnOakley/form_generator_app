@@ -319,36 +319,37 @@ box-shadow: 1px 1px 5px #000000;
 /*STYLE 5*/
 
 .style5-header {
-  font-family: font-family: 'Corben', Georgia, Times, serif;
-  border-radius: 25px;
-  padding: 5px 0;
-  border: 2px solid black;
+  font-family: font-family: 'Allerta', Helvetica, Arial, sans-serif;
+  width:50%;
+  height:80px;
   text-align:center;
-  height:auto;
-  padding:5px;
-  margin-top:10px;
-  padding-bottom:auto;
-  alignment:center;
-  top:500px;
+  position:relative;
+  top:120px;
+  float:left;
+  padding-right:20px;
+  padding-left:20px;
+  padding-bottom:20px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  margin-right: 20px;
 
 }
 
 .style5-ul {
-  border: 2px solid black;
-  border-radius: 10px 10px;
+  width:90%;
+  float:left;
+  padding-top:20%;
 
-  height:100%;
-  padding: 0 5px;
-  margin-bottom:600px;
-  padding-top:auto;
 }
 
 
 .style5-li {
   list-style:none;
-  padding:10px;
   border-bottom: 2px solid black;
-  font-family: 'Nobile', Helvetica, Arial, sans-serif;
+  font-family: 'Crimson Text', Georgia, Times, serif;
+  width:auto;
+
 }
 
 .color1{

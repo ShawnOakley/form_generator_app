@@ -1,0 +1,161 @@
+<li>
+
+
+  <div class = "input_field">
+
+    <% if !flash[:parameter_error].nil? %>
+      <div id="error">
+        <p><%= flash[:parameter_error] %></p>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+
+
+  <h3>Please edit the attributes for your entry</h2>
+
+    <form class="header_field" method='POST' action='/entries/<%=params[:id]%>'>
+    <input type="hidden" name="_method" value="PUT">
+
+      <label class='protected'>Name input:
+        <input type="text" name='field[name]'></input>
+                <br>
+      </label>
+
+
+
+      <label class='protected'>Label Input:
+        <input type="text" name='field[label]'></input>
+        <br>
+        <br>
+      </label>
+
+
+      <label>Please choose the type of input:
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field" checked>Single Line Text</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="password_field">Password</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_area">Paragraph Text</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="number_field">Number</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="check_box_tag">Checkboxes</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag">Dropdown</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag_multiple">Multiple Choice</input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="date_select">Date</input>
+        <br>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="datetime_select">Date & Time </input>
+
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="hidden_field">Hidden Field</input>
+        <br>
+        <br>
+
+      </label>
+
+      <div class='text_area'>
+      <label class='text_area'>Please choose size of the text field:
+      <select name = 'field[size]'>
+        <option></option>
+        <option value="20">Small</option>
+        <option value="30">Medium</option>
+        <option value="40">Large</option>
+      </select>
+        <br>
+      </label>
+      </div>
+
+
+    <div class="check_box_tag">
+      <label class="check_box_tag">Please choose the number of row for the
+        field:
+      <select class="check_box_tag"  name = 'field[display_rows]'>
+        <option></option>
+        <option value="2">One Row</option>
+        <option value="3">Two  Rows</option>
+        <option value="4">Three Rows</option>
+        <option value="1">One Column</option>
+      </select>
+        <br>
+      </label>
+    </div>
+
+
+    <div class= "text_area text_field date_select datetime_select">
+      <label class= "text_area text_field date_select datetime_select">Predefined Value:
+      <input class= "text_area text_field date_select datetime_select" type="text" name='field[placeholder]'></input>
+    <br>
+    </label>
+  </div>
+
+
+
+      <label class= "protected">Type any instructions for the user in this box:
+      <textarea rows="2" cols="20" name='field[instructions]'></textarea>
+    <br>
+    </label>
+
+
+      <label class="protected">Add CSS Layout Keywords:
+        <input id='CSSkeywords' type="text" name='field[klass]'></input>
+        <br></label>
+
+
+        <!-- NOTE, MAY WANT TO REPLACE THIS WITH A SCRIPT AND A RENDER -->
+
+        <!-- NOTE: THESE NESTED DIVS ARE UGLY, BUT NEED TO ADD NEW CHOICES IN RIGHT SPOT AND YET ALSO HIDE ADD BUTTON ALONG WITH REST OF DIV TOO -->
+        <div class="select_tag_multiple check_box_tag select_tag">
+        <div class= "choice-collection">
+
+          <label class="select_tag_multiple check_box_tag select_tag">
+            <br>
+            Please enter your multiple choice or checkbox selections below: <br>
+            (Optional) Please enter a default value:
+          <input name='field[prompt]'>
+          <br>
+          <br>
+          </label>
+
+
+          <div>
+            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
+            <button class="delete-button" type='button'>Delete this choice</button>
+          </div>
+          <div>
+           <br>
+            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
+            <button class="delete-button" type='button'>Delete this choice</button>
+          </div>
+          <div>
+           <br>
+            <input type='text' class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
+            <button class='delete-button' type='button'>Delete this choice</button>
+          </div>
+        </div>
+
+        <br>
+          <button type='button' class="select_tag_multiple check_box_tag select_tag" onclick="addChoice()">Add another choice</button>
+        <br>
+
+      </div>
+
+        <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token%>'>
+
+        <label class='protected'>
+          <br>
+          Save this Form:
+        <input type="submit" class="submit-button" value="Save this form">
+      </label>
+
+      </form>
+    </div>
+
+</li>
