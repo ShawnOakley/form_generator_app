@@ -14,9 +14,9 @@ $(document).ready(function(){
     case "Color 1":
 
       $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#49A8A8" );
+      $this.css( "background", "#5772AF" );
 
-      $this.children().children().css( "background", "#5772AF" );
+      $this.children().children().css( "background","#49A8A8"  );
 
       $this.css( "border-radius', '25px" );
 

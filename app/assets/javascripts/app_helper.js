@@ -22,8 +22,7 @@ $(document).ready(function(){
   $('.input_field').delegate('.select-button', 'click', (function(){
 
     var hidden_id = $(this).val();
-    // console.log('.' + hidden_id);
-   //  console.log($(this).siblings().parent().siblings().find('.' + hidden_id));
+
 
     $(this).siblings().parent().siblings().addClass('hidden');
 
@@ -32,9 +31,16 @@ $(document).ready(function(){
     $(this).siblings().parent().siblings().find('.' + hidden_id).parent().removeClass('hidden');
   }));
 
+  $('.form-list').children().click(function(){
+    var $target = $(this);
+    var $searchField = $(this).parent().children('li');
+    $(this).css('background', 'yellow');
+    alert($('#stored_entries'));
+    console.log($('#stored_entries'));
+
+  });
 
 
-  // $(document).find('.inp').children().toggleClass('hidden')
   $(document).find(".select-button").first().click();
 
 });

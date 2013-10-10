@@ -58,28 +58,23 @@
             <div class='left-display-column'>
             <h2>The code!</h2>
               <div>
-              <label class='code-label'>Header
+              <section class='code-label'>
                   <br>
               <%= form.header_text%>
-              </label>
+              </section>
               <br>
-              <br>
-              <label class='code-label'>The Entries
-              <br>
-              <br>
+              <section class='code-label'>
 
               <% form.entries.each do |entry| %>
-              <br>
               <br>
               <%= entry.parsed_input %>
               <br>
               <% end %>
-              </label>
+              </section>
               <br>
-              <br>
-              <label class='code-label'>Closing Text<br>
+              <section class='code-label'><br>
               <%= form.closing_text%>
-              </label>
+              </section>
               </div>
               </div>
             </div>

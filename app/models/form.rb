@@ -1,5 +1,6 @@
 class Form < ActiveRecord::Base
-  attr_accessible :owner_id, :form_name, :description, :target_site, :header_text, :closing_text
+  attr_accessible :owner_id, :form_name, :description, :target_site, :header_text, :closing_text, :css_layout, :css_color, :css_support_files
+
 
   validates_presence_of :owner_id, :form_name, :description, :target_site
 

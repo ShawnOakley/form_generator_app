@@ -15,6 +15,11 @@
   <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Allerta" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
 </head>
 
 
@@ -87,6 +92,7 @@
           <button>Color 4</button>
           <button>Color 5</button>
           <button>Color 6</button>
+          <br>
           Layouts:
           <button>Layout 1</button>
           <button>Layout 2</button>
@@ -102,30 +108,36 @@
           <%= generate_header(Form.find(params[:id])).html_safe%>
           <br>
           <ul class = 'form-list'>
-          <% if Entry.find_all_by_form_id(params[:id]).any? %>
-          <% Entry.find_all_by_form_id(params[:id]).each do |entry| %>
+          <% @entries = Entry.find_all_by_form_id(params[:id]) %>
+          <% @entriesjson = @entries.to_json %>
 
-          <% @label = entry.as_json["label"] %>
-          <li>
-          <%= @label %>
-          <br>
-          <% @instructions = entry.as_json["instructions"] %>
-          Instructions for <%= @label || "this entry" %>: <%= @instructions %>
-          <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
-
-          <br>
+          <script class='stored_entries' type='text'><%=@entriesjson%></script>
 
 
-          <% entry.update_attribute(:parsed_input, form_gen(@form_hash)) %>
-          <%= entry.parsed_input.html_safe %>
+          <% if @entries.any? %>
+            <% @entries.each do |entry| %>
 
-          <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+            <% @label = entry.as_json["label"] %>
+            <li>
+            <%= @label %>
+            <br>
+            <% @instructions = entry.as_json["instructions"] %>
+            Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+            <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
-        </li>
+            <br>
 
-          <br>
 
-          <% end %>
+            <% entry.update_attribute(:parsed_input, form_gen(@form_hash)) %>
+            <%= entry.parsed_input.html_safe %>
+
+            <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+
+          </li>
+
+            <br>
+
+            <% end %>
 
           <% end %>
 
