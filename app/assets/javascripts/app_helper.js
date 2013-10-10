@@ -24,59 +24,94 @@ $(document).ready(function(){
     $target = $(this).parent().parent().parent().children('div:last')
     switch(css_type)
     {
-    case "Style 1":
+    case "Color 1":
 
       $this = $(this).parent().parent().parent().children('div:last')
       $this.css( "background", "#49A8A8" );
-
-      $this.css( "font-family", "Raleway" );
-      $this.children().children().css( "text-align", "center" );
-
 
       $this.children().children().css( "background", "#5772AF" );
 
       $this.css( "border-radius', '25px" );
 
       break;
-    case "Style 2":
+    case "Color 2":
       $this = $(this).parent().parent().parent().children('div:last')
       $this.css( "background", "#694242" );
 
-      $this.css( "font-family", "Raleway" );
-      $this.children().children().css( "text-align", "center" );
+      $this.children().children().css( "background", "#B4A381" );
 
+
+      break;
+    case "Color 3":
+      $this = $(this).parent().parent().parent().children('div:last')
+      $this.css( "background", "#5C3946" );
+
+      $this.children().children().css( "background", "#9D74A1" );
+
+
+      break;
+    case "Color 4":
+      $this = $(this).parent().parent().parent().children('div:last')
+      $this.css( "background", "#5E8B7F" );
+
+
+      $this.children().children().css( "background", "#E8C5B1" );
+
+
+      break;
+
+    case "Color 5":
+
+      $this = $(this).parent().parent().parent().children('div:last')
+      $this.css( "background", "grey" );
+
+      $this.children().children().css( "background", "white" );
+
+
+      break;
+    case "Color 6":
+      $this = $(this).parent().parent().parent().children('div:last')
+      $this.css( "background", "#694242" );
 
       $this.children().children().css( "background", "#B4A381" );
 
-      $this.css( "border-radius', '25px" );
 
       break;
-    case "Style 3":
+    case "Layout 1":
       $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#9D74A1" );
 
-      $this.css( "font-family", "Raleway" );
+      $this.children().children().css( "text-align", "center" );
+      $this.children().children().css( "font-family", "Raleway" );
+
+      $this.children().children().css( "border-radius', '25px" );
+
+      break;
+    case "Layout 2":
+      $this = $(this).parent().parent().parent().children('div:last')
+
+      $this.children().children().css( "font-family", "Copperplate" );
       $this.children().children().css( "text-align", "center" );
 
 
-      $this.children().children().css( "background", "#5C3946" );
-
-      $this.css( "border-radius', '25px" );
-
       break;
-    case "Style 4":
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#49A8A8" );
+    case "Layout 3":
 
-      $this.css( "font-family", "Raleway" );
+      $this = $(this).parent().parent().parent().children('div:last')
+
+      $this.children().children().css( "font-family", "Arial Rounded MT Bold" );
       $this.children().children().css( "text-align", "center" );
 
 
-      $this.children().children().css( "background", "#5772AF" );
+      break;
+    case "Layout 4":
+      $this = $(this).parent().parent().parent().children('div:last')
 
-      $this.css( "border-radius', '25px" );
+      $this.children().children().css( "font-family", "TimesNewRoman" );
+      $this.children().children().css('list-type: circle')
+
 
       break;
+
     default:
       // execute code block 1
       break;

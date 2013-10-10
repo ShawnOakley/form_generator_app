@@ -151,8 +151,10 @@ module SessionsHelper
 
           options["class"] = options["klass"] unless options["klass"].nil?
 
+        unless options['class'].nil?
           options["class"][0] = options["class"][0].concat(" #{input_header[0]}-css")
           options.delete("klass")
+        end
 
         if (input_header.first == "check_box_tag")
 
