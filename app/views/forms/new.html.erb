@@ -24,6 +24,15 @@
 
   <div class="display1 group">
 
+     <%= render "layouts/navbar" %>
+
+    <% if !flash[:error].nil? %>
+      <div id="error">
+        <p><%= flash[:error] %></p>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+
 
     <section class='input_field_container'>
       display1
@@ -31,8 +40,15 @@
         <li>
           <h3>Please enter your form header attributes here:</h3>
           <div>
-            <form class = "input_field" method = 'post'
+            <form class="input_field" method='post'
             action='/users/<%=current_user.id%>/forms'>
+
+            <input
+               name="authenticity_token"
+               type="hidden"
+               value="<%= form_authenticity_token %>">
+
+
             <label>Form Name: <input
             type="text" name='header[form_name]'></input></label>
               <br>
@@ -54,8 +70,7 @@
               name="header[captcha]" value="true" checked></label>
 
               <br>
-                    <input type="submit" class="submit-button">
-
+                    <input type="submit" class="submit-button" value="Create a new form header">
 
           </div>
         </li>
@@ -82,11 +97,9 @@
         FORM DOES NOT EXIST
         </div>
 
-
       </section>
 
     </div>
-
 
 
   <div class="footer">

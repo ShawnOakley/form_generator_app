@@ -26,6 +26,8 @@
 
   <div class="display1 group">
 
+    <%= render "layouts/navbar" %>
+
 
     <section class='input_field_container'>
       display1
@@ -35,6 +37,11 @@
             <%@form = Form.find(params[:id])%>
             <form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
             <input type="hidden" name="_method" value="PUT">
+
+            <input
+               name="authenticity_token"
+               type="hidden"
+               value="<%= form_authenticity_token %>">
 
               <label>Form Name: <input
               type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
@@ -51,7 +58,7 @@
               Integrate Captcha? <input type="checkbox"
               name="header[captcha]" value="true" checked>
               <br>
-                    <input type="submit" class="submit-button">
+                    <input type="submit" class="submit-button" value="Edit this form's header">
 
             </form>
         </li>
@@ -72,19 +79,25 @@
           <button>Style 2</button>
           <button>Style 3</button>
           <button>Style 4</button>
+          <button>Style 5</button>
+          <button>Style 6</button>
+          <button>Style 7</button>
+          <button>Style 8</button>
         </nav>
         </div>
         <br>
 
         <div class='display_field'>
-          <ul>
+
 <!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
           <%= generate_header(Form.find(params[:id])).html_safe%>
           <br>
+          <ul class = 'form-list'>
           <% if Entry.find_all_by_form_id(params[:id]).any? %>
           <% Entry.find_all_by_form_id(params[:id]).each do |entry| %>
           <!-- NOTE: NEED TO CHANGE HOW IT DISPLAYS LABEL.  SHOULD BE REDUNDANT WITH WORKING LABEL INTEGRATOR ON FORM_FOR -->
           <% @label = entry.as_json["label"] %>
+          <div>
           <%= @label %>
           <br>
           <% @instructions = entry.as_json["instructions"] %>
@@ -95,9 +108,10 @@
 
 
           <% entry.update_attribute(:parsed_input, form_gen(@form_hash)) %>
-          <%= entry.parsed_input %>
+          <%= entry.parsed_input.html_safe %>
 
           <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+          <div/>
 
           <br>
 
@@ -105,7 +119,7 @@
 
           <% end %>
 
-          <%=generate_submit.html_safe%>
+          <%=raw(generate_submit)%>
 
         </ul>
         </div>

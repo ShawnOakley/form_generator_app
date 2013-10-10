@@ -14,7 +14,8 @@ class FormsController < ApplicationController
      if @form.save
        redirect_to edit_form_url(@form.id)
      else
-       render :new
+       flash[:error] = "Fail saved!"
+       redirect_to new_user_form_url(current_user.id)
     end
   end
 
@@ -31,21 +32,23 @@ class FormsController < ApplicationController
       end
   end
 
+
+
   def index
+
   end
 
 
   def update
-    @input_params = params[:field].reject{|k,v| v==""}
 
-    @input_params[:form_id] = params[:id]
+    @form = Form.find(params[:id])
 
-    @entry = Entry.new(@input_params)
 
-    if @entry.save
+    if @form.update_attributes(params["header"])
       redirect_to edit_form_url(params[:id])
     else
-      fail
+      flash[:error] = "Fail saved!"
+      redirect_to edit_form_url(params[:id])
     end
   end
 

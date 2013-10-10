@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       self.current_user = @user
       redirect_to user_url(@user)
     else
-      render :json => @user.errors.full_messages
+      flash[:error] = "Username already taken."
+      redirect_to new_session_url
     end
   end
 

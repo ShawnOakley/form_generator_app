@@ -34,13 +34,15 @@ module SessionsHelper
 
   def generate_submit
 
-    '<input type="submit" class="submit-button"></form>'
+    '<input type="submit" class="submit-button">
+    </form>'
 
   end
 
   def collection_parse(input_header)
 
-      @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" }
+      @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" || val==" "}
+
 
       @text_string = @choices.map { |choice| '<option>' + choice.to_s + '</option>' }.join('')
 
@@ -78,13 +80,13 @@ module SessionsHelper
 
   end
 
-  def parse_checkboxes(input_header)
+  def parse_checkboxes(input_header, options)
 
     #parse checkbox data and adds divs to group them together.  Calls send on form_for builder once parameters are in the correct format
 
 
     input_header[2] = input_header[2]+"[]"
-    concat "<div>".html_safe
+    concat "<div class='checkboxes'>".html_safe
 
     @collection = input_header[3][:options]["collection"][0]
 
@@ -98,8 +100,7 @@ module SessionsHelper
       concat send(:label, item, item.to_s)
       concat send(input_header[0], input_header[2], item, false, id:(item+'_'+item))
 
-
-      concat "<br>".html_safe if (index+1) % (@break_count+1)==0
+      concat "<br>".html_safe if ((index+1) % (@break_count+1)==0)
 
 
     end
@@ -148,9 +149,14 @@ module SessionsHelper
           add_options_hash(input_header, form_info_hash)
           options = input_header.size > 3 ? input_header[3][:options] : {}
 
+          options["class"] = options["klass"] unless options["klass"].nil?
+
+          options["class"][0] = options["class"][0].concat(" #{input_header[0]}-css")
+          options.delete("klass")
+
         if (input_header.first == "check_box_tag")
 
-          parse_checkboxes(input_header)
+          parse_checkboxes(input_header, options)
 
         elsif (input_header.first == "select_tag_multiple")
 

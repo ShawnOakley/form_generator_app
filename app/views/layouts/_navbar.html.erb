@@ -1,0 +1,5 @@
+<nav>
+
+   <%= link_to "View Forms", user_forms_path(current_user.id), :class => "button" %><br>
+   <%= link_to "Make New Form",  new_user_form_path(current_user.id), :class => "button" %><br>
+</nav>

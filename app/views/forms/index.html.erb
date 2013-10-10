@@ -10,16 +10,27 @@
   <%= csrf_meta_tag %>
 </head>
 
+
+
 <section>
 
+
   <h2>User's Forms</h2>
+
+    <%= render "layouts/navbar" %>
 
   <% @forms = Form.find_all_by_owner_id(current_user.id)%>
 <div class='display_field group'>
   <% @forms.each do |form| %>
   <div class='display-row'>
 
+
+
   <div class='right-display-column'>
+
+       <%= link_to "Edit This Form",  edit_form_path(form.id), :class => "button" %>
+       <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+
     <h2>The rendered form</h2>
     <h3><%=form.form_name%></h3>
 
@@ -60,7 +71,6 @@
               <% form.entries.each do |entry| %>
               <br>
               <br>
-
               <%= entry.parsed_input %>
               <br>
               <% end %>

@@ -1,10 +1,19 @@
 <li>
 
+
   <div class = "input_field">
+
+    <% if !flash[:parameter_error].nil? %>
+      <div id="error">
+        <p><%= flash[:parameter_error] %></p>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+
+
   <h3>Please enter the attributes for a single parameter below</h2>
 
-    <form class="input-choice" method='POST' action='/forms/<%=@form.id%>'>
-      <input type="hidden" name="_method" value="PUT">
+    <form class="input-choice" method='POST' action='<%= form_entries_url(params[:id])%>'>
 
       <label class='protected'>Name input:
         <input type="text" name='field[name]'></input>
