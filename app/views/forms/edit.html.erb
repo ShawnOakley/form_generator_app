@@ -9,6 +9,12 @@
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "new_form" %>
   <%= csrf_meta_tag %>
+  <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Allerta" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -56,7 +62,7 @@
 
               <br>
               Integrate Captcha? <input type="checkbox"
-              name="header[captcha]" value="true" checked>
+              name="header[captcha]" value="true">
               <br>
                     <input type="submit" class="submit-button" value="Edit this form's header">
 
@@ -72,7 +78,6 @@
 
 
       <section class= 'display_field_container'>
-      <!-- NOTE SHOULD HAVE EACH BUTTON STYLED SIMILAR TO THE STYLE IT CONTAINS -->
         <div class="style_button_container">
         <nav>
           Colors:
@@ -87,21 +92,21 @@
           <button>Layout 2</button>
           <button>Layout 3</button>
           <button>Layout 4</button>
+          <button>Layout 5</button>
         </nav>
         </div>
         <br>
 
         <div class='display_field'>
 
-<!-- NOTE: SHOULD CALL RENDER HERE, WITH A DEFAULT BLANK FORM -->
           <%= generate_header(Form.find(params[:id])).html_safe%>
           <br>
           <ul class = 'form-list'>
           <% if Entry.find_all_by_form_id(params[:id]).any? %>
           <% Entry.find_all_by_form_id(params[:id]).each do |entry| %>
-          <!-- NOTE: NEED TO CHANGE HOW IT DISPLAYS LABEL.  SHOULD BE REDUNDANT WITH WORKING LABEL INTEGRATOR ON FORM_FOR -->
+
           <% @label = entry.as_json["label"] %>
-          <div>
+          <li>
           <%= @label %>
           <br>
           <% @instructions = entry.as_json["instructions"] %>
@@ -115,7 +120,8 @@
           <%= entry.parsed_input.html_safe %>
 
           <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
-          <div/>
+
+        </li>
 
           <br>
 
