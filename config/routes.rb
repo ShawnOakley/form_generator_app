@@ -11,6 +11,6 @@ FormApp::Application.routes.draw do
 
   resource :session
 
-  root :to => "sessions#new"
+  root :to => "session#new"
 
 end
