@@ -1,120 +1,121 @@
 
+
+
+function applyStyle(context, color, layout){
+  $that = context;
+  if (typeof color === 'undefined') {
+    color = "";
+  };
+
+  var backgroundColor = color.concat('-background');
+  $that.attr( "class", backgroundColor );
+
+  var headerStyle = layout.concat('-header ').concat(color).concat(' group');
+  var ulStyle = layout.concat('-ul ').concat(color).concat(' group');
+  var liStyle = layout.concat('-li ').concat(color).concat(' group');
+
+
+  $that.children().children().attr( "class",color);
+  $that.children().children('header:first').attr( "class", headerStyle );
+  $that.children().children('ul:first').attr('class', ulStyle);
+  $that.children().children('ul:first').children('li').attr( "class", liStyle);
+}
+
 $(document).ready(function(){
+
+  $(".style_button_container").delegate('button', 'click', (function(){
+      console.log($(this));
+    }));
 
   $('.choice-collection').delegate('.delete-button', 'click', (function(){
     $(this).parent().remove();
   }));
 
+  var layout;
+  var color;
+
   $('.style_button_container nav').delegate('button','click', (function(){
     var css_type = $(this).text();
 
+    $this = $(this).parent().parent().parent().children('div:last')
 
     switch(css_type)
     {
     case "Color 1":
 
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#5772AF" );
+      color = "color1";
 
-      $this.children().children().css( "background","#49A8A8"  );
-
-      $this.css( "border-radius', '25px" );
+      applyStyle($this, color, layout);
 
       break;
     case "Color 2":
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#694242" );
+      color = "color2";
 
-      $this.children().children().css( "background", "#B4A381" );
-
+      applyStyle($this, color, layout);
 
       break;
     case "Color 3":
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#5C3946" );
+      color = "color3";
 
-      $this.children().children().css( "background", "#9D74A1" );
-
+      applyStyle($this, color, layout);
 
       break;
     case "Color 4":
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#5E8B7F" );
+      color = "color4";
 
-
-      $this.children().children().css( "background", "#E8C5B1" );
-
+      applyStyle($this, color, layout);
 
       break;
 
     case "Color 5":
 
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "grey" );
+      color = "color5";
 
-      $this.children().children().css( "background", "white" );
-
+      applyStyle($this, color, layout);
 
       break;
     case "Color 6":
-      $this = $(this).parent().parent().parent().children('div:last')
-      $this.css( "background", "#694242" );
 
-      $this.children().children().css( "background", "#B4A381" );
+      color = "color6";
 
+      applyStyle($this, color, layout);
 
       break;
-
 
     case "Layout 1":
 
-      $this = $(this).parent().parent().parent().children('div:last').children()
+      layout = "style1";
 
-      $this.children('header:first').attr( "class", "style1-header" );
-      $this.children('ul:first').attr('class', 'style1-ul');
-      $this.children('ul:first').children('li').attr( "class", "style1-li");
-
-
+      applyStyle($this, color, layout);
       break;
+
     case "Layout 2":
 
-      $this = $(this).parent().parent().parent().children('div:last').children()
+      layout = "style2";
 
-      $this.children('header:first').attr( "class", "style2-header" );
-      $this.children('ul:first').attr('class', 'style2-ul');
-      $this.children('ul:first').children('li').attr( "class", "style2-li");
-
+      applyStyle($this, color, layout);
 
       break;
     case "Layout 3":
 
-      $this = $(this).parent().parent().parent().children('div:last').children()
+      layout = "style3";
 
-      $this.children('header:first').attr( "class", "style3-header" );
-      $this.children('ul:first').attr('class', 'style3-ul');
-      $this.children('ul:first').children('li').attr( "class", "style3-li");
-
+      applyStyle($this, color, layout);
 
       break;
     case "Layout 4":
 
-      $this = $(this).parent().parent().parent().children('div:last').children()
+      layout = "style4";
 
-      $this.children('header:first').attr( "class", "style4-header" );
-      $this.children('ul:first').attr('class', 'style4-ul');
-      $this.children('ul:first').children('li').attr( "class", "style4-li");
-
+      applyStyle($this, color, layout);
 
       break;
 
     case "Layout 5":
 
-      $this = $(this).parent().parent().parent().children('div:last').children()
+      layout = "style5";
 
-      $this.children('header:first').attr( "class", "style5-header" );
-      $this.children('ul:first').attr('class', 'style5-ul');
-      $this.children('ul:first').children('li').attr( "class", "style5-li");
-
+      applyStyle($this, color, layout);
 
       break;
 

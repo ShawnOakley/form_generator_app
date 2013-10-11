@@ -9,6 +9,10 @@ h1 {
   text-font: comic;
 }
 
+li {
+  list-style-type:none;
+}
+
 .group:after {
   content:"";
   clear:both;
@@ -25,6 +29,15 @@ h1 {
   position:absolute;
   z-index: -5;
 }
+
+.title {
+  color:white;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  font-size: xx-large;
+  color: white; text-shadow: black 0.3em 0.3em 0.4em
+}
+
 
 .display1 {
   background: #a90329;
@@ -241,7 +254,7 @@ box-shadow: 1px 1px 5px #000000;
 
 /*STYLE 3*/
 
-/*NOTE: In order to get these columns to maintain same height, would likely need to inject javascript somehow*/
+
 
 .style3-header {
   font-family: 'Allan', Helvetica, Arial, sans-serif;
@@ -249,10 +262,8 @@ box-shadow: 1px 1px 5px #000000;
   padding: 5px 0;
   border: 2px solid black;
   text-decoration: underline;
-  float:left;
   width:30%;
   height:380px;
-  clear:left;
   padding:5px;
   margin-top:10px;
   padding-bottom:auto;
@@ -261,8 +272,6 @@ box-shadow: 1px 1px 5px #000000;
 .style3-ul {
   border: 2px solid black;
   border-radius: 10px 10px;
-  float:right;
-  clear:right;
   height:100%;
   width:55%;
   padding: 0 5px;
@@ -280,6 +289,8 @@ box-shadow: 1px 1px 5px #000000;
 
 
 /*STYLE 4*/
+
+
 
 .style4-header {
   font-family: 'Molengo', Georgia, Times, serif;;
@@ -318,6 +329,7 @@ box-shadow: 1px 1px 5px #000000;
 
 /*STYLE 5*/
 
+
 .style5-header {
   font-family: font-family: 'Allerta', Helvetica, Arial, sans-serif;
   width:50%;
@@ -325,7 +337,6 @@ box-shadow: 1px 1px 5px #000000;
   text-align:center;
   position:relative;
   top:120px;
-  float:left;
   padding-right:20px;
   padding-left:20px;
   padding-bottom:20px;
@@ -338,7 +349,6 @@ box-shadow: 1px 1px 5px #000000;
 
 .style5-ul {
   width:90%;
-  float:left;
   padding-top:20%;
 
 }
@@ -352,10 +362,82 @@ box-shadow: 1px 1px 5px #000000;
 
 }
 
+/*COLOR 1*/
+
 .color1{
-  background-color: #694242;
+  background-color: #5772AF;
 }
 
 .color1-background{
-  background-color: #B4A381;
+  background-color: #49A8A8;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
 }
+
+/*COLOR 2*/
+
+.color2{
+  background-color: #694242;
+}
+
+.color2-background{
+  background-color: #B4A381;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
+}
+
+/*COLOR 3*/
+
+.color3{
+  background-color: #5C3946;
+}
+
+.color3-background{
+  background-color: #9D74A1;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
+}
+
+/*COLOR 4*/
+
+.color4{
+  background-color: #5E8B7F;
+}
+
+.color4-background{
+  background-color: #E8C5B1;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
+}
+
+/*COLOR 5*/
+
+.color5{
+  background-color: #FFFEFE;
+}
+
+.color5-background{
+  background-color: #000000;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
+}
+
+/*COLOR 6*/
+
+.color6{
+  background-color: #FFF9F9;
+}
+
+.color6-background{
+  background-color: #292323;
+  padding:10px;
+  border-radius:25px;
+  border: 2px solid black;
+}
+
+

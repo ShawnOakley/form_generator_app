@@ -1,18 +1,37 @@
+<div class="style_button_container">
+
+  <% @form = Form.find(params[:id])%>
+
+  <div class="saved-format-style"></div>
+  <div class="saved-color-style"></div>
+
 <nav>
+
+
   Colors:
-  <button>Color 1</button>
-  <button>Color 2</button>
-  <button>Color 3</button>
-  <button>Color 4</button>
-  <button>Color 5</button>
-  <button>Color 6</button>
+  <button class='color-button' id='1'>Color 1</button>
+  <button class='color-button' id='2'>Color 2</button>
+  <button class='color-button' id='3'>Color 3</button>
+  <button class='color-button' id='4'>Color 4</button>
+  <button class='color-button' id='5'>Color 5</button>
+  <button class='color-button' id='6'>Color 6</button>
   <br>
   Layouts:
-  <button>Layout 1</button>
-  <button>Layout 2</button>
-  <button>Layout 3</button>
-  <button>Layout 4</button>
-  <button>Layout 5</button>
+  <button class='layout-button' id='1'>Layout 1</button>
+  <button class='layout-button' id='2'>Layout 2</button>
+  <button class='layout-button' id='3'>Layout 3</button>
+  <button class='layout-button' id='4'>Layout 4</button>
+  <button class='layout-button' id='5'>Layout 5</button>
 </nav>
+
 </div>
+
+<form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
+<input type="hidden" name="_method" value="PUT">
+
+<input type="hidden" name="form[color_css]" value='<%= @form.color_css %>'>
+<input type="hidden" name="form[layout_css]" value='<%= @form.layout_css %>'>
+
+<input type="submit" class="submit-button" value="Commit the current format"></form>
+
 <br>

@@ -10,6 +10,8 @@ class CreateForms < ActiveRecord::Migration
       t.text :css_layout
       t.text :css_color
       t.text :css_support_files
+      t.text :color_css
+      t.text :layout_css
 
 
       t.timestamps

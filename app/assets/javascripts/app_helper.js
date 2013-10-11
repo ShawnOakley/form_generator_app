@@ -34,6 +34,7 @@ $(document).ready(function(){
   $('.form-list').children('li').click(function(){
     var $target = $(this);
     var $searchField = $(this).parent().children('li');
+
     var oldAttr = 'hidden'
     console.log($target.attr('style') === 'border: 1px solid red;');
     if ($target.attr('style') === 'border: 1px solid red;') {
@@ -44,9 +45,6 @@ $(document).ready(function(){
       $target.siblings('li').css('border','hidden');
       // toggle rendering of edit for id
     };
-
-
-
 
   });
 

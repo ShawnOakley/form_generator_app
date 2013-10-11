@@ -34,11 +34,13 @@
     <h2>The rendered form</h2>
     <h3><%=form.form_name%></h3>
 
-
+          <ul>
 
             <%= generate_header(form).html_safe%>
             <br>
               <% form.entries.each do |entry| %>
+
+              <li>
 
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
@@ -50,7 +52,11 @@
 
                 <%= form_gen(@form_hash).html_safe%>
 
+              </li>
+
               <% end %>
+
+            </ul>
 
             <br>
               </div>
@@ -64,16 +70,27 @@
               <br>
               <section class='code-label'>
 
+                <% @coder = HTMLEntities.new %>
+
+                <%= @coder.decode("<ul class='export-style-color-ul export-style-layout-ul'>") %>
+
+
               <% form.entries.each do |entry| %>
+
               <br>
+
               <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
-              <br>
-              <% @coder = HTMLEntities.new %>
-              <%= @coder.decode(form_gen(@form_hash))%>
 
               <br>
+              <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
+              <%= @coder.decode(form_gen(@form_hash))%>
+              <%= @coder.decode('</li>') %>
+              <br>
+
               <% end %>
+
+              <%= @coder.decode('</ul>') %>
               </section>
               <br>
               <section class='code-label'><br>

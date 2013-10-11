@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.text     "css_layout"
     t.text     "css_color"
     t.text     "css_support_files"
+    t.text     "color_css"
+    t.text     "layout_css"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

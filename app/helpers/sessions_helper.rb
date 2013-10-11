@@ -25,12 +25,25 @@ module SessionsHelper
   end
 
   def generate_header(header)
-    "<form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'> <header id='header' class='info'>
+    "<form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'> <header id='header' class='info class='export-style-color-header export-style-layout-header'>
 <h2>#{header.form_name}</h2>
 <div>#{header.description}</div>
 </header>"
 
   end
+
+  def generate_style_tag(color_style = nil, layout_style = nil)
+    if color_style == nil && layout_style == nil
+      return
+    elsif layout_style == nil
+
+    elsif color_style == nil
+
+    else
+
+    end
+
+    end
 
   def generate_choice(value)
 
