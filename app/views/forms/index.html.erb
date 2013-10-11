@@ -6,25 +6,39 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
+  <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Allerta" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 </head>
 
 
 
-<section>
-
-
-  <h2>User's Forms</h2>
+<section class="display1 group">
 
     <%= render "layouts/navbar" %>
 
   <% @forms = Form.find_all_by_owner_id(current_user.id)%>
 <div class='display_field group'>
+
+  <h2>User's Forms</h2>
+
   <% @forms.each do |form| %>
+
   <div class='display-row'>
 
 
 
   <div class='right-display-column'>
+
+
 
        <%= link_to "Edit This Form",  edit_form_path(form.id), :class => "button" %>
        <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>

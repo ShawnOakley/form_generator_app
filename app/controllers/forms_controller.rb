@@ -36,7 +36,7 @@ class FormsController < ApplicationController
 
 
   def index
-
+    render :layout => false
   end
 
 
