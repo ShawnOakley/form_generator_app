@@ -1,4 +1,8 @@
 
+function setStyleForSave(color, layout){
+  $('.saved-color-style').attr('value', color);
+  $('.saved-format-style').attr('value', layout);
+}
 
 
 function applyStyle(context, color, layout){
@@ -19,6 +23,8 @@ function applyStyle(context, color, layout){
   $that.children().children('header:first').attr( "class", headerStyle );
   $that.children().children('ul:first').attr('class', ulStyle);
   $that.children().children('ul:first').children('li').attr( "class", liStyle);
+
+  setStyleForSave(color, layout);
 }
 
 $(document).ready(function(){

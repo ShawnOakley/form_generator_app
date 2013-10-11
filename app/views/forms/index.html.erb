@@ -30,15 +30,13 @@
 
   <h2>User's Forms</h2>
 
+  <% @coder = HTMLEntities.new %>
+
   <% @forms.each do |form| %>
 
   <div class='display-row'>
 
-
-
   <div class='right-display-column'>
-
-
 
        <%= link_to "Edit This Form",  edit_form_path(form.id), :class => "button" %>
        <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
@@ -49,7 +47,6 @@
           <ul>
 
             <%= generate_header(form).html_safe%>
-
 
             <br>
               <% form.entries.each do |entry| %>
@@ -80,30 +77,27 @@
 
               <section class='code-label'>
                   <br>
-              <%= form.header_text%>
+              <%= @coder.decode(generate_header(form))%>
               <br>
-              <% @coder = HTMLEntities.new %>
+
+              <%= @coder.decode('<br>')%>
+
+
               <%= @coder.decode('<br>')%>
               <br>
               </section>
               <br>
               <section class='code-label'>
 
-                <% @coder = HTMLEntities.new %>
-
-
                 <%= @coder.decode("<ul class='export-style-color-ul export-style-layout-ul'>") %>
 
-
               <% form.entries.each do |entry| %>
-
 
               <br>
 
               <% @instructions = entry.as_json["instructions"].dup%>
 
               <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
-
 
               <br>
 
@@ -129,11 +123,9 @@
               </div>
             </div>
 
-
           <% end %>
 
         </div>
-
 
 </section>
 

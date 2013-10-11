@@ -28,7 +28,7 @@ class FormsController < ApplicationController
     @form = Form.find(params[:id])
     @form.destroy
     respond_to do |format|
-        format.json { redirect_to "/users/#{current_user.id}/forms/new" }
+        format.json {redirect_to "/users/#{current_user.id}/forms/new"}
         format.html {redirect_to "/users/#{current_user.id}/forms/new"}
       end
   end
@@ -41,6 +41,19 @@ class FormsController < ApplicationController
 
 
   def update
+
+    unless params[:form][:color_css].nil?
+      params["header"] = {}
+      params["header"][:color_css] = params[:form][:color_css]
+    end
+
+    unless params[:form][:layout_css].nil?
+      if params["header"].nil?
+        params["header"] = {}
+      end
+      params["header"][:layout_css] = params[:form][:layout_css]
+    end
+
 
     @form = Form.find(params[:id])
 

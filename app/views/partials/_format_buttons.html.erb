@@ -29,8 +29,10 @@
 <form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
 <input type="hidden" name="_method" value="PUT">
 
-<input type="hidden" name="form[color_css]" value='<%= @form.color_css %>'>
-<input type="hidden" name="form[layout_css]" value='<%= @form.layout_css %>'>
+<input type="hidden" class="saved-color-style" name="form[color_css]" value='<%= @form.color_css %>'>
+<input type="hidden" class="saved-format-style" name="form[layout_css]" value='<%= @form.layout_css %>'>
+
+<input type="hidden" name="authenticity_token" value ='<%= form_authenticity_token%>'>
 
 <input type="submit" class="submit-button" value="Commit the current format"></form>
 
