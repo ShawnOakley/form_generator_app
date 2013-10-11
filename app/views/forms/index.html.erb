@@ -35,6 +35,8 @@
           <ul>
 
             <%= generate_header(form).html_safe%>
+
+
             <br>
               <% form.entries.each do |entry| %>
 
@@ -61,28 +63,43 @@
             <div class='left-display-column'>
             <h2>The code!</h2>
               <div>
+
               <section class='code-label'>
                   <br>
               <%= form.header_text%>
+              <br>
+              <% @coder = HTMLEntities.new %>
+              <%= @coder.decode('<br>')%>
+              <br>
               </section>
               <br>
               <section class='code-label'>
 
                 <% @coder = HTMLEntities.new %>
 
+
                 <%= @coder.decode("<ul class='export-style-color-ul export-style-layout-ul'>") %>
 
 
               <% form.entries.each do |entry| %>
 
+
               <br>
+
+              <% @instructions = entry.as_json["instructions"].dup%>
 
               <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
 
               <br>
+
+              <%= @coder.decode("<text>" + @instructions + "</text>") %>
+              <%= @coder.decode("<br>")%>
+              <br>
               <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
+              <%= @coder.decode('<label>') + entry.as_json["label"] %>
               <%= @coder.decode(form_gen(@form_hash))%>
+              <%= @coder.decode('</label>') %>
               <%= @coder.decode('</li>') %>
               <br>
 
