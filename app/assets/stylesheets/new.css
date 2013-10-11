@@ -23,6 +23,14 @@ h1 {
   z-index: 0;
 }
 
+.title {
+  color:white;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  font-size: xx-large;
+  color: white; text-shadow: black 0.3em 0.3em 0.4em
+}
+
 .display1 {
   background: #a90329;
   background: -moz-radial-gradient(center, ellipse cover, #a90329 0%, #8f0222 44%, #6d0019 100%);
