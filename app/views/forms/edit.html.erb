@@ -46,7 +46,11 @@
 
         <%= render "partials/form_edit" %>
 
+        <div id="entry_input">
+
         <%= render "partials/entry_input" %>
+
+        </div>
 
 
       </ul>
@@ -73,15 +77,15 @@
           <% if @entries2.any? %>
             <% @entries2.each do |entry| %>
 
-
-
             <% @label = entry.as_json["label"] %>
             <li>
             <%= @label %>
-
+            <div class='id-entry' data-id='<%=entry.id%>'></div>
             <br>
             <% @instructions = entry.as_json["instructions"] %>
-            Instructions for <%= @label || "this entry" %>: <%= @instructions %>
+            Instructions for <%= @label || "this entry" %> :
+            <br>
+            <text><%= @instructions %></text>
             <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
             <br>

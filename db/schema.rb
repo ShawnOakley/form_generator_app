@@ -11,6 +11,75 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20131007170335) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "form_id",        :null => false
+    t.string   "input_tag_type", :null => false
+    t.string   "name"
+    t.string   "accept"
+    t.string   "align"
+    t.string   "alt"
+    t.string   "autocomplete"
+    t.string   "disabled"
+    t.string   "formaction"
+    t.string   "formenctype"
+    t.string   "formmethod"
+    t.string   "formnovalidate"
+    t.string   "formtarget"
+    t.string   "height"
+    t.string   "list"
+    t.string   "max"
+    t.string   "min"
+    t.string   "pattern"
+    t.string   "placeholder"
+    t.string   "randomly"
+    t.string   "required"
+    t.string   "size"
+    t.string   "src"
+    t.string   "step"
+    t.string   "width"
+    t.string   "label"
+    t.string   "klass"
+    t.string   "prompt"
+    t.string   "display_rows"
+    t.text     "collection"
+    t.string   "instructions"
+    t.text     "parsed_input"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "entries", ["form_id"], :name => "index_entries_on_form_id"
+
+  create_table "forms", :force => true do |t|
+    t.integer  "owner_id",          :null => false
+    t.string   "form_name",         :null => false
+    t.text     "description",       :null => false
+    t.string   "target_site",       :null => false
+    t.text     "header_text"
+    t.text     "closing_text"
+    t.text     "css_layout"
+    t.text     "css_color"
+    t.text     "css_support_files"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "forms", ["owner_id"], :name => "index_forms_on_owner_id"
+  add_index "forms", ["target_site"], :name => "index_forms_on_target_site"
+
+  create_table "users", :force => true do |t|
+    t.string   "username",      :null => false
+    t.string   "user_email",    :null => false
+    t.string   "session_token", :null => false
+    t.string   "password_hash", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "users", ["session_token"], :name => "index_users_on_session_token", :unique => true
+  add_index "users", ["user_email"], :name => "index_users_on_user_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

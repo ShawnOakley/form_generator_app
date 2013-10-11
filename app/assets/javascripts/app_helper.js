@@ -31,13 +31,22 @@ $(document).ready(function(){
     $(this).siblings().parent().siblings().find('.' + hidden_id).parent().removeClass('hidden');
   }));
 
-  $('.form-list').children().click(function(){
+  $('.form-list').children('li').click(function(){
     var $target = $(this);
     var $searchField = $(this).parent().children('li');
-    $(this).css('background', 'yellow');
-    console.log($( "script:last" ).last().text());
-    console.log($('.input-choice'));
-    console.log($('.input-choice:first').val());
+    var oldAttr = 'hidden'
+    console.log($target.attr('style') === 'border: 1px solid red;');
+    if ($target.attr('style') === 'border: 1px solid red;') {
+      $target.css('border', 'hidden');
+      // toggle rendering of new
+    } else {
+      $target.css('border', '1px solid red');
+      $target.siblings('li').css('border','hidden');
+      // toggle rendering of edit for id
+    };
+
+
+
 
   });
 
