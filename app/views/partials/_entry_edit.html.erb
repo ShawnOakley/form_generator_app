@@ -3,6 +3,8 @@
 
   <div class = "input_field">
 
+    <%= link_to "Return to editing your form", edit_form_url(@entry.form_id)%>
+
     <% if !flash[:parameter_error].nil? %>
       <div id="error">
         <p><%= flash[:parameter_error] %></p>
@@ -11,20 +13,19 @@
     <% end %>
 
 
-  <h3>Please edit the attributes for your entry</h2>
+  <h3>Please edit the attributes for your entry</h3>
 
     <form class="header_field" method='POST' action='/entries/<%=params[:id]%>'>
     <input type="hidden" name="_method" value="PUT">
 
       <label class='protected'>Name input:
-        <input type="text" name='field[name]'></input>
+        <input type="text" name='field[name]' value='<%=@entry.name%>'></input>
                 <br>
       </label>
 
 
-
       <label class='protected'>Label Input:
-        <input type="text" name='field[label]'></input>
+        <input type="text" name='field[label]' value='<%=@entry.label%>'></input>
         <br>
         <br>
       </label>
@@ -33,7 +34,7 @@
       <label>Please choose the type of input:
         <br>
 
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field" checked>Single Line Text</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field">Single Line Text</input>
 
         <input type="radio" class="select-button" name ='field[input_tag_type]' value="password_field">Password</input>
         <br>
@@ -91,7 +92,7 @@
 
     <div class= "text_area text_field date_select datetime_select">
       <label class= "text_area text_field date_select datetime_select">Predefined Value:
-      <input class= "text_area text_field date_select datetime_select" type="text" name='field[placeholder]'></input>
+      <input class= "text_area text_field date_select datetime_select" type="text" name='field[placeholder]' value='<%=@entry.placeholder%>'></input>
     <br>
     </label>
   </div>
@@ -99,13 +100,13 @@
 
 
       <label class= "protected">Type any instructions for the user in this box:
-      <textarea rows="2" cols="20" name='field[instructions]'></textarea>
+      <textarea rows="2" cols="20" name='field[instructions]'><%=@entry.instructions%></textarea>
     <br>
     </label>
 
 
       <label class="protected">Add CSS Layout Keywords:
-        <input id='CSSkeywords' type="text" name='field[klass]'></input>
+        <input id='CSSkeywords' type="text" name='field[klass]' value='<%=@entry.klass%>'></input>
         <br></label>
 
 
@@ -124,21 +125,17 @@
           <br>
           </label>
 
+          <%unless @entry.collection.nil?%>
+              <%= @entry.collection.each do |option| %>
+              <div>
 
-          <div>
-            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
-            <button class="delete-button" type='button'>Delete this choice</button>
-          </div>
-          <div>
-           <br>
-            <input type="text" class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
-            <button class="delete-button" type='button'>Delete this choice</button>
-          </div>
-          <div>
-           <br>
-            <input type='text' class="select_tag_multiple check_box_tag select_tag" name='field[collection][]'>
-            <button class='delete-button' type='button'>Delete this choice</button>
-          </div>
+              <%=generate_choice(option).html_safe%>
+
+              </div>
+
+              <%end%>
+            <%end%>
+
         </div>
 
         <br>

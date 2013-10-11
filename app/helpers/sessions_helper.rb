@@ -32,6 +32,13 @@ module SessionsHelper
 
   end
 
+  def generate_choice(value)
+
+    "<input type='text' class='select_tag_multiple check_box_tag select_tag' name='field[collection][]' value='#{value}'>
+      <button class='delete-button' type='button'>Delete this choice</button>"
+
+  end
+
   def generate_submit
 
     '<input type="submit" class="submit-button">
@@ -92,7 +99,7 @@ module SessionsHelper
 
     @display_rows = input_header[3][:options]["display_rows"].first.to_i
 
-    @break_count = @collection.size/@display_rows
+    @break_count = @collection.size/(@display_rows + 1)
 
 
     @collection.each_with_index do |item, index|

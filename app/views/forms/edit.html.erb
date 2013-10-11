@@ -73,6 +73,8 @@
           <% if @entries2.any? %>
             <% @entries2.each do |entry| %>
 
+
+
             <% @label = entry.as_json["label"] %>
             <li>
             <%= @label %>
@@ -93,13 +95,14 @@
             <% entry.update_attribute(:parsed_input, @parsed_input) %>
             <%= entry.parsed_input.html_safe %>
 
-            <%= button_to("Edit this form", edit_entry_url(entry.id),  method: "get", data: { confirm: 'Edit this entry?' }) %>
+         <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
-            <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Delete this entry?' }) %>
+
 
           </li>
 
             <br>
+
 
             <% end %>
 
@@ -109,12 +112,19 @@
 
         </ul>
         </div>
-         <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+
 
       </section>
 
     </div>
 
+    <% if @entries2.any? %>
+      <% @entries2.each do |entry| %>
+
+            <%= button_to("Edit entry #{entry.id}", "/entries/#{entry.id}/edit",  method: "get", data: { confirm: 'Edit entry?' }) %>
+
+        <%end%>
+    <%end%>
 
 
   <div class="footer">
