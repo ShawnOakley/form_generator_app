@@ -1,0 +1,291 @@
+body, ul, li, div, section, header, footer, table, td, th, tr, nav {
+  margin:0;
+  padding:0;
+  border:0;
+  font-family:sans-serif;
+}
+
+h1 {
+  text-font: comic;
+}
+
+.group:after {
+  content:"";
+  clear:both;
+  display:block;
+}
+
+.main {
+  width:auto;
+  height: auto;
+  background: url('/assets/sandpaper.png');
+  position:relative;
+  z-index: 0;
+}
+
+.title {
+  color:white;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  font-size: xx-large;
+  color: white; text-shadow: black 0.3em 0.3em 0.4em
+}
+
+.display1 {
+  background: #a90329;
+  background: -moz-radial-gradient(center, ellipse cover, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
+  background: -webkit-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+  background: -o-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+  background: radial-gradient(ellipse at center, #a90329 0%,#8f0222 44%,#6d0019 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
+  height:auto;
+  padding-bottom:20px;
+
+}
+
+.display2 {
+  background-color: clear;
+  height:auto;
+  padding-right:10px;
+  padding-left:10px;
+}
+
+.display3 {
+  background-color: #4FD5D6;
+  height:auto;
+}
+
+.content{
+  float:left;
+  text:white;
+}
+
+.content-title{
+  margin:0;
+  padding:10px;
+}
+
+.content-body{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    padding-bottom:10px;
+}
+
+.display4 {
+  background-color: #003399;
+  height:auto;
+}
+
+.padding-top {
+  padding-top: 10px;
+}
+
+.padding-sides {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.padding-bottom {
+  padding-bottom: 10px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-sides {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.shadow-test {
+box-shadow: 1px 1px 5px #000000;
+-moz-box-shadow: 1px 1px 5px #000000;
+-webkit-box-shadow: 1px 1px 5px #000000;
+}
+
+.session-buttons {
+  width:auto;
+  height:auto;
+  float: left;
+}
+
+.button-link{
+  text-decoration:none;
+  transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+  display: block;
+  color:white;
+}
+
+.nav-bar{
+  display: block;
+  background-color: clear;
+  clear:both;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.nav-button {
+  padding:10px;
+  display: block;
+  height:auto;
+  width:auto;
+  display: table-cell;
+  text-align: center;
+  color:white;
+  background-color: #003399;
+	-webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+  border-right:1px solid white;
+  border-left:1px solid white;
+  border-top:1px solid white;
+}
+
+.nav-button:hover{
+  background: #4FD5D6 ;
+  color: black;
+  box-shadow: 1px 1px 5px #000000;
+  -moz-box-shadow: 1px 1px 5px #000000;
+  -webkit-box-shadow: 1px 1px 5px #000000;
+}
+
+.login{
+  background-color: green;
+  color:  #99CCFF;
+  text-align: center;
+  border-radius:5px;
+  padding: 10px;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+.login:hover{
+  background: #006600;
+  color: white;
+  box-shadow: inset 1px 1px 5px #000000;
+  -moz-box-shadow: inset 1px 1px 5px #000000;
+  -webkit-box-shadow: inset 1px 1px 5px #000000;
+}
+
+.form-div {
+  float:right;
+  background-color: #D2691E;
+  border: 1px solid white;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+  text-align: center;
+  padding: 10px;
+  height: 160px;
+  color:white;
+  position: relative;
+}
+
+.formCreate-button {
+ 	-moz-box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	-webkit-box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	box-shadow:inset 1px 1px 0px -3px #f5978e;
+ 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+ 	background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+ 	background-color:#f24537;
+ 	-webkit-border-radius:28px;
+ 	-moz-border-radius:28px;
+ 	border-radius:28px;
+ 	border:1px solid #d02718;
+ 	display:inline-block;
+ 	color:#ffffff;
+ 	font-family:Comic Sans MS;
+ 	font-size:15px;
+ 	font-weight:bold;
+ 	font-style:normal;
+ 	height:45px;
+ 	line-height:45px;
+ 	width:121px;
+ 	text-decoration:none;
+ 	text-align:center;
+ 	text-shadow:1px 1px 0px #810e05;
+  position: absolute;
+  right:    15%;
+  bottom:   0;
+  margin-bottom: 10px;
+ }
+
+ .formCreate-button:hover {
+ 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+ 	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+ 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+ 	background-color:#c62d1f;
+ }
+
+.signup{
+  background-color: blue;
+}
+
+.signup:hover{
+  background: #003366;
+}
+
+
+
+.center-horizontal{
+  margin-left:auto;
+  margin-right:auto;
+  width: 70%;
+}
+
+.footer-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-left: 10%;
+  margin-right: 10%;
+  bottom:0;
+}
+
+.footer-list{
+ color:white;
+ display: table-cell;
+ text-align: center;
+ padding: 3px;
+}
+
+.footer-list li{
+	display:inline-block;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:17px;
+	font-weight:normal;
+	font-style:normal;
+	height:32px;
+	line-height:32px;
+	width:100px;
+	text-align:center;
+  float:left;
+}
+
+
+.footer-button:hover {
+	color:black;
+  cursor:pointer;
+  list-style-type:circle;
+}
+
+
+
+
