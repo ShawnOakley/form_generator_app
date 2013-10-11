@@ -91,13 +91,8 @@
             <br>
 
 
-            <% @parsed_input = form_gen(@form_hash).html_safe%>
 
-            <% @parsed_input.gsub!(/<form.*?>/, '')%>
-            <% @parsed_input.gsub!(/<\/form>/, '')%>
-
-            <% entry.update_attribute(:parsed_input, @parsed_input) %>
-            <%= entry.parsed_input.html_safe %>
+            <%= form_gen(@form_hash).html_safe%>
 
          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 

@@ -47,12 +47,8 @@
                 <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
                 <br>
-                <% @form_hash2 = @form_hash.dup %>
-                <% @parsed_input = form_gen(@form_hash).html_safe%>
 
-                <% @parsed_input.gsub!(/<form.*?>/, '') %>
-                <% @parsed_input.gsub!(/<\/form>/, '')%>
-                <%= @parsed_input.html_safe %>
+                <%= form_gen(@form_hash).html_safe%>
 
               <% end %>
 
@@ -70,9 +66,11 @@
 
               <% form.entries.each do |entry| %>
               <br>
-              <% @entry = entry.parsed_input.gsub(/<form.*?>/, '') %>
-              <%= @entry.gsub!(/<\/form>/, '')%>
-              <%= @entry %>
+              <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+
+              <br>
+              <% @coder = HTMLEntities.new %>
+              <%= @coder.decode(form_gen(@form_hash))%>
 
               <br>
               <% end %>
