@@ -8,8 +8,8 @@
 
       <% if current_user.guest %>
         <li><%= button_to "Become a member", new_user_url, method: :get  %></li>
-        <li><%= button_to "Logout", session_url, method: :delete %></li>
       <% end %>
+      <li><%= button_to "Logout", session_url, method: :delete %></li>
   <% else %>
     <%= button_to "Log In", new_session_url, method: :get  %>
     </ul>

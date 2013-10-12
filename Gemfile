@@ -26,6 +26,8 @@ gem 'better_errors'
 gem 'jquery-rails'
 
 gem 'htmlentities'
+gem 'sendgrid'
+gem 'actionmailer'
 
 
 gem 'bcrypt-ruby', :require => 'bcrypt'

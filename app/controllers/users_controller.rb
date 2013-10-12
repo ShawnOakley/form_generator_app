@@ -5,9 +5,13 @@ class UsersController < ApplicationController
     @user = params[:user] ? User.new(params[:user]) : User.new_guest
 
     if @user.save
-      self.current_user.move_to(@user) if current_user && current.user.guest
-      session[:user_id] = @user.id
-      redirect_to user_url(@user)
+        self.current_user.move_to(@user) if current_user && current.user.guest
+        unless @user.user_email.nil?
+          @email =  UserMailer.welcome_email(@user)
+          fail
+        end
+        session[:user_id] = @user.id
+        redirect_to user_url(@user)
     else
       flash[:error] = @user.errors.full_messages
       redirect_to new_session_url
