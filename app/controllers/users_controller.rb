@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, :except => [:create, :new]
 
+
   def create
     @user = params[:user] ? User.new(params[:user]) : User.new_guest
 
     if @user.save
         self.current_user.move_to(@user) if current_user && current.user.guest
-        unless @user.user_email.nil?
-          @email =  UserMailer.welcome_email(@user)
-          fail
-        end
+        UserMailer.welcome_email(@user).deliver
         session[:user_id] = @user.id
         redirect_to user_url(@user)
     else
