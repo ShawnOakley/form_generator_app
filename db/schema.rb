@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007170335) do
+ActiveRecord::Schema.define(:version => 20131012201013) do
 
   create_table "entries", :force => true do |t|
     t.integer  "form_id",        :null => false
@@ -72,12 +72,13 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
   add_index "forms", ["target_site"], :name => "index_forms_on_target_site"
 
   create_table "users", :force => true do |t|
-    t.string   "username",      :null => false
-    t.string   "user_email",    :null => false
-    t.string   "session_token", :null => false
-    t.string   "password_hash", :null => false
+    t.string   "username"
+    t.string   "user_email"
+    t.string   "session_token"
+    t.string   "password_hash"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "guest"
   end
 
   add_index "users", ["session_token"], :name => "index_users_on_session_token", :unique => true

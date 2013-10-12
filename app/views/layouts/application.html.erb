@@ -20,6 +20,7 @@
       <a class="button-link formCreate-button" href="/users/<%=current_user.id%>/forms/new">Click here!</a>
 
     </div>
+    <!-- test -->
 
     <div class='form-div newUser-div margin-right'>
       <h3>See Your Forms</h3>
@@ -43,12 +44,18 @@
       <h2>PseudooWufoo!<h2>
     </section>
 
-    <% if !current_user.nil? %>
+    <% if current_user %>
       <ul>
-        <li>Logged in as: <%= current_user.username %></li>
-        <li><%= button_to "Logout", session_url, :method => :delete %></li>
+        <li>Logged in as: <strong> <%= current_user.name %></strong></li>
+
+        <% if current_user.guest %>
+          <li><%= button_to "Become a member", new_user_url, method: :get  %></li>
+          <li><%= button_to "Logout", session_url, method: :delete %></li>
+        <% end %>
+    <% else %>
+      <%= link_to "Log In", new_session_url, method: :get  %>
       </ul>
-    <% end %>
+            <% end %>
 
     <% if !flash[:error].nil? %>
       <div id="error">

@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :user_email, :password
-  attr_reader :password
 
-  validates_uniqueness_of :user_email
-  validates_uniqueness_of :username
-  validates_presence_of :username, :user_email
-  validates :password_hash, :presence => { :message => "Password can't be blank" }
+  attr_reader :password
+  include ActiveModel::SecurePassword::InstanceMethodsOnActivation
+
+  validates_uniqueness_of :username, allow_nil: true
+  validates_presence_of :username, :user_email, :password_hash, unless: :guest?
   validates :password, :length => { :minimum => 6, :allow_nil => true }
 
   after_initialize :ensure_session_token
@@ -14,6 +14,18 @@ class User < ActiveRecord::Base
   :forms,
   foreign_key: :owner_id,
   primary_key: :id)
+
+  def self.new_guest
+    new { |u| u.guest = true }
+  end
+
+  def name
+    self.guest ? "Guest" : username
+  end
+
+  def move_to(user)
+    forms.update_all(user_id: user.id)
+  end
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

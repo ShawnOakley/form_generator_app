@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   before_filter :require_current_user!, :except => [:create, :new]
 
   def create
-    @user = User.new(params[:user])
+    @user = params[:user] ? User.new(params[:user]) : User.new_guest
 
     if @user.save
-      self.current_user = @user
+      self.current_user.move_to(@user) if current_user && current.user.guest
+      session[:user_id] = @user.id
       redirect_to user_url(@user)
     else
-      flash[:error] = "Username already taken."
+      flash[:error] = @user.errors.full_messages
       redirect_to new_session_url
     end
   end
