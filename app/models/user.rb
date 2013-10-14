@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :user_email, :password
 
+  attr_accessor :guest
+
   attr_reader :password
   include ActiveModel::SecurePassword::InstanceMethodsOnActivation
 
   validates_uniqueness_of :username, allow_nil: true
-  validates_presence_of :username, :user_email, :password_hash, unless: :guest?
+  validates_presence_of :username, :user_email, :password_hash, unless: :guest
   validates :password, :length => { :minimum => 6, :allow_nil => true }
 
   after_initialize :ensure_session_token
@@ -58,6 +60,5 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
-
 
 end

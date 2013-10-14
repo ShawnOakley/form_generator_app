@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'htmlentities'
 gem 'sendgrid'
 gem 'actionmailer'
+gem "letter_opener", :group => :development
 
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
