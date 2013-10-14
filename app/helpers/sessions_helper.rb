@@ -101,6 +101,16 @@ module SessionsHelper
 
   end
 
+  def strip_nested_form_tags(input_text)
+
+    # strips nested form tags so that individual entry components can be integrated into form
+
+    input_text.gsub!(/<form>/,"")
+    input_text.gsub!(/<\/form>/, "")
+
+
+  end
+
   def parse_checkboxes(input_header, options)
 
     #parse checkbox data and adds divs to group them together.  Calls send on form_for builder once parameters are in the correct format

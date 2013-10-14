@@ -18,10 +18,12 @@
 
             <br>
 
-            <%= form_gen(@form_hash).html_safe%>
+            <%= strip_nested_form_tags(form_gen(@form_hash)).html_safe%>
 
           </li>
 
           <% end %>
+
+          <%= @form.closing_text.html_safe %>
 
         </ul>

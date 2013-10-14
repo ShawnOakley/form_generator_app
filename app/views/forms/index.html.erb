@@ -61,11 +61,13 @@
 
                 <br>
 
-                <%= form_gen(@form_hash).html_safe%>
+                <%= strip_nested_form_tags(form_gen(@form_hash)).html_safe%>
 
               </li>
 
               <% end %>
+
+               <%= form.closing_text.html_safe %>
 
               <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
               <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
@@ -109,7 +111,7 @@
               <br>
               <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
               <%= @coder.decode('<label>') + entry.as_json["label"] %>
-              <%= @coder.decode(form_gen(@form_hash))%>
+              <%= @coder.decode(strip_nested_form_tags(form_gen(@form_hash)))%>
               <%= @coder.decode('</label>') %>
               <%= @coder.decode('</li>') %>
               <br>
