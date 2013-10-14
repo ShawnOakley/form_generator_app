@@ -33,12 +33,9 @@ class FormsController < ApplicationController
       end
   end
 
-
-
   def index
     render :layout => false
   end
-
 
   def update
 
@@ -54,9 +51,7 @@ class FormsController < ApplicationController
       params["header"][:layout_css] = params[:form][:layout_css]
     end
 
-
     @form = Form.find(params[:id])
-
 
     if @form.update_attributes(params["header"])
       redirect_to edit_form_url(params[:id])
@@ -65,5 +60,30 @@ class FormsController < ApplicationController
       redirect_to edit_form_url(params[:id])
     end
   end
+
+  # The following three methods makes calls to ActionMailer, creating the three types of emails users can generate for themselves.
+
+  def both_mail()
+    @form = Form.find(params[:form_id])
+    @user = User.find(@form.owner_id)
+    UserMailer.both_email(@user, @form).deliver
+    redirect_to new_user_form_url(current_user.id)
+  end
+
+  def rendered_mail()
+    @form = Form.find(params[:form_id])
+    @user = User.find(@form.owner_id)
+    UserMailer.rendered_email(@user, @form).deliver
+    redirect_to new_user_form_url(current_user.id)
+  end
+
+  def code_mail()
+    @form = Form.find(params[:form_id])
+    @user = User.find(@form.owner_id)
+    UserMailer.code_email(@user, @form).deliver
+    redirect_to new_user_form_url(current_user.id)
+  end
+
+
 
 end

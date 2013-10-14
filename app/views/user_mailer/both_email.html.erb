@@ -1,0 +1,79 @@
+
+<h2>The rendered form</h2>
+<h3><%=@form.form_name%></h3>
+
+      <ul>
+
+<% @coder = HTMLEntities.new %>
+
+        <%= generate_header(@form).html_safe%>
+
+        <br>
+          <% @form.entries.each do |entry| %>
+
+          <li>
+
+            <% @label = entry.as_json["label"] %>
+            <%= @label %>
+            <br>
+            Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"]  %>
+            <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+
+            <br>
+
+            <%= form_gen(@form_hash).html_safe%>
+
+          </li>
+
+          <% end %>
+
+        </ul>
+
+<h3>The code!</h3>
+  <div>
+
+  <section class='code-label'>
+      <br>
+  <%= @coder.decode(generate_header(@form))%>
+  <br>
+
+  <%= @coder.decode('<br>')%>
+
+
+  <%= @coder.decode('<br>')%>
+  <br>
+  </section>
+  <br>
+  <section class='code-label'>
+
+    <%= @coder.decode("<ul class='export-style-color-ul export-style-layout-ul'>") %>
+
+  <% @form.entries.each do |entry| %>
+
+  <br>
+
+  <% @instructions = entry.as_json["instructions"].dup%>
+
+  <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+
+  <br>
+
+  <%= @coder.decode("<text>" + @instructions + "</text>") %>
+  <%= @coder.decode("<br>")%>
+  <br>
+  <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
+  <%= @coder.decode('<label>') + entry.as_json["label"] %>
+  <%= @coder.decode(form_gen(@form_hash))%>
+  <%= @coder.decode('</label>') %>
+  <%= @coder.decode('</li>') %>
+  <br>
+
+  <% end %>
+
+  <%= @coder.decode('</ul>') %>
+  </section>
+  <br>
+  <section class='code-label'><br>
+  <%= @form.closing_text%>
+
+  </section>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
         self.current_user.move_to(@user) if current_user && current_user.guest
         UserMailer.welcome_email(@user).deliver
-        session[:user_id] = @user.id
+        session[:session_token] = @user.session_token
         redirect_to user_url(@user)
     else
       flash[:error] = @user.errors.full_messages

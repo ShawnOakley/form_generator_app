@@ -67,6 +67,8 @@
 
               <% end %>
 
+              <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+
             </ul>
 
             <br>
@@ -118,9 +120,13 @@
               <br>
               <section class='code-label'><br>
               <%= form.closing_text%>
+
+              <%= button_to("Email this code to yourself", form_code_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+              <%= button_to("Email both the form and code to yourself", form_both_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
               </section>
               </div>
               </div>
+
             </div>
 
           <% end %>
