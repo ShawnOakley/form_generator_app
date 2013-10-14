@@ -32,12 +32,9 @@ module SessionsHelper
 
   def generate_header(header)
 
-    " <head id='header' class='info class='export-style-color-header export-style-layout-header'>
-#{generate_style(header.color_css, header.layout_css)}
-</head>
-<h2>#{header.form_name}</h2>
-<div>#{header.description}</div>
-<form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'>"
+    # Generates standard header text for form
+
+    " <head id='header' class='info class='export-style-color-header export-style-layout-header'>#{generate_style(header.color_css, header.layout_css)}</head><h2>#{header.form_name}</h2><div>#{header.description}</div><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'>"
 
   end
 
@@ -48,19 +45,23 @@ module SessionsHelper
 
   def generate_choice(value)
 
-    "<input type='text' class='select_tag_multiple check_box_tag select_tag' name='field[collection][]' value='#{value}'>
-      <button class='delete-button' type='button'>Delete this choice</button>"
+    # Generates choice html for dynamic addition/deletion of choices
+
+"<input type='text' class='select_tag_multiple check_box_tag select_tag' name='field[collection][]' value='#{value}'><button class='delete-button' type='button'>Delete this choice</button>"
 
   end
 
   def generate_submit
 
-    '<input type="submit" class="submit-button">
-    </form>'
+    # Generates submit tag for insertion into form
+
+'<input type="submit" class="submit-button"></form>'
 
   end
 
   def collection_parse(input_header)
+
+    # Formats multiple-choice/select options
 
       @choices = input_header[3][:options]['collection'].flatten.reject { |val| val=="" || val==" "}
 
@@ -106,6 +107,7 @@ module SessionsHelper
     # strips nested form tags so that individual entry components can be integrated into form
 
     input_text.gsub!(/<form>/,"")
+    input_text.gsub!(/<form accept-charset="UTF-8" action="\/search" method="get">/, "")
     input_text.gsub!(/<\/form>/, "")
 
 
@@ -132,7 +134,6 @@ module SessionsHelper
       concat send(input_header[0], input_header[2], item, false, id:(item+'_'+item))
 
       concat "<br>".html_safe if ((index+1) % (@break_count+1)==0)
-
 
     end
 
@@ -220,21 +221,16 @@ module SessionsHelper
   def color_translate(color_identifier)
       case color_identifier
         when "color1"
-        ".export-style-color-li{
-          background-color: #49A8A8;
-        }
+        ".export-style-color-li{background-color: #49A8A8;}
 
-        .export-style-color-header{
-          background-color: #49A8A8;
-        }
+.export-style-color-header{background-color: #49A8A8;}
 
-        .export-style-color-ul{
-          background-color: #5772AF;
-          padding:10px;
-          border-radius:25px;
-          border: 2px solid black;
-        }
-        "
+.export-style-color-ul{
+background-color: #5772AF;
+padding:10px;
+border-radius:25px;
+border: 2px solid black;
+}"
       when "color2"
         ".export-style-color-li{
           background-color: #B4A381;

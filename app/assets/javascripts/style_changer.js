@@ -83,7 +83,7 @@ $(document).ready(function(){
       applyStyle($this, color, layout);
 
       break;
-    case "Color 6":
+    case "Clear Color":
 
       color = "color6";
 
@@ -120,7 +120,7 @@ $(document).ready(function(){
 
       break;
 
-    case "Layout 5":
+    case "Clear Format":
 
       layout = "style5";
 

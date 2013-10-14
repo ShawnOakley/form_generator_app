@@ -34,7 +34,7 @@
 
   <% @forms.each do |form| %>
 
-  <div class='display-row'>
+  <div class='display-row' id = '<%= form.id %>'>
 
   <div class='right-display-column'>
 
@@ -55,9 +55,10 @@
 
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
+
                 <br>
-                Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"]  %>
-                <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+                Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"] %>
+                <% @form_hash = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
                 <br>
 
@@ -69,10 +70,25 @@
 
                <%= form.closing_text.html_safe %>
 
-              <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
-              <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
+
+
+
+              <!-- The below section applies the chosen color and layout styling using DOM traversal. -->
+
+              <% color = form.color_css %>
+              <% layout = form.layout_css %>
+
+              <script>
+              var $context = $(this).parent().children();
+                console.log($context);
+                  colorIndex('<%= color %>', <%= form.id %>);
+                  layoutIndex('<%= layout %>', <%= form.id %>);
+              </script>
 
             </ul>
+
+            <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+            <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
 
             <br>
               </div>
@@ -110,7 +126,13 @@
               <%= @coder.decode("<br>")%>
               <br>
               <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
-              <%= @coder.decode('<label>') + entry.as_json["label"] %>
+
+
+
+              <%= @coder.decode('<label>') + (entry.as_json["label"] || "") %>
+
+
+
               <%= @coder.decode(strip_nested_form_tags(form_gen(@form_hash)))%>
               <%= @coder.decode('</label>') %>
               <%= @coder.decode('</li>') %>

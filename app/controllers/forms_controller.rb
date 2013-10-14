@@ -28,8 +28,8 @@ class FormsController < ApplicationController
     @form = Form.find(params[:id])
     @form.destroy
     respond_to do |format|
-        format.json {redirect_to "/users/#{current_user.id}/forms/new"}
-        format.html {redirect_to "/users/#{current_user.id}/forms/new"}
+        format.json {redirect_to user_forms_url(current_user.id)}
+        format.html {redirect_to user_forms_url(current_user.id)}
       end
   end
 
