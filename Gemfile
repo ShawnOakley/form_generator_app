@@ -26,8 +26,10 @@ gem 'better_errors'
 gem 'jquery-rails'
 
 gem 'htmlentities'
-gem 'sendgrid'
+
 gem 'actionmailer'
+gem 'sendgrid'
+
 gem "letter_opener", :group => :development
 
 

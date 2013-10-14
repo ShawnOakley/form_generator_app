@@ -1,0 +1,24 @@
+<h1> Test test test </h1>
+
+
+<form id='form' enctype='multipart/form-data' method='post' action='<%= form_targetted_mail_url(@form.id) %>'>
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label> Please input a space-delimited list of recipients below:
+    <textarea rows="4" cols="30" name=email_list></textarea>
+</label>
+<br>
+<label> Please enter a subject line (optional):
+  <textarea rows="4" cols="30" name=subject_line></textarea>
+</label>
+  <br>
+  <label> Please enter any additional text you'd like to display (optional):
+    <textarea rows="4" cols="30" name=additional_text></textarea>
+</label>
+
+
+<input type="submit" class="submit-button"> </form>

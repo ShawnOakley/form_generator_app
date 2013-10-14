@@ -7,6 +7,7 @@ function setStyleForSave(color, layout){
 
 function applyStyle(context, color, layout){
   $that = context;
+  console.log($that)
   if (typeof color === 'undefined') {
     color = "";
   };
@@ -20,7 +21,8 @@ function applyStyle(context, color, layout){
 
 
   $that.children().children().attr( "class",color);
-  $that.children().children('header:first').attr( "class", headerStyle );
+  $that.children('h2').attr( "class", headerStyle );
+  $that.children('.description').attr( "class", headerStyle );
   $that.children().children('ul:first').attr('class', ulStyle);
   $that.children().children('ul:first').children('li').attr( "class", liStyle);
 
@@ -30,7 +32,7 @@ function applyStyle(context, color, layout){
 $(document).ready(function(){
 
   $(".style_button_container").delegate('button', 'click', (function(){
-      console.log($(this));
+
     }));
 
   $('.choice-collection').delegate('.delete-button', 'click', (function(){
@@ -44,6 +46,7 @@ $(document).ready(function(){
     var css_type = $(this).text();
 
     $this = $(this).parent().parent().parent().children('div:last')
+    console.log($this)
 
     switch(css_type)
     {

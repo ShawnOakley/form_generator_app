@@ -67,21 +67,50 @@ class FormsController < ApplicationController
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.both_email(@user, @form).deliver
-    redirect_to new_user_form_url(current_user.id)
+    redirect_to user_forms_url(current_user.id)
   end
 
   def rendered_mail()
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.rendered_email(@user, @form).deliver
-    redirect_to new_user_form_url(current_user.id)
+    redirect_to user_forms_url(current_user.id)
   end
 
   def code_mail()
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.code_email(@user, @form).deliver
-    redirect_to new_user_form_url(current_user.id)
+    redirect_to user_forms_url(current_user.id)
+  end
+
+
+  #The following two methods assist in creating targetted mass mailings.  The first redirects to the input page.  The second takes the user's input and creates the mass mailing.
+
+  def email_input
+    @form = Form.find(params[:form_id])
+  end
+
+  # Uses a regex to check for valid email addresses.  Returns an error message if any of the addresses are invalid and notifies user of invalid addresses.  Otherwise parses the text and sends to all listed users.
+
+  def targetted_mail()
+    @additional_info = [params[:subject_line], params[:additional_text]]
+    @email_array = params[:email_list].split(' ')
+    @valid_emails = @email_array.select{|string| string =~ /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/}
+    @invalid_emails = @email_array.reject{|string| string =~ /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/}
+
+    if @email_array.size > @valid_emails.size
+      flash[:error] = "The following email addresses are invalid:" + @invalid_emails.to_s
+      redirect_to form_email_input_url(params[:form_id])
+    elsif @email_array.size == 0
+      flash[:error] = "Please enter email recipients."
+      redirect_to form_email_input_url(params[:form_id])
+    else
+      @form = Form.find(params[:form_id])
+      @user = User.find(@form.owner_id)
+      UserMailer.targetted_email(@user, @form, @email_array, @additional_info).deliver
+      redirect_to user_forms_url(current_user.id)
+    end
   end
 
 

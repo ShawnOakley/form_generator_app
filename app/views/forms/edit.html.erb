@@ -30,13 +30,9 @@
     </nav>
   </div>
 
-
-
   <div class="display1 group">
 
-
     <%= render "layouts/navbar" %>
-
 
     <section class='input_field_container'>
       display1
@@ -50,11 +46,8 @@
 
         </div>
 
-
       </ul>
     </section>
-
-
 
       <section class= 'display_field_container'>
 
@@ -69,7 +62,6 @@
           <% @entries1 = Entry.find_all_by_form_id(params[:id]) %>
           <% @entries2 = Entry.find_all_by_form_id(params[:id]) %>
           <script class='stored_entries' type="application/json"> <%=html_to_input_params(@entries1[0]) %></script>
-
 
           <% if @entries2.any? %>
             <% @entries2.each do |entry| %>
@@ -87,13 +79,9 @@
 
             <br>
 
-
-
             <%= form_gen(@form_hash).html_safe%>
 
          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
-
-
 
           </li>
 
@@ -109,7 +97,6 @@
         </ul>
         </div>
 
-
       </section>
 
     </div>
@@ -121,7 +108,6 @@
 
         <%end%>
     <%end%>
-
 
   <div class="footer">
     <div class="logo"></div>

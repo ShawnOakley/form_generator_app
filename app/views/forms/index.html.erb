@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>FormApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
   <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css">
@@ -68,6 +68,7 @@
               <% end %>
 
               <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+              <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
 
             </ul>
 
