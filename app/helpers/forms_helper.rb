@@ -42,7 +42,7 @@ module FormsHelper
 
     # Generates standard header text for form
 
-    " <head id='header' class='info class='export-style-color-header export-style-layout-header'>#{generate_style(header.color_css, header.layout_css)}</head><h2>#{header.form_name}</h2><div>#{header.description}</div><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='post' novalidate action='#{header.target_site}'>"
+    " <head id='header' class='info class='export-style-color-header export-style-layout-header'>#{generate_style(header.color_css, header.layout_css)}</head><h2>#{header.form_name}</h2><div>#{header.description}</div><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='#{header.form_method}' novalidate action='#{header.target_site}'>"
 
   end
 
@@ -131,17 +131,11 @@ module FormsHelper
 
     @collection = input_header[3][:options]["collection"][0]
 
-    @display_rows = input_header[3][:options]["display_rows"].first.to_i
-
-    @break_count = @collection.size/(@display_rows + 1)
-
 
     @collection.each_with_index do |item, index|
 
       concat send(:label, item, item.to_s)
       concat send(input_header[0], input_header[2], item, false, id:(item+'_'+item))
-
-      concat "<br>".html_safe if ((index+1) % (@break_count+1)==0)
 
     end
 

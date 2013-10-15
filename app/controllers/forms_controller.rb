@@ -39,16 +39,18 @@ class FormsController < ApplicationController
 
   def update
 
-    unless params[:form][:color_css].nil?
-      params["header"] = {}
-      params["header"][:color_css] = params[:form][:color_css]
-    end
-
-    unless params[:form][:layout_css].nil?
-      if params["header"].nil?
+    unless params[:form].nil?
+      unless params[:form][:color_css].nil?
         params["header"] = {}
+        params["header"][:color_css] = params[:form][:color_css]
       end
-      params["header"][:layout_css] = params[:form][:layout_css]
+
+      unless params[:form][:layout_css].nil?
+        if params["header"].nil?
+          params["header"] = {}
+        end
+        params["header"][:layout_css] = params[:form][:layout_css]
+      end
     end
 
     @form = Form.find(params[:id])

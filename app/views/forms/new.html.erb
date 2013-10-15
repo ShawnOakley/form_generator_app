@@ -46,7 +46,6 @@
                type="hidden"
                value="<%= form_authenticity_token %>">
 
-
             <label>Form Name: <input
             type="text" name='header[form_name]'></input></label>
               <br>
@@ -64,9 +63,10 @@
             type="text" name='header[target_site]'></input></label>
 
             <br>
-              <label>Integrate Captcha? <input type="checkbox"
-              name="header[captcha]" value="true"></label>
-
+            <label>Please choose your form's method:
+            <input type='radio' name="header[form_method]" value="POST" checked>Post</input>
+            <input type='radio' name="header[form_method]" value="GET">Get</input>
+            </label>
               <br>
                     <input type="submit" class="submit-button" value="Create a new form header">
 
@@ -80,7 +80,7 @@
 
       <section class= 'display_field_container'>
         <div class='display_field'>
-        FORM DOES NOT EXIST
+        You need to make the header first.  Please enter the header attributes.
         </div>
 
       </section>

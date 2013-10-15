@@ -12,10 +12,8 @@
 }
 
 .right-display-column{
-
   float:left;
   clear:left;
-
   height:100%;
   width: 400px;
   margin-left:10px;
@@ -30,6 +28,7 @@
     padding-left:10px;
     word-wrap:break-word;
     overflow:auto;
+    height:100%;
   }
 
 

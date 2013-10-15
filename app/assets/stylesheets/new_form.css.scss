@@ -154,11 +154,14 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 .edit-delete-buttons{
-  position:absolute;
+  vertical-align: top;
+  height: 250px;
+  display: table-cell;
 }
 
-.edit-delete-buttons{
-  position:absolute;
+.edit-delete-buttons-wrapper{
+  position: absolute;
+  right: 50%;
 }
 
 .display_field{
@@ -184,7 +187,6 @@ box-shadow: 1px 1px 5px #000000;
     display:block;
 }
 
-
 .style_button_container nav button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee) );
 	background:-moz-linear-gradient( center top, #468ccf 5%, #63b8ee 100% );
@@ -192,11 +194,13 @@ box-shadow: 1px 1px 5px #000000;
 	background-color:#468ccf;
 }
 
-.hidden {
-  visibility:collapse;
-  display:none;
+#entry-input {
+
 }
 
+.hidden {
+  display:none;
+}
 
 /*STYLE 1*/
 
@@ -215,7 +219,6 @@ box-shadow: 1px 1px 5px #000000;
   border-radius: 25px;
 }
 
-
 .layout1-li {
   list-style:none;
   padding:10px;
@@ -223,6 +226,7 @@ box-shadow: 1px 1px 5px #000000;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
+  cursor:pointer;
 }
 
 .layout1-li:first {
@@ -233,7 +237,6 @@ box-shadow: 1px 1px 5px #000000;
   border-radius: 0 0 25px 25px;
   border-bottom: 2px solid black;
 }
-
 
 /*STYLE 2*/
 
@@ -263,7 +266,6 @@ box-shadow: 1px 1px 5px #000000;
 
 }
 
-
 .layout2-li {
   list-style:none;
   padding:10px;
@@ -272,6 +274,7 @@ box-shadow: 1px 1px 5px #000000;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
+  cursor:pointer;
 }
 
 .layout2-li:first {
@@ -283,8 +286,6 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 /*STYLE 3*/
-
-
 
 .layout3-header {
   font-family: 'Allan', Helvetica, Arial, sans-serif;
@@ -308,18 +309,15 @@ box-shadow: 1px 1px 5px #000000;
 
 }
 
-
 .layout3-li {
   list-style:none;
   padding:10px;
   border-bottom: 2px solid black;
   font-family: 'Cardo', Georgia, Times, serif;
+  cursor:pointer;
 }
 
-
 /*STYLE 4*/
-
-
 
 .layout4-header {
   font-family: 'Molengo', Georgia, Times, serif;;
@@ -352,6 +350,7 @@ box-shadow: 1px 1px 5px #000000;
   border-top: 2px solid black;
   border-right: 2px solid black;
   border-left: 2px solid black;
+  cursor:pointer;
 }
 
 
@@ -382,6 +381,7 @@ box-shadow: 1px 1px 5px #000000;
   border:0;
   font-family:sans-serif;
   display:inline-block;
+  cursor:pointer;
 }
 
 /*COLOR 1*/

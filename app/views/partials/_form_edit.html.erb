@@ -21,10 +21,14 @@
       type="text" name='header[target_site]' value = '<%=@form.target_site%>'></input></label>
 
       <br>
-      Integrate Captcha? <input type="checkbox"
-      name="header[captcha]" value="true">
+      <label>Please choose your form's method:
+      <input type='radio' name="header[form_method]" value="POST" checked>Post</input>
+      <input type='radio' name="header[form_method]" value="GET">Get</input>
+      </label>
       <br>
-            <input type="submit" class="submit-button" value="Edit this form's header">
+            <input type="submit" class="submit-button" value="Save edits to the form's header">
+            </form>
+            <button class="new-entry-show-button">Add a new entry</button>
 
-    </form>
+
 </li>

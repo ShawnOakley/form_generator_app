@@ -5,11 +5,9 @@ class CreateForms < ActiveRecord::Migration
       t.string :form_name, null: false
       t.text :description, null: false
       t.string :target_site, null: false
+      t.string :form_method, null:false
       t.text :header_text
       t.text :closing_text
-      t.text :css_layout
-      t.text :css_color
-      t.text :css_support_files
       t.text :color_css
       t.text :layout_css
 
