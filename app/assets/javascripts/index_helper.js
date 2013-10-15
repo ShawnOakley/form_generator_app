@@ -100,7 +100,6 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li').css('border-left', '2px solid black');
     $this.children('li').css('border-right', '2px solid black');
     $this.children('li:last').css('border-bottom', '2px solid black');
-
     $this.children('li').css('font-family', 'Goudy Bookletter 1911, Georgia, Times, serif');
 
     break;
@@ -166,7 +165,6 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
     $this.children('li').css('border-bottom', '2px solid black');
-    $this.children('li').css('content', '""');
     $this.children('li').css('font-family', "'Cardo', Georgia, Times, serif");
 
     break;
@@ -178,11 +176,10 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li').css('border-top','2px solid black');
     $this.children('li').css('border-right','2px solid black');
     $this.children('li').css('border-left','2px solid black');
-    $this.children('li').css('font-family','#"Lekton", Helvetica, Arial, sans-serif');
+    $this.children('li').css('font-family','"Lekton", Helvetica, Arial, sans-serif');
 
     $this.parent().css('border', '2px solid black');
     $this.parent().css('border-radius', '10px');
-    $this.parent().css('height', '100%');
     $this.parent().css('padding', '0 5px');
     $this.parent().css('padding-bottom', 'auto');
     $this.parent().css('padding-top', 'auto');
@@ -192,11 +189,9 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('padding', '5%');
     $this.siblings('h2').css('border', '2px solid black');
     $this.siblings('h2').css('text-decoration', 'underline');
-    $this.siblings('h2').css('float', 'right');
+    $this.siblings('h2').css('float', 'left');
     $this.siblings('h2').css('clear', 'both');
     $this.siblings('h2').css('margin-top', '10px');
-    $this.siblings('h2').css('text-decoration', 'underline');
-    $this.siblings('h2').css('float', 'right');
     $this.siblings('h2').css('vertical-align', 'bottom');
 
     break;

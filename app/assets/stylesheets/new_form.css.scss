@@ -121,15 +121,6 @@ box-shadow: 1px 1px 5px #000000;
     padding:3px;
 }
 
-.style_button_container{
-
-
-}
-
-.style_button_container nav{
-
-}
-
 .style_button_container nav button{
   -moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
   	-webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
@@ -156,6 +147,18 @@ box-shadow: 1px 1px 5px #000000;
   	text-align:center;
   	text-shadow:1px 1px 0px #7cacde;
     cursor: pointer;
+}
+
+.entry-li {
+  position:relative;
+}
+
+.edit-delete-buttons{
+  position:absolute;
+}
+
+.edit-delete-buttons{
+  position:absolute;
 }
 
 .display_field{
@@ -207,7 +210,7 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 .layout1-ul {
-  padding:15px;
+  padding:15px 0;
   border: 2px solid black;
   border-radius: 25px;
 }
@@ -216,40 +219,67 @@ box-shadow: 1px 1px 5px #000000;
 .layout1-li {
   list-style:none;
   padding:10px;
-  border-radius: 25px 25px 0 0;
   font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
+
+.layout1-li:first {
+  border-radius: 25px 25px 0 0;
+}
+
+.layout1-li:last {
+  border-radius: 0 0 25px 25px;
+  border-bottom: 2px solid black;
+}
+
 
 /*STYLE 2*/
 
 .layout2-header {
-
   font-family: 'Allerta', Helvetica, Arial, sans-serif;
   padding-bottom: 20px;
   padding-top:10px;
-  border: 1px solid black;
+  border: 2px solid black;
   position:relative;
   width:30%;
   height:auto;
   border-radius: 10px 10px;
   text-align:center;
+  float:right;
+  width:30%;
+  height:auto;
 }
 
 .layout2-ul {
   padding: 10px;
   border: 2px solid black;
-  border-radius: 25px;
+  border-radius: 10px 10px;
   width:auto;
+  display:table;
+  content:"";
+  clear:both;
+
 }
 
 
 .layout2-li {
   list-style:none;
   padding:10px;
-  border-bottom: 2px solid black;
   font-family: 'Crimson Text', Georgia, Times, serif;
   width:92%;
-  float:left;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.layout2-li:first {
+  border-radius: 25px 25px 0 0;
+}
+
+.layout2-li:last {
+  border-radius: 0 0 25px 25px;
 }
 
 /*STYLE 3*/
@@ -259,24 +289,22 @@ box-shadow: 1px 1px 5px #000000;
 .layout3-header {
   font-family: 'Allan', Helvetica, Arial, sans-serif;
   border-radius: 25px;
-  padding: 5px 0;
+  padding: 5px;
   border: 2px solid black;
   text-decoration: underline;
   width:30%;
-  padding:5px;
   margin-top:10px;
-  padding-bottom:auto;
-
+  float:right;
 }
 
 .layout3-ul {
   border: 2px solid black;
-  border-radius: 25px;
-  height:100%;
+  border-radius: 10px 10px;
   width:55%;
   padding: 0 5px;
-  padding-bottom:auto;
-  padding-top:auto;
+  display:table;
+  content: "";
+  clear:both;
 
 }
 
@@ -286,7 +314,6 @@ box-shadow: 1px 1px 5px #000000;
   padding:10px;
   border-bottom: 2px solid black;
   font-family: 'Cardo', Georgia, Times, serif;
-
 }
 
 
@@ -297,28 +324,24 @@ box-shadow: 1px 1px 5px #000000;
 .layout4-header {
   font-family: 'Molengo', Georgia, Times, serif;;
   border-radius: 25px;
-  padding: 5px 0;
+  padding: 5%;
+  height: 100%;
   border: 2px solid black;
   text-decoration: underline;
   float:right;
   clear:both;
-  width:30%;
-  height:380px;
-  clear:left;
-  padding:5px;
   margin-top:10px;
-  padding-bottom:auto;
+  vertical-align: bottom;
+  float:left;
 }
 
 .layout4-ul {
-
-  border-radius: 25px;
-  height:100%;
+  border: 2px solid black;
+  border-radius: 10px;
   width:55%;
   padding: 0 5px;
   padding-bottom:auto;
   padding-top:auto;
-  border: 2px solid black;
 }
 
 
@@ -326,11 +349,11 @@ box-shadow: 1px 1px 5px #000000;
   list-style:none;
   padding:10px;
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 }
 
-.layout4-li:first {
-  border-top: 2px solid black;
-}
 
 /*STYLE 5*/
 

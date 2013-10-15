@@ -42,7 +42,7 @@
 
         <div id="entry_input">
 
-        <%= render "partials/entry_input" %>
+          <%= render "partials/entry_input" %>
 
         </div>
 
@@ -61,32 +61,23 @@
           <%= generate_header(@form).html_safe%>
           <br>
           <ul class = 'form-list'>
-          <% @entries1 = Entry.find_all_by_form_id(params[:id]) %>
-          <% @entries2 = Entry.find_all_by_form_id(params[:id]) %>
-          <script class='stored_entries' type="application/json"> <%=html_to_input_params(@entries1[0]) %></script>
-
-          <% if @entries2.any? %>
-            <% @entries2.each do |entry| %>
+          <% @entries = Entry.find_all_by_form_id(params[:id]) %>
+          <% if @entries.any? %>
+            <% @entries.each do |entry| %>
+            <li class="entry-li">
               <% @label = entry.as_json["label"] %>
-              <li>
-                <%= @label %>
-                <div class='id-entry' data-id='<%=entry.id%>'></div>
-                <br>
-                <% @instructions = entry.as_json["instructions"] %>
-            Instructions for <%= @label || "this entry" %> :
-              <br>
+              <%= @label %>
+              <% @instructions = entry.as_json["instructions"] %>
+              Instructions for <%= @label || "this entry" %> :
               <text><%= @instructions %></text>
               <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+              <%= form_gen(@form_hash).html_safe%>
 
-            <br>
-
-            <%= form_gen(@form_hash).html_safe%>
-
-         <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
-
-          </li>
-
-            <br>
+            <div class="edit-delete-buttons">
+            <%= button_to("Edit entry #{entry.id}", "/entries/#{entry.id}/edit",  method: "get") %>
+       <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+             </div>
+             </li>
 
             <% end %>
 
@@ -103,12 +94,6 @@
       </section>
 
     </div>
-
-    <% if @entries2.any? %>
-      <% @entries2.each do |entry| %>
-            <%= button_to("Edit entry #{entry.id}", "/entries/#{entry.id}/edit",  method: "get", data: { confirm: 'Edit entry?' }) %>
-        <%end%>
-    <%end%>
 
   <div class="footer">
     <div class="logo"></div>

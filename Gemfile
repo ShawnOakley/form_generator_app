@@ -22,6 +22,7 @@ end
 
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'backbone-on-rails'
 
 gem 'jquery-rails'
 
