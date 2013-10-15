@@ -55,7 +55,7 @@
               <% layout = form.layout_css %>
 
               <script>
-                var $context = $('#<%=@form.id%>.display-row');
+                var $context = $('#'+<%=form.id%>+'.display-field').children().children('ul').children('form:first');
                 var color = '<%= color %>';
                 var layout = '<%= layout %>';
                 var form_id = '<%= form.id %>';

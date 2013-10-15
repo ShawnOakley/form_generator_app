@@ -1,6 +1,7 @@
 function colorIndex(color_choice, form_id){
 
-  $this = $('#'+form_id+'.display-field').children('first').children('ul').children('form:first');
+  $this = $('#'+form_id+'.display-field').children().children('ul').children('form:first');
+
   switch(color_choice)
   {
   case "Color 1":

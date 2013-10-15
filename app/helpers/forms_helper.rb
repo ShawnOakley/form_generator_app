@@ -16,7 +16,7 @@ module FormsHelper
 
       @html_string += @label.html_safe
       @html_string += "<br>".html_safe
-      @html_string += ("Instructions for" + (@label || "this entry") + ":" + entry.as_json["instructions"] + "<br>").html_safe
+      @html_string += ("Instructions for " + (@label || "this entry") + ": " + entry.as_json["instructions"] + "<br>").html_safe
         @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" }
 
       @html_string += (strip_nested_form_tags(form_gen(@form_hash)) + "</li>").html_safe
@@ -31,7 +31,7 @@ module FormsHelper
 
   def direct_tag_conversion(value_hash_array)
     '<' + value_hash_array.map{|k, v| "#{k} = '#{v}'"}.join(' ') + '>'
-    #NOTE, chain additional forms on the end for other tags (e.g., styling, buttons)
+    #NOTE, chain additional forms on the end for other tags (e.g., styling, buttons).  Currently not used, but could be useful as a helper method.
   end
 
   def generate_style(color_identifier, layout_identifier)
