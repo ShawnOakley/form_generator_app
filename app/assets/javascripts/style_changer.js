@@ -20,7 +20,7 @@ function applyStyle(context, color, layout){
 
   var headerStyle = layoutString.concat('-header ').concat(colorString).concat(' group');
   console.log(headerStyle)
-  var ulStyle = layoutString.concat('-ul').concat(colorString).concat('group');
+  var ulStyle = layoutString.concat('-ul ').concat(colorString).concat('group');
   var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
 
 

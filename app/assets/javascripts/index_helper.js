@@ -76,10 +76,10 @@ function colorIndex(color_choice, form_id){
 
 function layoutIndex(layout_choice, form_id){
 
-  $this = $('#'+form_id+'.display-row').children('div:first').children('ul').children('form:first');
+  $this = $('#'+form_id+'.display-row').children().children('ul').children('form:first');
   switch(layout_choice)
   {
-  case "Style 1":
+  case "Layout 1":
 
     $this.siblings('h2').css('text-align', 'center');
     $this.siblings('h2').css('font-family', 'Raleway, Helvetica, Arial, sans-serif');
@@ -105,7 +105,7 @@ function layoutIndex(layout_choice, form_id){
 
     break;
 
-  case "Style 2":
+  case "Layout 2":
 
     $this.siblings('h2').css('text-align', 'center');
     $this.siblings('h2').css('font-family', 'Allerta, Helvetica, Arial, sans-seriff');
@@ -143,7 +143,7 @@ function layoutIndex(layout_choice, form_id){
 
     break;
 
-  case "Style 3":
+  case "Layout 3":
 
     $this.siblings('h2').css('text-decoration', 'underline');
     $this.siblings('h2').css('font-family', "'Allan', Helvetica, Arial, sans-serif");
@@ -152,7 +152,6 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('border', '2px solid black');
     $this.siblings('h2').css('float', 'right');
     $this.siblings('h2').css('width', '30%');
-    $this.siblings('h2').css('height', '380px');
     $this.siblings('h2').css('margin-top', '10px');
 
 
@@ -160,7 +159,6 @@ function layoutIndex(layout_choice, form_id){
     $this.parent().css('border-radius', '10px 10px');
     $this.parent().css('padding', '0 5px');
     $this.parent().css('width', '55%');
-    $this.parent().css('height', '100%');
     $this.parent().css('display', 'table');
     $this.parent().css('content', '""');
     $this.parent().css('clear', 'both');
@@ -173,7 +171,7 @@ function layoutIndex(layout_choice, form_id){
 
     break;
 
-  case "Style 4":
+  case "Layout 4":
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
@@ -203,7 +201,7 @@ function layoutIndex(layout_choice, form_id){
 
     break;
 
-  case "Style 5":
+  case "Layout 5":
     $this.siblings('h2').css('margin', '0');
     $this.siblings('h2').css('padding', '0');
     $this.siblings('h2').css('border', '0');

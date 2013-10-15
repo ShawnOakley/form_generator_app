@@ -49,24 +49,27 @@
           <ul>
 
             <%= generate_form(form).html_safe %>
-              <!-- The below section applies the chosen color and layout styling using DOM traversal. -->
+
+              <!-- The below section applies the chosen color and layout styling using DOM traversal.  This is necessary because, since the forms are nested inside a single html document (with its own 'head') any css stylings within a form's head would not be rendered.  Although not ideal, by giving each table row an id associated with the form, I can insert the individual stylings as needed.  A more permanent solution would be to associate the ids with each specific portion of the form that needs to be styled. -->
 
               <% color = form.color_css %>
               <% layout = form.layout_css %>
 
               <script>
-                var $context = $('#'+<%=form.id%>+'.display-field').children().children('ul').children('form:first');
+                var $context = $('#'+<%=form.id%>+'.display-field').children().children('ul').children('form:first').children('li');
                 var color = '<%= color %>';
                 var layout = '<%= layout %>';
                 var form_id = '<%= form.id %>';
                 console.log($context)
+                console.log(color)
+                console.log(layout)
                 if (color === null){
-                  colorIndex('color6', form_id)
+                  colorIndex('Color 6', form_id)
                 } else {
                   colorIndex(color, form_id);
                 };
                 if (layout === null) {
-                  layoutIndex('layout5', form_id)
+                  layoutIndex('Layout 5', form_id)
                 } else {
                   layoutIndex(layout, form_id);
                 };

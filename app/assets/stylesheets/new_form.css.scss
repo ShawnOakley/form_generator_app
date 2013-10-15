@@ -207,16 +207,16 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 .layout1-ul {
-  padding-top: 15px 0;
+  padding:15px;
   border: 2px solid black;
-  border-radius: 10px 10px;
+  border-radius: 25px;
 }
 
 
 .layout1-li {
   list-style:none;
   padding:10px;
-  border-bottom: 2px solid black;
+  border-radius: 25px 25px 0 0;
   font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
 }
 
@@ -238,7 +238,7 @@ box-shadow: 1px 1px 5px #000000;
 .layout2-ul {
   padding: 10px;
   border: 2px solid black;
-  border-radius: 10px 10px;
+  border-radius: 25px;
   width:auto;
 }
 
@@ -271,7 +271,7 @@ box-shadow: 1px 1px 5px #000000;
 
 .layout3-ul {
   border: 2px solid black;
-  border-radius: 10px 10px;
+  border-radius: 25px;
   height:100%;
   width:55%;
   padding: 0 5px;
@@ -311,22 +311,25 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 .layout4-ul {
-  border: 2px solid black;
-  border-radius: 10px 10px;
 
+  border-radius: 25px;
   height:100%;
   width:55%;
   padding: 0 5px;
   padding-bottom:auto;
   padding-top:auto;
+  border: 2px solid black;
 }
 
 
 .layout4-li {
   list-style:none;
   padding:10px;
-  border-bottom: 2px solid black;
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
+}
+
+.layout4-li:first {
+  border-top: 2px solid black;
 }
 
 /*STYLE 5*/
