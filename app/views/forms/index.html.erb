@@ -26,7 +26,7 @@
     <%= render "layouts/navbar" %>
 
   <% @forms = Form.find_all_by_owner_id(current_user.id)%>
-<div class='display_field group'>
+
 
   <h2>User's Forms</h2>
 
@@ -34,55 +34,42 @@
 
   <% @forms.each do |form| %>
 
-  <div class='display-row' id = '<%= form.id %>'>
+<table class='display_field group'>
 
-  <div class='right-display-column'>
+  <tr class='display-field display-row' id = '<%= form.id %>'>
+
+  <td class='right-display-column'>
 
        <%= link_to "Edit This Form",  edit_form_path(form.id), :class => "button" %>
        <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
-    <h2>The rendered form</h2>
-    <h3><%=form.form_name%></h3>
+            <h2>The rendered form</h2>
+            <h3><%=form.form_name%></h3>
 
           <ul>
 
-            <%= generate_header(form).html_safe%>
-
-            <br>
-              <% form.entries.each do |entry| %>
-
-              <li>
-
-                <% @label = entry.as_json["label"] %>
-                <%= @label %>
-
-                <br>
-                Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"] %>
-                <% @form_hash = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
-
-                <br>
-
-                <%= strip_nested_form_tags(form_gen(@form_hash)).html_safe%>
-
-              </li>
-
-              <% end %>
-
-               <%= form.closing_text.html_safe %>
-
-
-
-
+            <%= generate_form(form).html_safe %>
               <!-- The below section applies the chosen color and layout styling using DOM traversal. -->
 
               <% color = form.color_css %>
               <% layout = form.layout_css %>
 
               <script>
-              var $context = $(this).parent().children();
-                console.log($context);
-                  colorIndex('<%= color %>', <%= form.id %>);
-                  layoutIndex('<%= layout %>', <%= form.id %>);
+                var $context = $('#<%=@form.id%>.display-row');
+                var color = '<%= color %>';
+                var layout = '<%= layout %>';
+                var form_id = '<%= form.id %>';
+                console.log($context)
+                if (color === null){
+                  colorIndex('color6', form_id)
+                } else {
+                  colorIndex(color, form_id);
+                };
+                if (layout === null) {
+                  layoutIndex('layout5', form_id)
+                } else {
+                  layoutIndex(layout, form_id);
+                };
               </script>
 
             </ul>
@@ -90,73 +77,28 @@
             <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
             <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
 
-            <br>
-              </div>
-            <div class='left-display-column'>
+
+              </td>
+            <td class='left-display-column'>
             <h2>The code!</h2>
               <div>
 
               <section class='code-label'>
-                  <br>
-              <%= @coder.decode(generate_header(form))%>
-              <br>
 
-              <%= @coder.decode('<br>')%>
+              <%= generate_form(form) %>
 
-
-              <%= @coder.decode('<br>')%>
-              <br>
-              </section>
-              <br>
-              <section class='code-label'>
-
-                <%= @coder.decode("<ul class='export-style-color-ul export-style-layout-ul'>") %>
-
-              <% form.entries.each do |entry| %>
-
-              <br>
-
-              <% @instructions = entry.as_json["instructions"].dup%>
-
-              <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
-
-              <br>
-
-              <%= @coder.decode("<text>" + @instructions + "</text>") %>
-              <%= @coder.decode("<br>")%>
-              <br>
-              <%= @coder.decode("<li class='export-style-color-li export-style-layout-li'>") %>
-
-
-
-              <%= @coder.decode('<label>') + (entry.as_json["label"] || "") %>
-
-
-
-              <%= @coder.decode(strip_nested_form_tags(form_gen(@form_hash)))%>
-              <%= @coder.decode('</label>') %>
-              <%= @coder.decode('</li>') %>
-              <br>
-
-              <% end %>
-
-              <%= @coder.decode('</ul>') %>
               </section>
               <br>
               <section class='code-label'><br>
-              <%= form.closing_text%>
 
               <%= button_to("Email this code to yourself", form_code_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
               <%= button_to("Email both the form and code to yourself", form_both_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
               </section>
               </div>
-              </div>
-
-            </div>
-
+              </td>
           <% end %>
-
-        </div>
+          </tr>
+        </table>
 
 </section>
 

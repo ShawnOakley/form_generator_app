@@ -29,6 +29,8 @@ gem 'htmlentities'
 
 gem 'actionmailer'
 gem 'sendgrid'
+gem "actionmailer_inline_css", "~> 1.5.3"
+gem 'premailer'
 
 gem "letter_opener", :group => :development
 

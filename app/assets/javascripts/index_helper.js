@@ -1,9 +1,10 @@
 function colorIndex(color_choice, form_id){
 
-  $this = $('#'+form_id+'.display-row').children('div:first').children('ul').children('form:first');
+  $this = $('#'+form_id+'.display-field').children('first').children('ul').children('form:first');
   switch(color_choice)
   {
-  case "color1":
+  case "Color 1":
+
     $this.children('li').css('background-color','#49A8A8');
 
     $this.parent().css('background-color', '#5772AF');
@@ -14,7 +15,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#49A8A8');
 
     break;
-  case "color2":
+  case "Color 2":
     $this.children('li').css('background-color','#B4A381');
 
     $this.parent().css('background-color', '#694242');
@@ -25,7 +26,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#B4A381');
 
     break;
-  case "color3":
+  case "Color 3":
     $this.children('li').css('background-color','#9D74A1');
 
     $this.parent().css('background-color', '#5C3946');
@@ -36,7 +37,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#9D74A1');
 
     break;
-  case "color4":
+  case "Color 4":
     $this.children('li').css('background-color','#E8C5B1');
 
     $this.parent().css('background-color', '#5E8B7F');
@@ -46,10 +47,10 @@ function colorIndex(color_choice, form_id){
 
     $this.siblings('h2').css('background-color', '#E8C5B1');
     break;
-  case "color5":
+  case "Color 5":
     $this.children('li').css('background-color','#FFFEFE');
 
-    $this.parent().css('background-color', '#000000');
+    $this.parent().css('background-color', 'silver');
     $this.parent().css('padding', '10px');
     $this.parent().css('border-radius', '25px');
     $this.parent().css('border', '2px solid black');
@@ -57,7 +58,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#FFFEFE');
 
     break;
-  case "color6":
+  case "Color 6":
     $this.children('li').css('background-color','white');
 
     $this.parent().css('background-color', 'white');
@@ -77,7 +78,7 @@ function layoutIndex(layout_choice, form_id){
   $this = $('#'+form_id+'.display-row').children('div:first').children('ul').children('form:first');
   switch(layout_choice)
   {
-  case "style1":
+  case "Style 1":
 
     $this.siblings('h2').css('text-align', 'center');
     $this.siblings('h2').css('font-family', 'Raleway, Helvetica, Arial, sans-serif');
@@ -103,7 +104,7 @@ function layoutIndex(layout_choice, form_id){
 
     break;
 
-  case "style2":
+  case "Style 2":
 
     $this.siblings('h2').css('text-align', 'center');
     $this.siblings('h2').css('font-family', 'Allerta, Helvetica, Arial, sans-seriff');
@@ -140,7 +141,8 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li:last').css('border-radius', '0 0 25px 25px');
 
     break;
-  case "style3":
+
+  case "Style 3":
 
     $this.siblings('h2').css('text-decoration', 'underline');
     $this.siblings('h2').css('font-family', "'Allan', Helvetica, Arial, sans-serif");
@@ -169,7 +171,8 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li').css('font-family', "'Cardo', Georgia, Times, serif");
 
     break;
-  case "style4":
+
+  case "Style 4":
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
@@ -198,7 +201,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('vertical-align', 'bottom');
 
     break;
-  case "style5":
+
+  case "Style 5":
     $this.siblings('h2').css('margin', '0');
     $this.siblings('h2').css('padding', '0');
     $this.siblings('h2').css('border', '0');

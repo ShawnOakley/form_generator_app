@@ -197,7 +197,7 @@ box-shadow: 1px 1px 5px #000000;
 
 /*STYLE 1*/
 
-.style1-header {
+.layout1-header {
   text-align: center;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   text-decoration: underline;
@@ -206,14 +206,14 @@ box-shadow: 1px 1px 5px #000000;
   border: 2px solid black;
 }
 
-.style1-ul {
+.layout1-ul {
   padding-top: 15px 0;
   border: 2px solid black;
   border-radius: 10px 10px;
 }
 
 
-.style1-li {
+.layout1-li {
   list-style:none;
   padding:10px;
   border-bottom: 2px solid black;
@@ -222,7 +222,7 @@ box-shadow: 1px 1px 5px #000000;
 
 /*STYLE 2*/
 
-.style2-header {
+.layout2-header {
 
   font-family: 'Allerta', Helvetica, Arial, sans-serif;
   padding-bottom: 20px;
@@ -235,7 +235,7 @@ box-shadow: 1px 1px 5px #000000;
   text-align:center;
 }
 
-.style2-ul {
+.layout2-ul {
   padding: 10px;
   border: 2px solid black;
   border-radius: 10px 10px;
@@ -243,7 +243,7 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 
-.style2-li {
+.layout2-li {
   list-style:none;
   padding:10px;
   border-bottom: 2px solid black;
@@ -256,7 +256,7 @@ box-shadow: 1px 1px 5px #000000;
 
 
 
-.style3-header {
+.layout3-header {
   font-family: 'Allan', Helvetica, Arial, sans-serif;
   border-radius: 25px;
   padding: 5px 0;
@@ -269,7 +269,7 @@ box-shadow: 1px 1px 5px #000000;
 
 }
 
-.style3-ul {
+.layout3-ul {
   border: 2px solid black;
   border-radius: 10px 10px;
   height:100%;
@@ -281,7 +281,7 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 
-.style3-li {
+.layout3-li {
   list-style:none;
   padding:10px;
   border-bottom: 2px solid black;
@@ -294,7 +294,7 @@ box-shadow: 1px 1px 5px #000000;
 
 
 
-.style4-header {
+.layout4-header {
   font-family: 'Molengo', Georgia, Times, serif;;
   border-radius: 25px;
   padding: 5px 0;
@@ -310,7 +310,7 @@ box-shadow: 1px 1px 5px #000000;
   padding-bottom:auto;
 }
 
-.style4-ul {
+.layout4-ul {
   border: 2px solid black;
   border-radius: 10px 10px;
 
@@ -322,7 +322,7 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 
-.style4-li {
+.layout4-li {
   list-style:none;
   padding:10px;
   border-bottom: 2px solid black;
@@ -332,7 +332,7 @@ box-shadow: 1px 1px 5px #000000;
 /*STYLE 5*/
 
 
-.style5-header {
+.layout5-header {
   margin:0;
   padding:0;
   border:0;
@@ -341,7 +341,7 @@ box-shadow: 1px 1px 5px #000000;
 
 }
 
-.style5-ul {
+.layout5-ul {
   margin:0;
   padding:10px;
   border:0;
@@ -350,7 +350,7 @@ box-shadow: 1px 1px 5px #000000;
 }
 
 
-.style5-li {
+.layout5-li {
   margin:0;
   padding:0;
   border:0;

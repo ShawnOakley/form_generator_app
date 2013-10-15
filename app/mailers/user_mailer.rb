@@ -1,6 +1,8 @@
 class UserMailer < ActionMailer::Base
   default from: "shawn@example.com"
   add_template_helper(SessionsHelper)
+  add_template_helper(FormsHelper)
+  add_template_helper(StyleHelper)
   include SendGrid
 
   def welcome_email(user)

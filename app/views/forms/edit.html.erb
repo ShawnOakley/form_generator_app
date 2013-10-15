@@ -53,10 +53,12 @@
 
           <%= render "partials/format_buttons.html.erb"%>
 
+          <% @form = Form.find(params[:id])%>
 
-        <div class='display_field'>
+        <div class='display-row' id = '<%= @form.id %>'>
 
-          <%= generate_header(Form.find(params[:id])).html_safe%>
+
+          <%= generate_header(@form).html_safe%>
           <br>
           <ul class = 'form-list'>
           <% @entries1 = Entry.find_all_by_form_id(params[:id]) %>
@@ -65,28 +67,26 @@
 
           <% if @entries2.any? %>
             <% @entries2.each do |entry| %>
-
-            <% @label = entry.as_json["label"] %>
-            <li>
-            <%= @label %>
-            <div class='id-entry' data-id='<%=entry.id%>'></div>
-            <br>
-            <% @instructions = entry.as_json["instructions"] %>
+              <% @label = entry.as_json["label"] %>
+              <li>
+                <%= @label %>
+                <div class='id-entry' data-id='<%=entry.id%>'></div>
+                <br>
+                <% @instructions = entry.as_json["instructions"] %>
             Instructions for <%= @label || "this entry" %> :
-            <br>
-            <text><%= @instructions %></text>
-            <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
+              <br>
+              <text><%= @instructions %></text>
+              <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
             <br>
 
             <%= form_gen(@form_hash).html_safe%>
 
-         <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+         <%= button_to("Delete this entry", entry_url(entry.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
 
           </li>
 
             <br>
-
 
             <% end %>
 
@@ -94,18 +94,19 @@
 
           <%=raw(generate_submit)%>
 
+          <% color = @form.color_css %>
+          <% layout = @form.layout_css %>
+
         </ul>
         </div>
-
+          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
       </section>
 
     </div>
 
     <% if @entries2.any? %>
       <% @entries2.each do |entry| %>
-
             <%= button_to("Edit entry #{entry.id}", "/entries/#{entry.id}/edit",  method: "get", data: { confirm: 'Edit entry?' }) %>
-
         <%end%>
     <%end%>
 
@@ -119,6 +120,24 @@
   </div>
 
 </section>
+
+<script>
+$('document').ready(function(){
+  setTimeout(function(){
+    var $context = $('#<%=@form.id%>.display-row');
+    var color = '<%= color %>';
+    if (color === ""){
+      color = "Color 6";
+    };
+    var layout = '<%= layout %>';
+    if (layout === ""){
+      layout = "Layout 5";
+    };
+    var form_id = '<%= @form.id %>';
+    applyStyle($context, color, layout);
+  }, 10);
+});
+</script>
 
 
 

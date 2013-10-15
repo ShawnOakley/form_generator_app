@@ -7,17 +7,21 @@ function setStyleForSave(color, layout){
 
 function applyStyle(context, color, layout){
   $that = context;
-  console.log($that)
+
   if (typeof color === 'undefined') {
     color = "";
   };
 
-  var backgroundColor = color.concat('-background');
+  var colorString = color.replace(' ', '').toLowerCase();
+  var layoutString = layout.replace(' ', '').toLowerCase();
+
+  var backgroundColor = colorString.concat('-background');
   $that.attr( "class", backgroundColor );
 
-  var headerStyle = layout.concat('-header ').concat(color).concat(' group');
-  var ulStyle = layout.concat('-ul ').concat(color).concat(' group');
-  var liStyle = layout.concat('-li ').concat(color).concat(' group');
+  var headerStyle = layoutString.concat('-header ').concat(colorString).concat(' group');
+  console.log(headerStyle)
+  var ulStyle = layoutString.concat('-ul').concat(colorString).concat('group');
+  var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
 
 
   $that.children().children().attr( "class",color);
@@ -31,10 +35,6 @@ function applyStyle(context, color, layout){
 
 $(document).ready(function(){
 
-  $(".style_button_container").delegate('button', 'click', (function(){
-
-    }));
-
   $('.choice-collection').delegate('.delete-button', 'click', (function(){
     $(this).parent().remove();
   }));
@@ -46,31 +46,31 @@ $(document).ready(function(){
     var css_type = $(this).text();
 
     $this = $(this).parent().parent().parent().children('div:last')
-    console.log($this)
+    console.log($this);
 
     switch(css_type)
     {
     case "Color 1":
 
-      color = "color1";
+      color = "Color 1";
 
       applyStyle($this, color, layout);
 
       break;
     case "Color 2":
-      color = "color2";
+      color = "Color 2";
 
       applyStyle($this, color, layout);
 
       break;
     case "Color 3":
-      color = "color3";
+      color = "Color 3";
 
       applyStyle($this, color, layout);
 
       break;
     case "Color 4":
-      color = "color4";
+      color = "Color 4";
 
       applyStyle($this, color, layout);
 
@@ -78,14 +78,14 @@ $(document).ready(function(){
 
     case "Color 5":
 
-      color = "color5";
+      color = "Color 5";
 
       applyStyle($this, color, layout);
 
       break;
     case "Clear Color":
 
-      color = "color6";
+      color = "Color 6";
 
       applyStyle($this, color, layout);
 
@@ -93,28 +93,28 @@ $(document).ready(function(){
 
     case "Layout 1":
 
-      layout = "style1";
+      layout = "Layout 1";
 
       applyStyle($this, color, layout);
       break;
 
     case "Layout 2":
 
-      layout = "style2";
+      layout = "Layout 2";
 
       applyStyle($this, color, layout);
 
       break;
     case "Layout 3":
 
-      layout = "style3";
+      layout = "Layout 3";
 
       applyStyle($this, color, layout);
 
       break;
     case "Layout 4":
 
-      layout = "style4";
+      layout = "Layout 4";
 
       applyStyle($this, color, layout);
 
@@ -122,7 +122,7 @@ $(document).ready(function(){
 
     case "Clear Format":
 
-      layout = "style5";
+      layout = "Layout 5";
 
       applyStyle($this, color, layout);
 
