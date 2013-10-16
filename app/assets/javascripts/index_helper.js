@@ -153,7 +153,6 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('width', '30%');
     $this.siblings('h2').css('margin-top', '10px');
 
-
     $this.parent().css('border', '2px solid black');
     $this.parent().css('border-radius', '10px 10px');
     $this.parent().css('padding', '0 5px');

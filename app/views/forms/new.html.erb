@@ -10,19 +10,6 @@
 </head>
 
 
-<section class="main group">
-  <div class="navdiv">
-    <div class="logo"></div>
-    <nav>
-    </nav>
-  </div>
-
-
-
-  <div class="display1 group">
-
-
-     <%= render "layouts/navbar" %>
 
     <% if !flash[:error].nil? %>
       <div id="error">
@@ -31,7 +18,7 @@
       </div>
     <% end %>
 
-
+    <div class='display_field_container'>
     <section class='input_field_container'>
       display1
       <ul>
@@ -84,18 +71,7 @@
         </div>
 
       </section>
-
     </div>
-
-
-  <div class="footer">
-    <div class="logo"></div>
-    <nav>
-    </nav>
-    </div>
-  </div>
-
-</section>
 
 
 

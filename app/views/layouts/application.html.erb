@@ -6,11 +6,13 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
+
 </head>
 
 <section class="main group">
 
-  <section class='group display1 center-horizontal padding-top padding-sides shadow-test'>
+  <section class='group display1 center-horizontal shadow-test'>
 
 
     <% if !current_user.nil? %>
@@ -30,32 +32,26 @@
 
     <% end %>
 
-
-    <% if current_user.nil? %>
-    <div class='form-div newUser-div margin-right'>
-      <h3>Create a new user!</h3>
-      <a class="button-link formCreate-button" href="/users/new">Click here!</a>
-
-    </div>
-
-      <% end %>
-
     <section class="title">
       <h2>PseudooWufoo!<h2>
     </section>
 
+
     <% if current_user %>
       <ul>
-        <li>Logged in as: <strong> <%= current_user.name %></strong></li>
+        <li>Logged in as: <strong><%= current_user.name %></strong></li>
 
         <% if current_user.guest %>
           <li><%= button_to "Become a member", new_user_url, method: :get  %></li>
-        <% end %>
         <li><%= button_to "Logout", session_url, method: :delete %></li>
     <% else %>
-      <li><%= link_to "Log In", new_session_url, method: :get  %></li>
+      <%= button_to "Log In", new_session_url, method: :get  %>
       </ul>
-            <% end %>
+   <% end %>
+
+      <% end %>
+
+
 
     <% if !flash[:error].nil? %>
       <div id="error">

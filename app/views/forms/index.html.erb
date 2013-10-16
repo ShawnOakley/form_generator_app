@@ -20,11 +20,6 @@
 </head>
 
 
-
-<section class="display1 group">
-
-    <%= render "layouts/navbar" %>
-
   <% @forms = Form.find_all_by_owner_id(current_user.id)%>
 
 
@@ -34,7 +29,7 @@
 
   <% @forms.each do |form| %>
 
-<table class='display_field group'>
+<table class='code-display-container group'>
 
   <tr class='display-field display-row' id = '<%= form.id %>'>
 

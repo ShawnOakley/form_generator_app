@@ -22,25 +22,13 @@
 
 </head>
 
-
-<section class="main group">
-  <div class="navdiv">
-    <div class="logo"></div>
-    <nav>
-    </nav>
-  </div>
-
-  <div class="display1 group">
-
-    <%= render "layouts/navbar" %>
-
+<div class='display2'>
     <section class='input_field_container'>
-      display1
       <ul>
 
         <%= render "partials/form_edit" %>
 
-        <div class= "hidden" id="entry-input">
+        <div id="entry-input">
 
           <%= render "partials/entry_input" %>
 
@@ -87,25 +75,12 @@
           <% color = @form.color_css %>
           <% layout = @form.layout_css %>
 
-
-
         </ul>
         </div>
           <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
       </section>
-
     </div>
 
-  <div class="footer">
-    <div class="logo"></div>
-    <nav>
-      <li></li>
-      <li></li>
-    </nav>
-    </div>
-  </div>
-
-</section>
 
 <script>
 $('document').ready(function(){

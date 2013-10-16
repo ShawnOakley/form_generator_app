@@ -1,7 +1,7 @@
 class FormsController < ApplicationController
 
   def new
-    render :layout => false
+
   end
 
   def create
@@ -21,7 +21,7 @@ class FormsController < ApplicationController
   end
 
   def edit
-    render :layout => false
+
   end
 
   def destroy
@@ -34,7 +34,6 @@ class FormsController < ApplicationController
   end
 
   def index
-    render :layout => false
   end
 
   def update
