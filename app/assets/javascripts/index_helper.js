@@ -62,7 +62,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#FFFEFE');
 
     break;
-  case "Color 6":
+  case "Clear Color":
     $this.children('li').css('background-color','white');
 
     $this.parent().css('background-color', 'white');

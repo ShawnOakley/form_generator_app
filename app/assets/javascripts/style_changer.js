@@ -17,17 +17,11 @@ function applyStyle(context, color, layout){
 
   var backgroundColor = colorString.concat('-background');
 
-  console.log($that);
   $that.attr( "class", backgroundColor );
 
   var headerStyle = layoutString.concat('-header ').concat(colorString).concat(' group');
   var ulStyle = layoutString.concat('-ul ').concat(colorString).concat(' group');
   var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
-
-  console.log(ulStyle)
-  console.log(headerStyle)
-  console.log(liStyle)
-  console.log($that.find('h2'))
 
   $that.children().children().attr( "class",color);
   $that.find('h2').attr( "class", headerStyle );

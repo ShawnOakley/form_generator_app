@@ -25,7 +25,7 @@ $(document).ready(function(){
       $target.css('border', 'hidden');
       // toggle rendering of new
     } else {
-      console.log($target);
+
       $target.css('border', '1px solid red');
       $target.siblings('li').css('border','hidden');
     $target.nextAll('.button_to').first().children().children().click();

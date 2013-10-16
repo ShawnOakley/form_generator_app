@@ -15,6 +15,7 @@ module StyleHelper
         border-radius:25px;
         border: 2px solid black;
         }"
+
       when "Color 2"
         ".export-style-color-li{
           background-color: #B4A381;
@@ -29,6 +30,7 @@ module StyleHelper
           padding:10px;
           border-radius:25px;
           border: 2px solid black;
+          height:100%
         }
         "
       when "Color 3"
@@ -53,8 +55,8 @@ module StyleHelper
         }
 
         .export-style-color-header{
-                background-color: #E8C5B1;
-              }
+          background-color: #E8C5B1;
+        }
 
         .export-style-color-ul{
           background-color: #5E8B7F;
@@ -63,7 +65,7 @@ module StyleHelper
           border: 2px solid black;
         }
         "
-      when "Color 6"
+      when "Color 5"
         ".export-style-color-li{
           background-color: #FFFEFE;
         }
@@ -79,13 +81,13 @@ module StyleHelper
           border: 2px solid black;
         }
         "
-      when "Color 7"
+      when "Clear Color"
         ".export-style-color-li{
           background-color: #FFF9F9;
         }
 
         .export-style-color-header{
-                background-color: #FFF9F9;
+          background-color: #FFF9F9;
         }
 
         .export-style-color-ul{
@@ -151,6 +153,7 @@ module StyleHelper
         border: 2px solid black;
         border-radius: 10px 10px;
         width:auto;
+        height:auto
         content:"";
         display:table;
         clear:both;
@@ -163,7 +166,6 @@ module StyleHelper
         border-bottom: 2px solid black;
         font-family: 'Crimson Text', Georgia, Times, serif;
         width:auto;
-        float:left;
         content:"";
         display:table;
         clear:both;
@@ -222,6 +224,9 @@ module StyleHelper
         padding: 0 5px;
         padding-bottom:auto;
         padding-top:auto;
+        content:"";
+        display:table;
+        clear:both;
       }
 
 
@@ -233,9 +238,12 @@ module StyleHelper
         border-right: 2px solid black;
         border-left: 2px solid black;
         cursor:pointer;
+        content:"";
+        display:table;
+        clear:both;
       }"
 
-    when "Layout 5"
+    when "Clear Layout"
 
       ".export-style-layout-header {
         font-family: 'Allerta', Helvetica, Arial, sans-serif;

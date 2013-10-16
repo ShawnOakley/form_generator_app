@@ -38,6 +38,7 @@ module FormsHelper
   # Chains additional forms on the end for other tags (e.g., styling, buttons).  Currently not used, but could be useful as a helper method.
 
   def direct_tag_conversion(value_hash_array)
+
     '<' + value_hash_array.map{|k, v| "#{k} = '#{v}'"}.join(' ') + '>'
 
   end

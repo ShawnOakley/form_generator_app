@@ -48,7 +48,7 @@
              </li>
              <div class='edit-delete-buttons-wrapper'>
                <div class="edit-delete-buttons">
-                 <%= button_to("Delete #{entry.label}", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }, class: 'styled_display_field_container_button', id: 'delete_button') %>
+                 <%= button_to("Delete #{entry.label}", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }, class: 'styled_display_field_container_button delete-button', id: "#{entry.id}") %>
                 </div>
               </div>
               <%= button_to("Edit", "/entries/#{entry.id}/edit",  method: "get", class: 'hidden') %>

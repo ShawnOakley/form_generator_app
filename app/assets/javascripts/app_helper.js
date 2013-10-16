@@ -25,6 +25,45 @@ $(document).ready(function(){
 
   $(document).find(".select-button").first().click();
 
+  // AJAX CALL TO SAVE CURRENT FORMATTING
+
+  $('.layout-commit').on("submit", function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var url = window.location.pathname;
+    var regex = /\/.\//;
+    var id = regex.exec(url)[0].replace(/\//g,'').toString();
+    var formData =$(this).serialize();
+    $.ajax({
+      url: ('/forms/'+id),
+      type: 'POST',
+      data: formData,
+      success:function(){
+
+      },
+      error: function() {
+        alert('Failure');
+      }
+    });
+  });
+
+  $('.delete-button').click(function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var id = $(this).attr('id').toString();
+    console.log(id)
+    $.ajax({
+      url: ('/entries/'+id),
+      type: 'DELETE',
+      success:function(){
+        alert('Deleted');
+      },
+      error: function() {
+        alert('Failure');
+      }
+    });
+  });
+
 });
 
 
