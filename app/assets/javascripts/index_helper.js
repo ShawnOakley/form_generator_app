@@ -27,6 +27,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#B4A381');
 
     break;
+
   case "Color 3":
     $this.children('li').css('background-color','#9D74A1');
 
@@ -38,6 +39,7 @@ function colorIndex(color_choice, form_id){
     $this.siblings('h2').css('background-color', '#9D74A1');
 
     break;
+
   case "Color 4":
     $this.children('li').css('background-color','#E8C5B1');
 
@@ -48,6 +50,7 @@ function colorIndex(color_choice, form_id){
 
     $this.siblings('h2').css('background-color', '#E8C5B1');
     break;
+
   case "Color 5":
     $this.children('li').css('background-color','#FFFEFE');
 
@@ -94,12 +97,9 @@ function layoutIndex(layout_choice, form_id){
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
-    $this.children('li:first').css('border-radius', '25px 25px 0 0');
-    $this.children('li:last').css('border-radius', '0 0 25px 25px');
     $this.children('li').css('border-top','2px solid black');
     $this.children('li').css('border-left', '2px solid black');
     $this.children('li').css('border-right', '2px solid black');
-    $this.children('li:last').css('border-bottom', '2px solid black');
     $this.children('li').css('font-family', 'Goudy Bookletter 1911, Georgia, Times, serif');
 
     break;
@@ -130,15 +130,12 @@ function layoutIndex(layout_choice, form_id){
     $this.children('li').css('border-bottom','2px solid black');
     $this.children('li').css('font-family', '"Crimson Text", Georgia, Times, serif');
     $this.children('li').css('width','92%');
-    $this.children('li').css('float','left');
     $this.children('li').css('display', 'table');
     $this.children('li').css('content', '""');
     $this.children('li').css('clear', 'both');
     $this.children('li').css('border-top','2px solid black');
     $this.children('li').css('border-left', '2px solid black');
     $this.children('li').css('border-right', '2px solid black');
-    $this.children('li:first').css('border-radius', '25px 25px 0 0');
-    $this.children('li:last').css('border-radius', '0 0 25px 25px');
 
     break;
 
@@ -170,19 +167,6 @@ function layoutIndex(layout_choice, form_id){
 
   case "Layout 4":
 
-    $this.children('li').css('list-style','none');
-    $this.children('li').css('padding','10px');
-    $this.children('li').css('border-top','2px solid black');
-    $this.children('li').css('border-right','2px solid black');
-    $this.children('li').css('border-left','2px solid black');
-    $this.children('li').css('font-family','"Lekton", Helvetica, Arial, sans-serif');
-
-    $this.parent().css('border', '2px solid black');
-    $this.parent().css('border-radius', '10px');
-    $this.parent().css('padding', '0 5px');
-    $this.parent().css('padding-bottom', 'auto');
-    $this.parent().css('padding-top', 'auto');
-
     $this.siblings('h2').css('font-family', '"Molengo", Georgia, Times, serif');
     $this.siblings('h2').css('border-radius', '25px');
     $this.siblings('h2').css('padding', '5%');
@@ -192,6 +176,19 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('clear', 'both');
     $this.siblings('h2').css('margin-top', '10px');
     $this.siblings('h2').css('vertical-align', 'bottom');
+
+    $this.parent().css('border', '2px solid black');
+    $this.parent().css('border-radius', '10px');
+    $this.parent().css('padding', '0 5px');
+    $this.parent().css('padding-bottom', 'auto');
+    $this.parent().css('padding-top', 'auto');
+
+    $this.children('li').css('list-style','none');
+    $this.children('li').css('padding','10px');
+    $this.children('li').css('border-top','2px solid black');
+    $this.children('li').css('border-right','2px solid black');
+    $this.children('li').css('border-left','2px solid black');
+    $this.children('li').css('font-family','"Lekton", Helvetica, Arial, sans-serif');
 
     break;
 
@@ -211,7 +208,7 @@ function layoutIndex(layout_choice, form_id){
     $this.parent().css('margin', '0');
     $this.parent().css('border', '0');
     $this.parent().css('font-family', 'sans-serif');
-    $this.parent().css('padding', '10px');
+    $this.parent().css('padding', '0');
     $this.parent().css('display', 'inline-block');
 
     break;
@@ -219,9 +216,5 @@ function layoutIndex(layout_choice, form_id){
     // execute code block 1
     break;
   }
-
-
-
-
 
 }

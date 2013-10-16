@@ -32,8 +32,10 @@
           <br>
           <ul class = 'form-list'>
           <% @entries = Entry.find_all_by_form_id(params[:id]) %>
+
           <% if @entries.any? %>
             <% @entries.each do |entry| %>
+
             <li class="entry-li">
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
@@ -46,7 +48,7 @@
              </li>
              <div class='edit-delete-buttons-wrapper'>
                <div class="edit-delete-buttons">
-                 <%= button_to("Delete", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }) %>
+                 <%= button_to("Delete #{entry.label}", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }, class: 'styled_display_field_container_button', id: 'delete_button') %>
                 </div>
               </div>
               <%= button_to("Edit", "/entries/#{entry.id}/edit",  method: "get", class: 'hidden') %>
@@ -60,7 +62,7 @@
 
         </ul>
       </div>
-          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }, class: 'styled_display_field_container_button') %>
     </section>
   </div>
 
