@@ -202,7 +202,7 @@ module StyleHelper
         font-family: 'Cardo', Georgia, Times, serif;
       }"
 
-    when "layout 4"
+    when "Layout 4"
 
       ".export-style-layout-header {
         font-family: 'Molengo', Georgia, Times, serif;;

@@ -55,21 +55,27 @@ module FormsHelper
 
     @color = color_translate(header.color_css);
     @color_hash = {}
-    @color_styles = @color.split('.export-').reject{ |c| c.empty? }.map{ |c| c.gsub(/-color-/, '-')}.map{|c| c.gsub(/\s{2,}|}/, "")}.map{|c| c.split("{")}.flatten.zip.each_slice(2).to_a.each do |key, value|
+    @color_styles = @color.split('.export-').reject{ |c| c.empty? }.map{ |c| c.gsub(/-color-/, '-')}.map{|c| c.gsub(/\s{2,}|}/, "")}.map{|c| c.gsub(';;', ';')}.map{|c| c.split("{")}.flatten.zip.each_slice(2).to_a.each do |key, value|
     @color_hash[key[0].strip] = value[0]
   end
 
     @layout = layout_translate(header.layout_css);
     @layout_hash = {}
-    @layout_styles = @layout.split('.export-').reject{ |c| c.empty? }.map{ |c| c.gsub(/-layout-/, '-')}.map{|c| c.gsub(/\s{2,}|}/, "")}.map{|c| c.split("{")}.flatten.zip.each_slice(2).to_a.each do |key, value|
+    @layout_styles = @layout.split('.export-').reject{ |c| c.empty? }.map{ |c| c.gsub(/-layout-/, '-')}.map{|c| c.gsub(/\s{2,}|}/, "")}.map{|c| c.gsub(";;", ";")}.map{|c| c.split("{")}.flatten.zip.each_slice(2).to_a.each do |key, value|
       @layout_hash[key[0].strip] = value[0]
     end
 
-    @final_hash = @layout_hash.each do |k,v|
-      unless !@color_hash[k].nil?
-        @layout_hash[k] += @color_hash[k]
+    @final_hash = {}
+
+    @layout_hash.keys.each do |k|
+      unless @color_hash[k].nil?
+        @final_hash[k] = @color_hash[k] + @layout_hash[k]
+      else
+        @final_hash[k] = @layout_hash[k]
       end
     end
+
+    @final_hash
 
   end
 

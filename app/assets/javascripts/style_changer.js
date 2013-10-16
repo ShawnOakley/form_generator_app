@@ -25,13 +25,9 @@ function applyStyle(context, color, layout){
   var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
 
   console.log(ulStyle)
-
   console.log(headerStyle)
-
   console.log(liStyle)
-
   console.log($that.find('h2'))
-
 
   $that.children().children().attr( "class",color);
   $that.find('h2').attr( "class", headerStyle );
