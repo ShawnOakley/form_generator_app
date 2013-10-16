@@ -207,24 +207,18 @@ module StyleHelper
       ".export-style-layout-header {
         font-family: 'Molengo', Georgia, Times, serif;;
         border-radius: 25px;
-        padding: 5px 0;
         border: 2px solid black;
         text-decoration: underline;
-        float:right;
-        clear:both;
-        width:30%;
-        height:380px;
-        clear:left;
-        padding:5px;
+        float:left;
+        clear:right;
         margin-top:10px;
-        padding-bottom:auto;
+        padding: 5px;
+        vertical-align: bottom;
       }
 
       .export-style-layout-ul {
         border: 2px solid black;
-        border-radius: 10px 10px;
-        height:100%;
-        width:55%;
+        border-radius: 10px;
         padding: 0 5px;
         padding-bottom:auto;
         padding-top:auto;
@@ -234,8 +228,11 @@ module StyleHelper
       .export-style-layout-li {
         list-style:none;
         padding:10px;
-        border-bottom: 2px solid black;
         font-family: 'Lekton', Helvetica, Arial, sans-serif;
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+        border-left: 2px solid black;
+        cursor:pointer;
       }"
 
     when "Layout 5"
