@@ -5,16 +5,6 @@ class CreateEntries < ActiveRecord::Migration
       t.string :input_tag_type, null:false
       t.string :name
       t.string :id
-      t.string :accept
-      t.string :align
-      t.string :alt
-      t.string :autocomplete
-      t.string :disabled
-      t.string :formaction
-      t.string :formenctype
-      t.string :formmethod
-      t.string :formnovalidate
-      t.string :formtarget
       t.string :height
       t.string :list
       t.string :max
@@ -27,15 +17,15 @@ class CreateEntries < ActiveRecord::Migration
       t.string :src
       t.string :step
       t.string :width
+      t.text :parsed_input
       t.string :label
       t.string :placeholder
       t.string :klass
-      t.string :prompt
       t.string :display_rows
       t.text :collection
 
       t.string :instructions
-      t.text :parsed_input
+
 
 
       t.timestamps

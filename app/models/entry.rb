@@ -2,16 +2,7 @@ class Entry < ActiveRecord::Base
   attr_accessible :form_id,
                   :input_tag_type,
                   :name,
-                  :accept,
-                  :align,
-                  :alt,
-                  :autocomplete,
-                  :disabled,
-                  :formaction,
-                  :formenctype,
-                  :formmethod,
-                  :formnovalidate,
-                  :formtarget,
+                  :id,
                   :height,
                   :list,
                   :max,
@@ -27,16 +18,16 @@ class Entry < ActiveRecord::Base
                   :parsed_input,
                   :label,
                   :placeholder,
+                  :klass,
                   :instructions,
                   :collection,
-                  :prompt,
-                  :display_rows,
-                  :klass
+                  :display_rows
+
 
 
   serialize :collection
 
-  validates_presence_of :form_id, :input_tag_type
+  validates_presence_of :form_id, :input_tag_type, :label
 
   belongs_to(
   :form,

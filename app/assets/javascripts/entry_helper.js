@@ -17,7 +17,7 @@ $(document).ready(function(){
     };
     });
 
-  $('.form-list').children('li').click(function(event){
+  $('.form-list').children('li').dblclick(function(event){
     this_event = event
     event.stopImmediatePropagation()
     var $target = $(this);

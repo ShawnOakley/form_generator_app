@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :user_email, :password
+  attr_accessible :username, :user_email, :password, :guest
 
-  attr_accessor :guest
 
   attr_reader :password
   include ActiveModel::SecurePassword::InstanceMethodsOnActivation
@@ -22,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    self.guest ? "Guest" : username
+    self.guest == true ? "Guest" : :username
   end
 
   def move_to(user)

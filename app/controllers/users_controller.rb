@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @user = params[:user] ? User.new(params[:user]) : User.new_guest
 
     if @user.save
-        self.current_user.move_to(@user) if current_user && current_user.guest
-        UserMailer.welcome_email(@user).deliver
+        self.current_user.move_to(@user) if current_user && @user.guest
+        UserMailer.welcome_email(@user).deliver unless @user.guest
         session[:session_token] = @user.session_token
         redirect_to user_url(@user)
     else

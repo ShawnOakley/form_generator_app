@@ -17,16 +17,6 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.integer  "form_id",        :null => false
     t.string   "input_tag_type", :null => false
     t.string   "name"
-    t.string   "accept"
-    t.string   "align"
-    t.string   "alt"
-    t.string   "autocomplete"
-    t.string   "disabled"
-    t.string   "formaction"
-    t.string   "formenctype"
-    t.string   "formmethod"
-    t.string   "formnovalidate"
-    t.string   "formtarget"
     t.string   "height"
     t.string   "list"
     t.string   "max"
@@ -39,13 +29,12 @@ ActiveRecord::Schema.define(:version => 20131007170335) do
     t.string   "src"
     t.string   "step"
     t.string   "width"
+    t.text     "parsed_input"
     t.string   "label"
     t.string   "klass"
-    t.string   "prompt"
     t.string   "display_rows"
     t.text     "collection"
     t.string   "instructions"
-    t.text     "parsed_input"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
