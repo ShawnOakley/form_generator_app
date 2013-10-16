@@ -14,7 +14,5 @@
 //= require jquery_ujs
 //= require underscore
 
-//= require form_app
-
 
 //= require_tree .

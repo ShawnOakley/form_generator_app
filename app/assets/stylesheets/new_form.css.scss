@@ -298,11 +298,11 @@ box-shadow: 1px 1px 5px #000000;
 
 .input_field_container{
   border-radius:20px;
-  background:green;
+  background:lightblue;
   margin-left:20px;
   margin-top:20px;
   border: 2px solid white;
-  width: auto;
+  width: 40%;
   height:100%;
   float:left;
   clear:left;
@@ -314,14 +314,14 @@ box-shadow: 1px 1px 5px #000000;
 
 .display_field_container{
   border-radius:20px;
-  background:green;
+  background:lightblue;
   margin-top:20px;
   float:right;
   clear:right;
-  margin-left:10%;
   margin-right:10%;
   border: 2px solid white;
-  width:auto;
+  width:40%;
+  margin-bottom: 10%;
 }
 
 .code-display-container{
@@ -345,9 +345,6 @@ box-shadow: 1px 1px 5px #000000;
   background:lightblue;
   padding:5px;
   border-radius:20px;
-}
-
-.input_field {
   vertical-align: top;
 }
 
@@ -488,25 +485,24 @@ box-shadow: 1px 1px 5px #000000;
   text-align: center;
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   text-decoration: underline;
-  border-radius: 25px;
   padding: 5px 0;
+  border-radius: 25px;
   border: 2px solid black;
 }
 
 .layout1-ul {
-  padding:15px 0;
-  border: 2px solid black;
+  padding-top: 15px 0;
+  border-bottom: 2px solid black;
   border-radius: 25px;
 }
 
 .layout1-li {
-  list-style:none;
-  padding:10px;
-  font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
+  list-style: none;
+  padding: 10px;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
-  cursor:pointer;
+  font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
 }
 
 .layout1-li:first {
@@ -522,14 +518,11 @@ box-shadow: 1px 1px 5px #000000;
 
 .layout2-header {
   font-family: 'Allerta', Helvetica, Arial, sans-serif;
+  text-align:center;
   padding-bottom: 20px;
   padding-top:10px;
-  border: 2px solid black;
-  position:relative;
-  width:30%;
-  height:auto;
+  border: 1px solid black;
   border-radius: 10px 10px;
-  text-align:center;
   float:right;
   width:30%;
   height:auto;

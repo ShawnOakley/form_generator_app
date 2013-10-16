@@ -8,36 +8,19 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
-  <link href="http://fonts.googleapis.com/css?family=Allan:bold" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Allerta" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Lekton" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-
 </head>
 
-<div class='display2'>
+  <div class='display2'>
     <section class='input_field_container'>
       <ul>
-
         <%= render "partials/form_edit" %>
-
         <div id="entry-input">
-
           <%= render "partials/entry_input" %>
-
         </div>
-
       </ul>
     </section>
 
-      <section class= 'display_field_container'>
+    <section class= 'display_field_container'>
 
           <%= render "partials/format_buttons.html.erb"%>
 
@@ -66,7 +49,7 @@
                  <%= button_to("Delete", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }) %>
                 </div>
               </div>
-              <%= button_to("Edit", "/entries/#{entry.id}/edit",  method: "get", data: { confirm: 'Edit this entry?' }, class: 'hidden') %>
+              <%= button_to("Edit", "/entries/#{entry.id}/edit",  method: "get", class: 'hidden') %>
 
             <% end %>
           <% end %>
@@ -76,10 +59,10 @@
           <% layout = @form.layout_css %>
 
         </ul>
-        </div>
+      </div>
           <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }) %>
-      </section>
-    </div>
+    </section>
+  </div>
 
 
 <script>

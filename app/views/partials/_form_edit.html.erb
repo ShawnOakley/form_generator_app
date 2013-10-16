@@ -2,33 +2,33 @@
   <h3>Please enter your form header attributes here:</h3>
     <%@form = Form.find(params[:id])%>
     <form class="header_field" method='POST' action='/forms/<%=@form.id%>'>
-    <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="_method" value="PUT">
 
-    <input
-       name="authenticity_token"
-       type="hidden"
-       value="<%= form_authenticity_token %>">
+      <input
+         name="authenticity_token"
+         type="hidden"
+         value="<%= form_authenticity_token %>">
 
-      <label>Form Name: <input
-      type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
+        <label>Form Name: <input
+        type="text" name='header[form_name]' value = '<%=@form.form_name%>' ></input></label>
+          <br>
+
+        Description: <textarea rows="2" cols="20"
+        name='header[description]' ><%=@form.description%></textarea>
         <br>
 
-      Description: <textarea rows="2" cols="20"
-      name='header[description]' ><%=@form.description%></textarea>
-      <br>
+        <label>Target Url: <input
+        type="text" name='header[target_site]' value = '<%=@form.target_site%>'></input></label>
 
-      <label>Target Url: <input
-      type="text" name='header[target_site]' value = '<%=@form.target_site%>'></input></label>
+        <br>
+        <label>Please choose your form's method:
+        <input type='radio' name="header[form_method]" value="POST" checked>Post</input>
+        <input type='radio' name="header[form_method]" value="GET">Get</input>
+        </label>
+        <br>
 
-      <br>
-      <label>Please choose your form's method:
-      <input type='radio' name="header[form_method]" value="POST" checked>Post</input>
-      <input type='radio' name="header[form_method]" value="GET">Get</input>
-      </label>
-      <br>
-            <input type="submit" class="submit-button" value="Save edits to the form's header">
-            </form>
-            <button class="new-entry-show-button">Add a new entry</button>
+        <input type="submit" class="submit-button" value="Save edits to the form's header">
+    </form>
 
-
+      <button class="new-entry-show-button">Add a new entry</button>
 </li>

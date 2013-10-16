@@ -111,8 +111,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('text-decoration', 'underline');
     $this.siblings('h2').css('padding-bottom', '20px');
     $this.siblings('h2').css('padding-top', '10px');
-    $this.siblings('h2').css('border-radius', '10px 10px');
     $this.siblings('h2').css('border', '1px solid black');
+    $this.siblings('h2').css('border-radius', '10px 10px');
     $this.siblings('h2').css('float', 'right');
     $this.siblings('h2').css('width', '30%');
     $this.siblings('h2').css('height', 'auto');
