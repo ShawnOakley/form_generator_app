@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    self.guest == true ? "Guest" : :username
+    self.guest == true ? "Guest" : self.username
   end
 
   def move_to(user)

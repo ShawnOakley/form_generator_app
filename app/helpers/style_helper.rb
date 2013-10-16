@@ -2,22 +2,20 @@ module StyleHelper
 
   # STYLE TAG GENERATION SECTION
 
-
-
   def color_translate(color_identifier)
       case color_identifier
-        when "color1"
+        when "Color 1"
         ".export-style-color-li{background-color: #49A8A8;}
 
-.export-style-color-header{background-color: #49A8A8;}
+        .export-style-color-header{background-color: #49A8A8;}
 
-.export-style-color-ul{
-background-color: #5772AF;
-padding:10px;
-border-radius:25px;
-border: 2px solid black;
-}"
-      when "color2"
+        .export-style-color-ul{
+        background-color: #5772AF;
+        padding:10px;
+        border-radius:25px;
+        border: 2px solid black;
+        }"
+      when "Color 2"
         ".export-style-color-li{
           background-color: #B4A381;
         }
@@ -33,7 +31,7 @@ border: 2px solid black;
           border: 2px solid black;
         }
         "
-      when "color3"
+      when "Color 3"
         ".export-style-color-li{
           background-color: #9D74A1;
         }
@@ -49,7 +47,7 @@ border: 2px solid black;
           border: 2px solid black;
         }
         "
-      when "color4"
+      when "Color 4"
         ".export-style-color-li{
           background-color: #E8C5B1;
         }
@@ -65,7 +63,7 @@ border: 2px solid black;
           border: 2px solid black;
         }
         "
-      when "color5"
+      when "Color 6"
         ".export-style-color-li{
           background-color: #FFFEFE;
         }
@@ -81,7 +79,7 @@ border: 2px solid black;
           border: 2px solid black;
         }
         "
-      when "color6"
+      when "Color 7"
         ".export-style-color-li{
           background-color: #FFF9F9;
         }
@@ -106,7 +104,7 @@ border: 2px solid black;
   def layout_translate(layout_identifier)
 
       case layout_identifier
-      when "layout1"
+      when "Layout 1"
 
       ".export-style-layout-header {
         text-align: center;
@@ -131,7 +129,7 @@ border: 2px solid black;
         font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
       }"
 
-    when "layout2"
+    when "Layout 2"
 
       ".export-style-layout-header {
         font-family: 'Allerta', Helvetica, Arial, sans-serif;
@@ -143,6 +141,9 @@ border: 2px solid black;
         height:auto;
         border-radius: 10px 10px;
         text-align:center;
+        content:"";
+        display:table;
+        clear:both;
       }
 
       .export-style-layout-ul {
@@ -150,6 +151,9 @@ border: 2px solid black;
         border: 2px solid black;
         border-radius: 10px 10px;
         width:auto;
+        content:"";
+        display:table;
+        clear:both;
       }
 
 
@@ -160,9 +164,12 @@ border: 2px solid black;
         font-family: 'Crimson Text', Georgia, Times, serif;
         width:auto;
         float:left;
+        content:"";
+        display:table;
+        clear:both;
         }"
 
-    when "layout3"
+    when "Layout 3"
 
       ".export-style-layout-header {
         font-family: 'Allan', Helvetica, Arial, sans-serif;
@@ -195,7 +202,7 @@ border: 2px solid black;
         font-family: 'Cardo', Georgia, Times, serif;
       }"
 
-    when "layout4"
+    when "layout 4"
 
       ".export-style-layout-header {
         font-family: 'Molengo', Georgia, Times, serif;;
@@ -216,7 +223,6 @@ border: 2px solid black;
       .export-style-layout-ul {
         border: 2px solid black;
         border-radius: 10px 10px;
-
         height:100%;
         width:55%;
         padding: 0 5px;
@@ -232,7 +238,7 @@ border: 2px solid black;
         font-family: 'Lekton', Helvetica, Arial, sans-serif;
       }"
 
-    when "layout5"
+    when "Layout 5"
 
       ".export-style-layout-header {
         font-family: 'Allerta', Helvetica, Arial, sans-serif;
@@ -263,7 +269,6 @@ border: 2px solid black;
         border-bottom: 2px solid black;
         font-family: 'Crimson Text', Georgia, Times, serif;
         width:auto;
-
       }"
 
     else

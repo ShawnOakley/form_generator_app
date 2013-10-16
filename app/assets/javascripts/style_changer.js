@@ -16,19 +16,28 @@ function applyStyle(context, color, layout){
   var layoutString = layout.replace(' ', '').toLowerCase();
 
   var backgroundColor = colorString.concat('-background');
+
+  console.log($that);
   $that.attr( "class", backgroundColor );
 
   var headerStyle = layoutString.concat('-header ').concat(colorString).concat(' group');
-  console.log(headerStyle)
   var ulStyle = layoutString.concat('-ul ').concat(colorString).concat(' group');
   var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
 
+  console.log(ulStyle)
+
+  console.log(headerStyle)
+
+  console.log(liStyle)
+
+  console.log($that.find('h2'))
+
 
   $that.children().children().attr( "class",color);
-  $that.children('h2').attr( "class", headerStyle );
-  $that.children('.description').attr( "class", headerStyle );
-  $that.children().children('ul:first').attr('class', ulStyle);
-  $that.children().children('ul:first').children('li').attr( "class", liStyle);
+  $that.find('h2').attr( "class", headerStyle );
+  $that.find('.description').attr( "class", headerStyle );
+  $that.find('ul:first').attr('class', ulStyle);
+  $that.find('ul:first').children('li').attr( "class", liStyle);
 
   setStyleForSave(color, layout);
 }
@@ -46,7 +55,6 @@ $(document).ready(function(){
     var css_type = $(this).text();
 
     $this = $(this).parent().parent().parent().children('div:last')
-    console.log($this);
 
     switch(css_type)
     {
