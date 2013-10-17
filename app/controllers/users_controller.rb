@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         self.current_user.move_to(@user) if current_user && @user.guest
         UserMailer.welcome_email(@user).deliver unless @user.guest
         session[:session_token] = @user.session_token
-        redirect_to user_url(@user)
+        redirect_to user_url(@user), notice: "Signed up Sucessfully"
     else
       flash[:error] = @user.errors.full_messages
       redirect_to new_session_url
