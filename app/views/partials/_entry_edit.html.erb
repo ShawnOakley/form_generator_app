@@ -3,7 +3,9 @@
 
   <div class = "input_field">
 
-    <%= link_to "Return to editing your form", edit_form_url(@entry.form_id)%>
+
+
+
 
     <% if !flash[:parameter_error].nil? %>
       <div id="error">
@@ -30,18 +32,18 @@
 
       <label>
         <br>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field">Single Line Text</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="password_field">Password</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_area">Paragraph Text</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_field"  <%= "checked" if @entry.input_tag_type == "text_field"  %> >Single Line Text</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="password_field" <%= "checked" if @entry.input_tag_type == "password_field" %>>Password</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="text_area" <%= "checked" if @entry.input_tag_type == "text_area" %> >Paragraph Text</input>
         <br>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="number_field">Number</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="date_select">Date</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="datetime_select">Date & Time </input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="hidden_field">Hidden Field</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="number_field" <%= "checked" if @entry.input_tag_type == "number_field" %>>Number</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="date_select" <%= "checked" if @entry.input_tag_type == "date_select" %>>Date</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="datetime_select" <%= "checked" if @entry.input_tag_type == "datetime_select" %>>Date & Time </input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="hidden_field" <%= "checked" if @entry.input_tag_type == "hidden_field" %>>Hidden Field</input>
         <br>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="check_box_tag">Checkboxes</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag">Dropdown</input>
-        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag_multiple">Multiple Choice</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="check_box_tag" <%= "checked" if @entry.input_tag_type == "check_box_tag" %>>Checkboxes</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag" <%= "checked" if @entry.input_tag_type == "select_tag" %>>Dropdown</input>
+        <input type="radio" class="select-button" name ='field[input_tag_type]' value="select_tag_multiple" <%= "checked" if @entry.input_tag_type == "select_tag_multiple"%>>Multiple Choice</input>
         <br>
         <br>
       </label>
@@ -133,10 +135,20 @@
 
         <label class='protected'>
             <br>
-            Edit this Form:
           <input type="submit" class="submit-button" value="Save this form">
         </label>
       </form>
+
+           <%= button_to("Return to Form Edit",  edit_form_path(@entry.form_id), {class: "button", method: :get}) %>
     </div>
+
+
+
+    <script type='text/javascript'>
+    var checked_tag = '<%=@entry.input_tag_type%>';
+    $(document).ready(function(){
+      $('.select-button').filter(' [value="' + checked_tag + '"]').click();
+    })
+    </script>
 
 </li>

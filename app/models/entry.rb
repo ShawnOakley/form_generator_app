@@ -21,7 +21,8 @@ class Entry < ActiveRecord::Base
                   :klass,
                   :instructions,
                   :collection,
-                  :display_rows
+                  :display_rows,
+                  :prompt
 
 
 

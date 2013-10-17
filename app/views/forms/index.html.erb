@@ -22,36 +22,30 @@
 
   <% @forms = Form.find_all_by_owner_id(current_user.id)%>
 
-
-  <h2>User's Forms</h2>
-
   <% @coder = HTMLEntities.new %>
-
+<div class='code-display-title'>User's Forms</div>
   <table class='code-display-container group'>
+
 
   <% @forms.each do |form| %>
 
   <tr class='display-field display-row group' id = '<%= form.id %>'>
-    <td>
-    <table>
-      <tr>
-    <td class='email-buttons'>
-      <%= button_to("Email this code to yourself", form_code_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
-      <%= button_to("Email both the form and code to yourself", form_both_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
-    </td>
-    <td class='email-buttons'>
-      <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
-      <%= button_to("Email the rendered form as a survey to multiple users", form_email_input_url(form.id)) %>
-    </td>
+        <td class='right-display-column group button-wrapper'>
+          <h3>Email Options for <%=Form.name%></h3>
+
+          <%= button_to("Email this code to yourself", form_code_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+          <%= button_to("Email both the form and code to yourself", form_both_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+          <%= button_to("Email the rendered form to yourself", form_rendered_mail_url(form.id), data: { confirm: 'Are you sure?' }) %>
+          <%= button_to("Email the rendered form to multiple users", form_email_input_url(form.id)) %>
+        </td>
+        <td class='left-display-column group button-wrapper'>
+          <h3>Edit Options for <%=Form.name%></h3>
+          <%= button_to("Edit This Form",  edit_form_path(form.id), {class: "button", method: :get}) %>
+                  <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+        </td>
     </tr>
-    <table>
-    </td>
-
-  <td class='right-display-column group'>
-
-       <%= link_to "Edit This Form",  edit_form_path(form.id), :class => "button" %>
-       <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
-
+    <tr>
+      <td class='right-display-column group'>
             <h2>The rendered form</h2>
             <h3><%=form.form_name%></h3>
 
@@ -62,22 +56,22 @@
               <% color = form.color_css %>
               <% layout = form.layout_css %>
 
-              </td>
+      </td>
 
-            <td class='left-display-column group'>
-            <h2>The code!</h2>
-              <div>
-                <section class='code-label'>
-                  <%= generate_form(form) %>
-                </section>
-                <br>
-                <section class='code-label'><br>
-              </section>
-              </div>
-              </td>
-            </tr>
-          <% end %>
-        </table>
+      <td class='left-display-column group'>
+      <h2>The code!</h2>
+        <div>
+          <section class='code-label'>
+            <%= generate_form(form) %>
+          </section>
+          <br>
+          <section class='code-label'><br>
+        </section>
+        </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
 
 </section>
 

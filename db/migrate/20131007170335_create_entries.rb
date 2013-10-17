@@ -22,6 +22,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :placeholder
       t.string :klass
       t.string :display_rows
+      t.string :prompt
       t.text :collection
 
       t.string :instructions

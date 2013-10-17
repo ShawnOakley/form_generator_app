@@ -36,7 +36,7 @@
           <% if @entries.any? %>
             <% @entries.each do |entry| %>
 
-            <li class="entry-li">
+            <li class="entry-li no-select">
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
                 <% @instructions = entry.as_json["instructions"] %>
@@ -69,6 +69,7 @@
 
 <script>
 $('document').ready(function(){
+  $('.noSelect').disableTextSelect()
   setTimeout(function(){
     var $context = $('#<%=@form.id%>.display-row');
     var color = '<%= color %>';

@@ -15,15 +15,12 @@ $(document).ready(function(){
   $('.input_field').delegate('.select-button', 'click', (function(){
 
     var hidden_id = $(this).val();
-
     $(this).siblings().parent().siblings().addClass('hidden');
-
     $( "label" ).css( "class", "protected" ).removeClass('hidden')
-
     $(this).siblings().parent().siblings().find('.' + hidden_id).parent().removeClass('hidden');
   }));
 
-  $(document).find(".select-button").first().click();
+
 
   // AJAX CALL TO SAVE CURRENT FORMATTING
 

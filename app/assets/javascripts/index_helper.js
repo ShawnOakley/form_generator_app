@@ -8,14 +8,16 @@ function colorIndex(color_choice, form_id){
 
     $this.children('li').css('background-color','#49A8A8');
     $this.children('li').css('text-decoration', 'none');
+    $this.children('li').css('width', '200px');
 
     $this.parent().css('background-color', '#5772AF');
     $this.parent().css('padding', '10px');
-    $this.parent().css('border', '2px solid black');
     $this.parent().css('text-decoration', 'none');
+    $this.parent().css('width', '300px');
 
     $this.siblings('h2').css('background-color', '#49A8A8');
     $this.siblings('h2').css('text-decoration', 'none');
+    $this.siblings('h2').css('width', '300px');
 
     break;
   case "Color 2":
@@ -103,8 +105,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('padding', '5px 0');
     $this.siblings('h2').css('border', '2px solid black');
 
-    $this.parent().css('border', '2px solid black');
-    $this.parent().css('padding-top', '15px 0');
+    $this.parent().css('padding-top', '15px');
+    $this.parent().css('padding-bottom', '15px');
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
@@ -126,8 +128,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('padding', '5px 0');
     $this.siblings('h2').css('border', '2px solid black');
 
-    $this.parent().css('border', '2px solid black');
-    $this.parent().css('padding-top', '15px 0');
+    $this.parent().css('padding-top', '15px');
+    $this.parent().css('padding-bottom', '15px');
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
@@ -146,8 +148,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('padding', '5px 0');
     $this.siblings('h2').css('border', '2px solid black');
 
-    $this.parent().css('border', '2px solid black');
-    $this.parent().css('padding-top', '15px 0');
+    $this.parent().css('padding-top', '15px');
+    $this.parent().css('padding-bottom', '15px');
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');
@@ -166,8 +168,8 @@ function layoutIndex(layout_choice, form_id){
     $this.siblings('h2').css('padding', '5px 0');
     $this.siblings('h2').css('border', '2px solid black');
 
-    $this.parent().css('border', '2px solid black');
-    $this.parent().css('padding-top', '15px 0');
+    $this.parent().css('padding-top', '15px');
+    $this.parent().css('padding-bottom', '15px');
 
     $this.children('li').css('list-style','none');
     $this.children('li').css('padding','10px');

@@ -1,7 +1,21 @@
 function parse_label(context){
   var text = context.text();
-
 }
+
+$(function(){
+	$.extend($.fn.disableTextSelect = function() {
+		return this.each(function(){
+			if($.browser.mozilla){//Firefox
+				$(this).css('MozUserSelect','none');
+			}else if($.browser.msie){//IE
+				$(this).bind('selectstart',function(){return false;});
+			}else{//Opera, etc.
+				$(this).mousedown(function(){return false;});
+			}
+		});
+	});
+	$('.noSelect').disableTextSelect();
+});
 
 
 $(document).ready(function(){
@@ -12,6 +26,7 @@ $(document).ready(function(){
     event.stopImmediatePropagation()
     if ($(this).text() === "Add a new entry") {
       $(this).text("Close entry creation window");
+      $(document).find(".select-button").first().click();
     } else {
       $(this).text("Add a new entry");
     };
@@ -21,15 +36,7 @@ $(document).ready(function(){
     this_event = event
     event.stopImmediatePropagation()
     var $target = $(this);
-    if ($target.attr('style') === 'border: 1px solid red;') {
-      $target.css('border', 'hidden');
-      // toggle rendering of new
-    } else {
-      $target.css('border', '1px solid red');
-      $target.siblings('li').css('border','hidden');
     $target.nextAll('.button_to').first().children().children().click();
-      // toggle rendering of edit for id
-    };
   });
   $( "#entry-input" ).css('display','none');
 });

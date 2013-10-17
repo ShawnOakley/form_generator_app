@@ -105,12 +105,13 @@ module StyleHelper
         font-family: 'Raleway', Helvetica, Arial, sans-serif;
         text-align: center;
         border: 2px solid black;
-        width:100%;
+        width:300px;
       }
 
       .export-style-layout-ul {
         padding-top: 15px 0;
         border: 2px solid black;
+        width:300px;
       }
 
 
@@ -119,6 +120,7 @@ module StyleHelper
         padding:10px;
         border-bottom: 2px solid black;
         font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
+        width:200px;
       }"
 
     when "Layout 2"
