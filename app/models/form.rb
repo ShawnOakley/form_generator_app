@@ -1,6 +1,5 @@
 class Form < ActiveRecord::Base
   attr_accessible :owner_id, :form_name, :description, :target_site, :header_text, :closing_text, :layout_css, :color_css, :form_method
-  attr_accessor :header_text
   validates_presence_of :owner_id, :form_name, :description, :target_site, :form_method
 
   belongs_to(
