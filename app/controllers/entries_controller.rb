@@ -9,8 +9,8 @@ class EntriesController < ApplicationController
         format.html { redirect_to edit_form_url(@form_id) }
         format.json { render :nothing => true }
       else
-        format.html { redirect_to edit_form_url(@form_id), notice: "Delete Unsuccessfuly" }
-        format.json { render json: @entry.errors }
+        format.html { redirect_to edit_form_url(@form_id), notice: "Delete Unsuccessful" }
+        format.json { render :nothing => true  }
       end
     end
   end

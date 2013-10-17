@@ -94,7 +94,7 @@ module FormsHelper
 
   def generate_header(header)
 
-    " <head id='header'></head><div class='style-header'> <h2>#{header.form_name}</h2><div>#{header.description}</div></div><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='#{header.form_method}' novalidate action='#{header.target_site}'><ul class='style-ul'>"
+    " <head id='header'></head><div class='style-header'> <h2 class='header-background-select'>#{header.form_name}</h2><div>#{header.description}</div></div><form id='form' name='#{header.form_name}' class='top page' autocomplete='off' enctype='multipart/form-data' method='#{header.form_method}' novalidate action='#{header.target_site}'><ul class='style-ul'>"
 
   end
 

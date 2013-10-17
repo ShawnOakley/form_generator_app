@@ -37,9 +37,6 @@ $(document).ready(function(){
       data: formData,
       success:function(){
 
-      },
-      error: function() {
-        alert('Failure');
       }
     });
   });
