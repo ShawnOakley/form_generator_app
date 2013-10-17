@@ -48,6 +48,7 @@ body{
   text-shadow: black 0.3em 0.3em 0.4em;
   margin: 0;
   padding:10px;
+  padding-left: 30px;
 }
 
 .display1 {
@@ -62,6 +63,7 @@ body{
   height:100%;
   margin: 5%;
   border-radius:25px;
+  min-height: 500px;
 }
 
 .display2 {
@@ -84,10 +86,6 @@ body{
   text:white;
 }
 
-.content-title{
-  margin:0;
-}
-
 .content-body{
     font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
@@ -95,6 +93,18 @@ body{
 .display4 {
   background-color: #003399;
   height:auto;
+}
+
+#error > p {
+  background-color:white;
+  border: 3px solid black;
+  color: red;
+  width:100px;
+  height:auto;
+  padding:12px;
+  margin: 12px;
+  border-radius: 25px;
+  font-size: 15px;
 }
 
 .form-div {
@@ -109,6 +119,7 @@ body{
   height: 160px;
   color:white;
   position: relative;
+  overflow:hidden;
 }
 
 .shadow-test {
@@ -303,8 +314,9 @@ li {
 .input_field_container{
   border-radius:20px;
   background:lightblue;
-  margin-left:20px;
-  margin-top:20px;
+  margin-left:30px;
+  margin-top:15px;
+  margin-bottom:40px;
   border: 2px solid white;
   width: 40%;
   height:100%;
@@ -645,18 +657,64 @@ li {
 
 .new-user-container {
     color:black;
-    width: 10%;
+    width: 20%;
     clear: both;
     border-radius: 25px;
-    background-color: white;
+    background-color: lightblue;
     padding:15px;
     margin:20px;
     border: 2px solid black;
 }
 
+.sign-in-box {
+  color:black;
+  width: 20%;
+  clear: both;
+  border-radius: 25px;
+  background-color: lightblue;
+  padding:15px;
+  margin:20px;
+  border: 2px solid black;
+}
+
+.login-info {
+    color:black;
+    width: 20%;
+    clear: both;
+    border-radius: 25px;
+    background-color: lightblue;
+    padding:15px;
+    margin:20px;
+    border: 2px solid black;
+    float:right;
+}
+
+.sign-in-box form{
+  margin-left:20px;
+}
+
+.sign-in-box text{
+  margin-left:20px;
+}
+
+.new-user-container form{
+  margin-left:20px;
+}
+
 .new-user-container input {
     width: 100%;
     clear: both;
+}
+
+#error p{
+  color:red;
+  width: 20%;
+  clear: both;
+  border-radius: 25px;
+  background-color: lightblue;
+  padding:15px;
+  margin:20px;
+  border: 2px solid black;
 }
 
 .display_field {

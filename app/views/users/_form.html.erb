@@ -2,9 +2,10 @@
 <% method = (user.persisted? ? "put" : "post") %>
 <% message = (user.persisted? ? "Update user" : "Create user") %>
 
-
-
 <div class='new-user-container'>
+  <h1>Create User</h1>
+  <br>
+
 <form action="<%= action %>" method="post">
   <input
      name="_method"

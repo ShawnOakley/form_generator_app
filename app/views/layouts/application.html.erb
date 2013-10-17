@@ -33,7 +33,7 @@
     </div>
     <!-- test -->
 
-    <div class='form-div newUser-div margin-right'>
+    <div class='form-div margin-right'>
       <h3>See Your Forms</h3>
       <a class="button-link formCreate-button" href='<%= user_forms_url(current_user.id)%>'>Click here!</a>
     </div>
@@ -51,10 +51,9 @@
       <h2>PseudooWufoo</h2>
     </section>
 
-
     <% if current_user %>
+    <div class='login-info'>
       <ul>
-
         <li>Logged in as: <strong><%= current_user.name %></strong></li>
 
 
@@ -64,11 +63,10 @@
         <% else %>
         <li><%= button_to "Logout", session_url, method: :delete %></li>
         <% end %>
-    <%else%>
-      <li><%= button_to "Log In", new_session_url, method: :get  %></li>
-    </ul>
-    <% end %>
 
+    <% end %>
+      </ul>
+    </div>
 
 
     <% if !flash[:error].nil? %>
@@ -82,7 +80,7 @@
 
  <%= yield %>
 
-</section>
+  </section>
 </section>
 
 </html>
