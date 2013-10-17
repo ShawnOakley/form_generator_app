@@ -1,3 +1,5 @@
+<body style="background-color:#CCFFFF">
+
 <h2><%=@form.form_name%></h2>
 
 <h3><%= @additional_info[1].nil? ? "Hello!": @additional_info[1]  %> </h3>
@@ -27,4 +29,26 @@
 
            <%= @form.closing_text.html_safe %>
 
-        </ul>
+
+  <% color = @form.color_css %>
+  <% layout = @form.layout_css %>
+  <script>
+  $('document').ready(function(){
+    setTimeout(function(){
+      var $context = $('#<%=@form.id%>.display-row');
+      var color = '<%= color %>';
+      if (color === ""){
+        color = "Color 6";
+      };
+      var layout = '<%= layout %>';
+      if (layout === ""){
+        layout = "Layout 5";
+      };
+      var form_id = '<%= @form.id %>';
+      applyStyle($context, color, layout);
+    }, 10);
+  });
+  </script>
+
+      </ul>
+</body>

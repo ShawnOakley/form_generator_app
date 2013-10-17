@@ -656,14 +656,25 @@ li {
 }
 
 .new-user-container {
-    color:black;
-    width: 20%;
+  color:black;
+  width: 20%;
+  clear: both;
+  border-radius: 25px;
+  background-color: lightblue;
+  padding:15px;
+  margin:20px;
+  padding-right: 10px;
+  border: 2px solid black;
+}
+
+.new-user-container form{
+  margin-left:20px;
+  padding-right:20px;
+}
+
+.new-user-container input {
+    width: 90%;
     clear: both;
-    border-radius: 25px;
-    background-color: lightblue;
-    padding:15px;
-    margin:20px;
-    border: 2px solid black;
 }
 
 .sign-in-box {
@@ -678,16 +689,34 @@ li {
 }
 
 .login-info {
-    color:black;
-    width: 20%;
-    clear: both;
-    border-radius: 25px;
-    background-color: lightblue;
-    padding:15px;
-    margin:20px;
-    border: 2px solid black;
-    float:right;
+  color:black;
+  width: 20%;
+  clear: both;
+  border-radius: 25px;
+  background-color: lightblue;
+  padding:15px;
+  margin:20px;
+  border: 2px solid black;
+  float:right;
+  clear:both;
 }
+
+
+.mail-input {
+  background:lightblue;
+  padding:10px;
+  border-radius:20px;
+  vertical-align: top;
+  margin:20px;
+  clear:both;
+  float:left;
+  width:50%;
+  border: 2px solid black;
+  margin-bottom:50px;
+  margin-left:40px;
+  margin-top:0;
+}
+
 
 .sign-in-box form{
   margin-left:20px;
@@ -695,15 +724,6 @@ li {
 
 .sign-in-box text{
   margin-left:20px;
-}
-
-.new-user-container form{
-  margin-left:20px;
-}
-
-.new-user-container input {
-    width: 100%;
-    clear: both;
 }
 
 #error p{

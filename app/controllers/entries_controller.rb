@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
     respond_to do |format|
       if @entry.destroy
         format.html { redirect_to edit_form_url(@form_id) }
-        format.json { head :ok}
+        format.json { render :nothing => true }
       else
         format.html { redirect_to edit_form_url(@form_id), notice: "Delete Unsuccessfuly" }
         format.json { render json: @entry.errors }

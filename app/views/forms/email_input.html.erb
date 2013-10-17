@@ -1,6 +1,7 @@
-<h1> Test test test </h1>
 
-
+<div class = 'mail-input'>
+<h1> Need to ask a bunch of people the same thing?  Send them the surveys here.  On submit, the form will be submitted to the specified target url with the specified method. </h1>
+<br>
 <form id='form' enctype='multipart/form-data' method='post' action='<%= form_targetted_mail_url(@form.id) %>'>
 
   <input
@@ -8,17 +9,17 @@
      type="hidden"
      value="<%= form_authenticity_token %>">
 
-  <label> Please input a space-delimited list of recipients below:
+<label>Please input a space-delimited list of recipients below:<br>
     <textarea rows="4" cols="30" name=email_list></textarea>
 </label>
 <br>
-<label> Please enter a subject line (optional):
+<label>Please enter a subject line (optional):<br>
   <textarea rows="4" cols="30" name=subject_line></textarea>
 </label>
   <br>
-  <label> Please enter any additional text you'd like to display (optional):
+  <label>Please enter any additional text you'd like to display (optional):<br>
     <textarea rows="4" cols="30" name=additional_text></textarea>
 </label>
 
-
 <input type="submit" class="submit-button"> </form>
+</div>

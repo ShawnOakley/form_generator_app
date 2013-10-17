@@ -1,4 +1,4 @@
-<!-- app/views/forms/new.html.erb -->
+<!-- app/views/forms/edit.html.erb -->
 <!DOCTYPE html>
 
 
@@ -48,7 +48,7 @@
              </li>
              <div class='edit-delete-buttons-wrapper'>
                <div class="edit-delete-buttons">
-                 <%= button_to("Delete #{entry.label}", entry_url(entry.id),  method: "delete", data: { confirm: ('Do you want to delete ' + entry.name + '?') }, class: 'styled_display_field_container_button delete-button', id: "#{entry.id}") %>
+                 <%= button_to("Delete #{entry.label}", entry_url(entry.id),  method: "delete", confirm: ('Do you want to delete ' + entry.name + '?'), class: 'styled_display_field_container_button delete-button', id: "#{entry.id}", remote: true) %>
                 </div>
               </div>
               <%= button_to("Edit", "/entries/#{entry.id}/edit",  method: "get", class: 'hidden') %>
@@ -62,7 +62,7 @@
 
         </ul>
       </div>
-          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", data: { confirm: 'Are you sure?' }, class: 'styled_display_field_container_button') %>
+          <%= button_to("Delete this form", form_url(params[:id]),  method: "delete", confirm: 'Are you sure?', class: 'styled_display_field_container_button', remote: true) %>
     </section>
   </div>
 

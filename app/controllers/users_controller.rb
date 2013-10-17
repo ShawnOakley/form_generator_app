@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         redirect_to user_url(@user), notice: "Signed up Sucessfully"
     else
       flash[:error] = @user.errors.full_messages
-      redirect_to new_session_url
+      redirect_to new_user_url
     end
   end
 

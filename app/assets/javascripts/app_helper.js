@@ -26,7 +26,7 @@ $(document).ready(function(){
 
   $('.layout-commit').on("submit", function(event){
     event.preventDefault();
-    event.stopPropagation();
+    event.stopImmediatePropagation();
     var url = window.location.pathname;
     var regex = /\/.\//;
     var id = regex.exec(url)[0].replace(/\//g,'').toString();
@@ -44,22 +44,22 @@ $(document).ready(function(){
     });
   });
 
-  $('.delete-button').click(function(event){
-    event.preventDefault();
-    event.stopPropagation();
-    var id = $(this).attr('id').toString();
-    console.log(id)
-    $.ajax({
-      url: ('/entries/'+id),
-      type: 'DELETE',
-      success:function(){
-        alert('Deleted');
-      },
-      error: function() {
-        alert('Failure');
-      }
-    });
-  });
+  // $('.delete-button').click(function(event){
+  //   event.preventDefault();
+  //   event.stopImmediatePropagation();
+  //   var id = $(this).attr('id').toString();
+  //   console.log(id)
+  //   $.ajax({
+  //     url: ('/entries/'+id),
+  //     type: 'DELETE',
+  //     success:function(){
+  //       alert('Deleted');
+  //     },
+  //     error: function() {
+  //       alert('Failure');
+  //     }
+  //   });
+  // });
 
 });
 

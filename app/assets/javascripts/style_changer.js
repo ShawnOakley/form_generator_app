@@ -34,7 +34,8 @@ function applyStyle(context, color, layout){
 
 $(document).ready(function(){
 
-  $('.choice-collection').delegate('.delete-button', 'click', (function(){
+  $('.choice-collection').delegate('.delete-button', 'click', (function(event){
+    event.stopImmediatePropagation()
     $(this).parent().remove();
   }));
 
