@@ -19,13 +19,15 @@ module FormsHelper
       @html_string += @label.html_safe
       @html_string += "<br>".html_safe
       @html_string += ("Instructions for " + (@label || "this entry") + ": " + entry.as_json["instructions"] + "<br>").html_safe
-        @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" }
+      @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" }
 
       @html_string += (strip_nested_form_tags(form_gen(@form_hash)) + "</li>").html_safe
 
     end
 
-    @html_string += @form.closing_text.html_safe
+    @html_string += @form[:closing_text].html_safe
+
+
 
     @style_hash = generate_style_hashes(@form)
 

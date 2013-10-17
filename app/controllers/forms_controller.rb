@@ -7,12 +7,13 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(params[:header])
     @header_text = generate_header(@form)
-    @form.header_text = @header_text
+    @form[:header_text] = @header_text
     @closing_text = generate_submit
 
-    @form.closing_text = @closing_text
+    @form[:closing_text] = @closing_text
 
      if @form.save
+
        redirect_to edit_form_url(@form.id)
      else
        flash[:error] = "Fail saved!"
