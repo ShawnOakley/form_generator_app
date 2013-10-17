@@ -10,7 +10,7 @@ class FormsController < ApplicationController
     @form[:header_text] = @header_text
     @closing_text = generate_submit
 
-    @form[:closing_text] = @closing_text
+    @form.closing_text = @closing_text
 
      if @form.save
 

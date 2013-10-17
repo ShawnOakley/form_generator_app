@@ -27,8 +27,6 @@ module FormsHelper
 
     @html_string += @form[:closing_text].html_safe
 
-
-
     @style_hash = generate_style_hashes(@form)
 
     apply_styles_to_html(@html_string, @style_hash)
