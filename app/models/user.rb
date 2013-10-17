@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :user_email, :password, :guest
 
-
+  attr_accessor :guest
   attr_reader :password
   include ActiveModel::SecurePassword::InstanceMethodsOnActivation
 
