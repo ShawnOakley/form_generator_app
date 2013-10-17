@@ -83,6 +83,7 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     multi_json (1.8.1)
+    newrelic_rpm (3.6.8.164)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.17.0)
@@ -152,6 +153,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mail
+  newrelic_rpm
   pg
   premailer
   rails (= 3.2.14)

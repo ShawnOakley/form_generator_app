@@ -27,6 +27,7 @@ gem 'backbone-on-rails'
 gem 'jquery-rails'
 
 gem 'htmlentities'
+gem 'newrelic_rpm'
 
 gem 'mail'
 gem 'actionmailer'
