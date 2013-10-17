@@ -28,6 +28,7 @@ gem 'jquery-rails'
 
 gem 'htmlentities'
 
+gem 'mail'
 gem 'actionmailer'
 gem 'sendgrid'
 gem "actionmailer_inline_css", "~> 1.5.3"

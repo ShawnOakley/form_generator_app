@@ -151,6 +151,7 @@ DEPENDENCIES
   htmlentities
   jquery-rails
   letter_opener
+  mail
   pg
   premailer
   rails (= 3.2.14)
