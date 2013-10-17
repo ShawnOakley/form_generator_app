@@ -12,7 +12,6 @@ module StyleHelper
         .export-style-color-ul{
         background-color: #5772AF;
         padding:10px;
-        border-radius:25px;
         border: 2px solid black;
         }"
 
@@ -28,9 +27,7 @@ module StyleHelper
         .export-style-color-ul{
           background-color: #694242;
           padding:10px;
-          border-radius:25px;
           border: 2px solid black;
-          height:100%
         }
         "
       when "Color 3"
@@ -45,7 +42,6 @@ module StyleHelper
         .export-style-color-ul{
           background-color: #5C3946;
           padding:10px;
-          border-radius:25px;
           border: 2px solid black;
         }
         "
@@ -61,7 +57,6 @@ module StyleHelper
         .export-style-color-ul{
           background-color: #5E8B7F;
           padding:10px;
-          border-radius:25px;
           border: 2px solid black;
         }
         "
@@ -75,9 +70,8 @@ module StyleHelper
               }
 
         .export-style-color-ul{
-          background-color: #000000;
+          background-color: silver;
           padding:10px;
-          border-radius:25px;
           border: 2px solid black;
         }
         "
@@ -93,7 +87,6 @@ module StyleHelper
         .export-style-color-ul{
           background-color: #292323;
           padding:10px;
-          border-radius:25px;
           border: 2px solid black;
         }
         "
@@ -109,18 +102,15 @@ module StyleHelper
       when "Layout 1"
 
       ".export-style-layout-header {
-        text-align: center;
         font-family: 'Raleway', Helvetica, Arial, sans-serif;
-        text-decoration: underline;
-        border-radius: 25px;
-        padding: 5px 0;
+        text-align: center;
         border: 2px solid black;
+        width:100%;
       }
 
       .export-style-layout-ul {
         padding-top: 15px 0;
         border: 2px solid black;
-        border-radius: 10px 10px;
       }
 
 
@@ -135,112 +125,66 @@ module StyleHelper
 
       ".export-style-layout-header {
         font-family: 'Allerta', Helvetica, Arial, sans-serif;
-        padding-bottom: 20px;
-        padding-top:10px;
-        border: 1px solid black;
-        float:right;
-        width:30%;
-        height:auto;
-        border-radius: 10px 10px;
-        text-align:center;
-        content:"";
-        display:table;
-        clear:both;
+        text-align: center;
+        border: 2px solid black;
+        width:100%;
       }
 
       .export-style-layout-ul {
-        padding: 10px;
+        padding-top: 15px 0;
         border: 2px solid black;
-        border-radius: 10px 10px;
-        width:auto;
-        height:auto
-        content:"";
-        display:table;
-        clear:both;
       }
 
 
       .export-style-layout-li {
+        font-family: 'Crimson Text', Georgia, Times, serif;
         list-style:none;
         padding:10px;
         border-bottom: 2px solid black;
-        font-family: 'Crimson Text', Georgia, Times, serif;
-        width:auto;
-        content:"";
-        display:table;
-        clear:both;
         }"
 
     when "Layout 3"
 
       ".export-style-layout-header {
         font-family: 'Allan', Helvetica, Arial, sans-serif;
-        border-radius: 25px;
-        padding: 5px 0;
+        text-align: center;
         border: 2px solid black;
-        text-decoration: underline;
-        width:30%;
-        height:380px;
-        padding:5px;
-        margin-top:10px;
-        padding-bottom:auto;
+        width:100%s
       }
 
       .export-style-layout-ul {
+        padding-top: 15px 0;
         border: 2px solid black;
-        border-radius: 10px 10px;
-        height:100%;
-        width:55%;
-        padding: 0 5px;
-        padding-bottom:auto;
-        padding-top:auto;
       }
 
 
       .export-style-layout-li {
+        font-family: 'Cardo', Georgia, Times, serif;
         list-style:none;
         padding:10px;
         border-bottom: 2px solid black;
-        font-family: 'Cardo', Georgia, Times, serif;
       }"
 
     when "Layout 4"
 
       ".export-style-layout-header {
         font-family: 'Molengo', Georgia, Times, serif;;
-        border-radius: 25px;
+        text-align: center;
         border: 2px solid black;
-        text-decoration: underline;
-        float:left;
-        clear:right;
-        margin-top:10px;
-        padding: 5px;
-        vertical-align: bottom;
+        width:100%;
       }
 
       .export-style-layout-ul {
+        padding-top: 15px 0;
         border: 2px solid black;
-        border-radius: 10px;
-        padding: 0 5px;
-        padding-bottom:auto;
-        padding-top:auto;
-        content:"";
-        display:table;
-        clear:both;
       }
 
 
       .export-style-layout-li {
+        font-family: 'Lekton', Helvetica, Arial, sans-serif;
         list-style:none;
         padding:10px;
-        font-family: 'Lekton', Helvetica, Arial, sans-serif;
-        border-top: 2px solid black;
-        border-right: 2px solid black;
-        border-left: 2px solid black;
-        cursor:pointer;
-        content:"";
-        display:table;
-        clear:both;
+        border-bottom: 2px solid black;
       }"
 
     when "Clear Layout"
