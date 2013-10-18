@@ -1,54 +1,34 @@
 <body style="background-color:#CCFFFF">
 
-<h2><%=@form.form_name%></h2>
+<div id='<%=@form.id%>' class='display-row'>
+<ul>
 
-<h3><%= @additional_info[1].nil? ? "Hello!": @additional_info[1]  %> </h3>
+<h3 style="font-family:'Garamond', sans-serif; margin-left: 20px"><%= @additional_info[1].nil? ? "Hello!": @additional_info[1]  %> </h3>
+<h3 style="font-family:'Garamond', sans-serif; margin-left: 20px"><%=@form.form_name%></h3>
 
-      <ul>
+%= generate_form(@form).html_safe %>
 
-        <%= generate_header(@form).html_safe%>
+<% color = @form.color_css %>
+<% layout = @form.layout_css %>
+<script>
+$('document').ready(function(){
+  setTimeout(function(){
+    var $context = $('#<%=@form.id%>.display-row');
+    var color = '<%= color %>';
+    if (color === ""){
+      color = "Color 6";
+    };
+    var layout = '<%= layout %>';
+    if (layout === ""){
+      layout = "Layout 5";
+    };
+    var form_id = '<%= @form.id %>';
+    applyStyle($context, color, layout);
+  }, 10);
+});
+</script>
 
-        <br>
-          <% @form.entries.each do |entry| %>
+  </ul>
+</div>
 
-          <li>
-
-            <% @label = entry.as_json["label"] %>
-            <%= @label %>
-            <br>
-            Instructions for <%= @label || "this entry" %>: <%=  entry.as_json["instructions"]  %>
-            <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
-
-            <br>
-
-            <%= strip_nested_form_tags(form_gen(@form_hash)).html_safe%>
-
-          </li>
-
-          <% end %>
-
-           <%= @form.closing_text.html_safe %>
-
-
-  <% color = @form.color_css %>
-  <% layout = @form.layout_css %>
-  <script>
-  $('document').ready(function(){
-    setTimeout(function(){
-      var $context = $('#<%=@form.id%>.display-row');
-      var color = '<%= color %>';
-      if (color === ""){
-        color = "Color 6";
-      };
-      var layout = '<%= layout %>';
-      if (layout === ""){
-        layout = "Layout 5";
-      };
-      var form_id = '<%= @form.id %>';
-      applyStyle($context, color, layout);
-    }, 10);
-  });
-  </script>
-
-      </ul>
 </body>

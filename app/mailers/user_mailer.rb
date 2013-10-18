@@ -37,6 +37,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @form = form
     @url = 'http://example.com/login'
+    fail
     targets.each do |target|
     mail(to: target, subject: additional_info[0].nil? ? "Please take a moment to fill out the attached form" : additional_info[0])
     end
