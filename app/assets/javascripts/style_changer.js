@@ -23,9 +23,9 @@ function applyStyle(context, color, layout){
   var ulStyle = layoutString.concat('-ul ').concat(colorString).concat(' group');
   var liStyle = layoutString.concat('-li ').concat(colorString).concat(' group');
 
-  $that.children().children().attr( "class",color);
-  $that.find('h2').attr( "class", headerStyle );
-  $that.find('.description').attr( "class", headerStyle );
+  $that.children().children().attr("class",color);
+  $that.find('h2').attr("class", headerStyle);
+  $that.find('.description').attr("class", headerStyle);
   $that.find('ul:first').attr('class', ulStyle);
   $that.find('ul:first').children('li').attr( "class", liStyle);
 
@@ -35,7 +35,7 @@ function applyStyle(context, color, layout){
 $(document).ready(function(){
 
   $('.choice-collection').delegate('.delete-button', 'click', (function(event){
-    event.stopImmediatePropagation()
+    event.stopImmediatePropagation();
     $(this).parent().remove();
   }));
 

@@ -13,6 +13,7 @@ module FormsHelper
     @form.entries.each do |entry|
 
       @html_string +=  "<li class='style-li'>".html_safe
+      @html_string += "<fieldset>".html_safe
 
       @label = entry.as_json["label"]
 
@@ -21,7 +22,7 @@ module FormsHelper
       @html_string += ("Instructions for " + (@label || "this entry") + ": " + entry.as_json["instructions"] + "<br>").html_safe
       @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" }
 
-      @html_string += (strip_nested_form_tags(form_gen(@form_hash)) + "</li>").html_safe
+      @html_string += (strip_nested_form_tags(form_gen(@form_hash)) + "</fieldset>" + "</li>").html_safe
 
     end
 

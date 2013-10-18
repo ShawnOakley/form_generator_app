@@ -39,9 +39,10 @@
           <%= button_to("Email the rendered form to multiple users", form_email_input_url(form.id)) %>
         </td>
         <td class='left-display-column group button-wrapper'>
-          <h3>Edit Options for <%=Form.name%></h3>
+          <h3>Additional Options for <%=Form.name%></h3>
           <%= button_to("Edit This Form",  edit_form_path(form.id), {class: "button", method: :get}) %>
-                  <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+          <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
+          <input type="button" class='share-button button' value="Share this form"></input>
         </td>
     </tr>
     <tr>
@@ -75,4 +76,16 @@
 
 </section>
 
+<div id="dialog-form" title="Create new user" style='background-color:white;'>
+  <h1>Choose a User to share with:</h1>
+  <% @users = User.all %>
+  <form>
+  <fieldset>
+  </fieldset>
+  </form>
+</div>
+
+
+
+</body>
 </html>
