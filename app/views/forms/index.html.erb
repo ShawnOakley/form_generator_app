@@ -40,7 +40,7 @@
         </td>
         <td class='left-display-column group button-wrapper'>
           <h3>Additional Options for <%=Form.name%></h3>
-          <%= button_to("Edit This Form",  edit_form_path(form.id), {class: "button", method: :get}) %>
+          <%= button_to("Edit This Form",  edit_form_path(form.id), {class: "button", method: :get} ) %>
           <%= button_to("Delete this form", form_url(form.id),  method: "delete", data: { confirm: 'Are you sure?' }) %>
           <!-- <input type="button" class='share-button button' value="Share this form"></input> -->
         </td>
