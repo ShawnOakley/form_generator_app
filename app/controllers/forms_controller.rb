@@ -69,6 +69,7 @@ class FormsController < ApplicationController
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.both_email(@user, @form).deliver
+    flash[:error] = "Message sent!"
     redirect_to user_forms_url(current_user.id)
   end
 
@@ -76,6 +77,7 @@ class FormsController < ApplicationController
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.rendered_email(@user, @form).deliver
+    flash[:error] = "Message sent!"
     redirect_to user_forms_url(current_user.id)
   end
 
@@ -83,6 +85,7 @@ class FormsController < ApplicationController
     @form = Form.find(params[:form_id])
     @user = User.find(@form.owner_id)
     UserMailer.code_email(@user, @form).deliver
+    flash[:error] = "Message sent!"
     redirect_to user_forms_url(current_user.id)
   end
 
@@ -111,6 +114,7 @@ class FormsController < ApplicationController
       @form = Form.find(params[:form_id])
       @user = User.find(@form.owner_id)
       UserMailer.targetted_email(@user, @form, @email_array, @additional_info).deliver
+      flash[:error] = "Messages sent!"
       redirect_to user_forms_url(current_user.id)
     end
   end
