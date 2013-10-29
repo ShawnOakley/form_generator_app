@@ -56,14 +56,11 @@
       <ul>
         <li>Logged in as: <strong><%= current_user.name %></strong></li>
 
-
         <% if current_user.guest != nil %>
           <li><%= button_to "Become a member", new_user_url, method: :get, class: '.nav-button' %></li>
         <li><%= button_to "Logout", session_url, method: :delete, class: '.nav-button' %></li>
-        <% else %>
-        <li><%= button_to "Logout", session_url, method: :delete, class: '.nav-button' %></li>
         <% end %>
-
+        <li><%= button_to "Logout", session_url, {method: :delete, class: 'login'} %></li>
     <% end %>
       </ul>
     </div>
