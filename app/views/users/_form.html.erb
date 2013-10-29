@@ -41,9 +41,9 @@
      type="password">
   <br>
 
-  <input type="submit" value="<%= message %>">
+  <input type="submit" value="<%= message %>" class= 'login'>
 </form>
 <br>
-  <%= button_to "Return to Login", new_session_path, method: :get%>
+  <%= button_to "Return to Login", new_session_path, {method: :get, class: 'login'} %>
 </div>
 

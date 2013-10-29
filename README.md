@@ -36,9 +36,9 @@ A similar method is used when styling the email forms.  Although not ideal, the 
 
 ## Use
 
-Available at www.formcreatorapp.com
+Available at www.formcreatorapp.net
 
-There is a one-click login.  Unfortunately, as a portion of the site's functionality rests upon disclosing a valid email account (for receiving code), I would advise creating a new user and logging into the site directly.  One then needs to create a header.  Specify (1) the Form Name, (2) a description of the form, (3) the target url (i.e., where the form will be sent), and (4) the form's method (currently limited to either Get or Post).
+ New users should input an email and then log into the site.  One then needs to create a header.  Specify (1) the Form Name, (2) a description of the form, (3) the target url (i.e., where the form will be sent), and (4) the form's method (currently limited to either Get or Post).
 
 On clicking "Save edits to the form's header", the basic header should be transferred to the field on the right side of the screen.  To add a new entry, press "Add a new entry".  A drop-down menu should descend.  Users can then enter the entry's 'name' and the label which will appear.  The radio buttons determine the type of the entry, which in turn determines which fields are available for the user to fill in.  For multiple choice, checkboxes, and dropdown inputs, the user can dynamically create/delete selection options. To save a form, click 'Save this entry.'  It should appear on the right side of the screen.
 
