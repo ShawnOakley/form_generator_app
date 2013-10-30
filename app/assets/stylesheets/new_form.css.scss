@@ -127,19 +127,23 @@ body{
     position: absolute;
     top: 0;
     left: 0;
+     overflow: hidden;
+
 }
 
 #slideshow-reel .slide {
-    width: 897px;
+    width: 898px;
     height: 450px;
     float: left;
     background-color: lightblue;
     text-wrap:normal;
     border-radius:25px;
     border:1px solid black;
+     overflow: hidden;
 }
 
 .slide h1 {
+  width:auto;
   text-align:center;
   margin-top:2%;
   font-family: 'Bangers', cursive;
