@@ -2,11 +2,7 @@
 
 ## Synopsis
 
-This application constructs an
-
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+This is a rails application that dynamically generates HTML forms based on user input with jQuery UI and AJAX interaction with server. Integrates with SendGrid, allowing for forms to be emailed to multiple targets. Forms may be routed to customer's own servers or the app's servers, which allow for analytic support.
 
 ## Motivation
 

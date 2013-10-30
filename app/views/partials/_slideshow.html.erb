@@ -1,0 +1,86 @@
+
+<div id="slideshow">
+    <div id="slideshow-reel">
+        <div class="slide">
+            <h1>So ... what is PsuedooWufoo?</h1>
+            <p> Other than an unfortunate pun?  It's a simple, non-commercial project of mine, intended as a way to learn a little bit about website design and metapogramming.  The goal was to construct a clone of the website Wufoo (hence the name).</p>
+            <p> At the moment, it lacks Wufoo's analytic capabilities.  A user can create a form and send the form to multiple targets, who can then submit the form to a target site, just as if the user generated and sent the form on their own.  Alternatively, a user can copy and paste the generated code into their own site.</p>
+            <p>  Or, if you're after a more technical explanation: Psuedoowufoo is a Rails application that dynamically generates HTML forms based on user input with jQuery UI and AJAX interaction with server. Integrates with SendGrid, allowing for forms to be emailed to multiple targets. Forms may be routed to customer's own servers or the app's servers, which will eventually allow for analytic support.</p>
+        </div>
+
+        <div class="slide">
+            <h1>How to use PseudooWufoo: Step 1</h1>
+            <p>New users should input an email and then log into the site.  The email is used in sending the form's code (or the rendered form) back to the user.</p>
+        </div>
+
+        <div class="slide">
+            <h1>How to use PseudooWufoo: Step 2</h1>
+            <p> On logging in, the user needs to create a header.  Specify (1) the Form Name, (2) a description of the form, (3) the target url (i.e., where the form will be sent), and (4) the form's method (currently limited to either Get or Post).</p>
+        </div>
+
+        <div class="slide">
+            <h1>How to use PseudooWufoo: Step 3</h1>
+            <p>On clicking "Save edits to the form's header", the basic header should be transferred to the field on the right side of the screen.  To add a new entry, press "Add a new entry".  A drop-down menu should descend.  Users can then enter the entry's 'name' and the label which will appear.  The radio buttons determine the type of the entry, which in turn determines which fields are available for the user to fill in.  For multiple choice, checkboxes, and dropdown inputs, the user can dynamically create/delete selection options. To save a form, click 'Save this entry.'  It should appear on the right side of the screen.</p>
+
+            <p>To subsequently edit an option, double-click on it as it appears on the right side of the screen.</p>
+        </div>
+
+        <div class="slide">
+            <h1>Extra features</h1>
+
+              <p>Users can select a Form and a Layout using the form and layout buttons on the right side of the screen.  To persist the selection, press "Commit the current format."</p>
+              <p>To view all of one's forms, a user can press the button in the 'See Your Forms' div.</p>
+              <p>On that page, users can email the forms, code, or both to themselves or others.</p>
+        </div>
+
+        <div class="slide">
+            <h1>Next steps</h1>
+            <p>In the near future, I plan on adding some basic analytic capablities, so that users can send the form back to my (i.e., Heroku's servers) and the form's data can be stored in a format which the user can then access and tabulate.</p>
+        </div>
+    </div>
+
+    <a href="#" id="slideshow-left" class="slideshow-arrow">Previous Slide</a>
+    <a href="#" id="slideshow-right" class="slideshow-arrow">Next Slide</a>
+
+    <div id="slideshow-nav">
+        <a href="#" class="nav-item">
+            <span class="nav-item-line nav-item-line-hidden"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line nav-item-line-hidden"></span>
+        </a>
+
+        <span id="active-nav-item">
+            <span class="active-nav-item-inner"></span>
+        </span>
+    </div>
+</div>

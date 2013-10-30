@@ -74,10 +74,12 @@
     <% end %>
 
 
-
  <%= yield %>
 
-  </section>
+  <% if !current_user %>
+    <%= render "partials/slideshow" %>
+  <% end %>
+    </section>
 </section>
 
 <script>

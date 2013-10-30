@@ -107,6 +107,84 @@ body{
   font-size: 15px;
 }
 
+
+//   SLIDESHOW
+
+#slideshow {
+    width: 900px;
+    height: 500px;
+    margin-right: 5%;
+    margin-left: 5%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+#slideshow-reel {
+    width: 5400px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#slideshow-reel .slide {
+    width: 897px;
+    height: 450px;
+    float: left;
+    background-color: lightblue;
+    text-wrap:normal;
+    border-radius:25px;
+    border:1px solid black;
+}
+
+.slide h1 {
+  text-align:center;
+  margin-top:2%;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+}
+
+.slide p {
+  margin-left:2%;
+  margin-right:2%;
+}
+
+
+#slideshow-prev, #slideshow-next {
+    display: block;
+    position: absolute;
+    top: 190px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 21px;
+    border-color: transparent;
+    outline: none;
+    z-index:100;
+}
+
+#slideshow-prev:hover, #slideshow-next:hover {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+}
+
+#slideshow-prev {
+    left: 0;
+    border-right-color: #fff;
+}
+
+#slideshow-next {
+    right: 0;
+    border-left-color: #fff;
+}
+
+// POST-LOGIN FORMS
+
+
+
 .form-div {
   float:right;
   background-color: #D2691E;
