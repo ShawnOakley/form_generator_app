@@ -18,7 +18,6 @@ $(document).ready(function(){
     $(this).siblings().parent().siblings().addClass('hidden');
     $( "label" ).css( "class", "protected" ).removeClass('hidden')
     $(this).siblings().parent().siblings().find('.' + hidden_id).parent().removeClass('hidden');
-    console.log($(this).find('.hidden'));
   }));
 
 
@@ -37,7 +36,6 @@ $(document).ready(function(){
       type: 'POST',
       data: formData,
       success:function(){
-
       }
     });
   });

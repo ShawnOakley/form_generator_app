@@ -19,6 +19,7 @@ module FormsHelper
 
       @html_string += @label.html_safe
       @html_string += "<br>".html_safe
+      @html_string += "<br>".html_safe
       @html_string += ("Instructions for " + (@label || "this entry") + ": " + entry.as_json["instructions"] + "<br>").html_safe
       @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" }
 

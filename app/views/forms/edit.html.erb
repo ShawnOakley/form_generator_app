@@ -40,8 +40,9 @@
                 <% @label = entry.as_json["label"] %>
                 <%= @label %>
                 <% @instructions = entry.as_json["instructions"] %>
-                Instructions for <%= @label || "this entry" %> :
-                <text><%= @instructions %></text>
+                <br>
+                <text>Instructions for <%= @label || "this entry" %> :
+                <%= @instructions %></text><br>
                 <% @form_hash  = entry.as_json.reject {|k,v| v==nil}.reject{|k,v| k=="created_at" || k=="updated_at" || k=="instructions" } %>
 
                 <%= form_gen(@form_hash).html_safe%>
